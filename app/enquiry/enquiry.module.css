@@ -1,0 +1,93 @@
+.section {
+  padding: 6rem 2rem;
+  margin-top: 64px;
+  background: white;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--charcoal);
+  letter-spacing: 0.05em;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(184, 181, 174, 0.5);
+  background: white;
+  color: var(--charcoal);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--brass);
+  box-shadow: 0 0 0 2px rgba(194, 168, 120, 0.1);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  font-family: var(--sans);
+}
+
+.submitButton {
+  padding: 1rem;
+  background: var(--charcoal);
+  color: var(--ivory);
+  border: 1px solid var(--charcoal);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--charcoal);
+}
+
+.note {
+  font-size: 0.875rem;
+  color: var(--stone);
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.error {
+  padding: 1rem;
+  background: rgba(200, 50, 50, 0.1);
+  border: 1px solid #c83232;
+  color: #c83232;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+}

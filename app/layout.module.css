@@ -1,0 +1,139 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--charcoal);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  border-bottom: 1px solid rgba(194, 168, 120, 0.1);
+}
+
+.navBrand {
+  font-family: var(--serif);
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  color: var(--ivory);
+  text-transform: uppercase;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.navLinks a {
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+  transition: color 0.3s;
+}
+
+.navLinks a:hover {
+  color: var(--brass);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 1.5rem;
+  }
+  
+  .navLinks {
+    display: none;
+  }
+}
+
+/* Footer */
+.footer {
+  background: var(--charcoal);
+  padding: 4rem 2rem;
+  margin-top: 6rem;
+}
+
+.footerMark {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: rgba(245, 242, 235, 0.08);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.footerLine {
+  width: 1px;
+  height: 40px;
+  background: var(--brass);
+  margin: 0 auto 2rem;
+  opacity: 0.4;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(184, 181, 174, 0.1);
+}
+
+.footerLabel {
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  font-size: 0.875rem;
+  color: var(--stone);
+  margin-bottom: 0.5rem;
+}
+
+.footerLinks {
+  font-size: 0.875rem;
+}
+
+.footerLinks a {
+  color: var(--stone);
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  color: var(--brass);
+}
+
+.footerLegal {
+  text-align: center;
+}
+
+.footerLegal p {
+  font-size: 0.75rem;
+  color: rgba(184, 181, 174, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.footerLegal a {
+  color: rgba(184, 181, 174, 0.5);
+}
+
+.footerLegal a:hover {
+  color: var(--brass);
+}
+
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

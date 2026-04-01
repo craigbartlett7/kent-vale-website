@@ -1,0 +1,198 @@
+/* app/admin/team/admin-team.module.css */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #F5F2EB;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(184, 181, 174, 0.3);
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.875rem;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+}
+
+.header p {
+  color: #B8B5AE;
+  margin: 0;
+}
+
+.backBtn,
+.closeBtn {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: #1A1A1A;
+  border: 1px solid rgba(184, 181, 174, 0.3);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.backBtn:hover,
+.closeBtn:hover {
+  background: #1A1A1A;
+  color: white;
+}
+
+.membersList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.memberCard {
+  background: white;
+  border: 1px solid rgba(184, 181, 174, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.memberCard:hover {
+  border-color: #C2A878;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.info h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 1rem 0 0.5rem;
+  color: #1A1A1A;
+}
+
+.role {
+  font-size: 0.9rem;
+  color: #C2A878;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem;
+}
+
+.bio {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Form */
+.form {
+  background: white;
+  padding: 2rem;
+  border: 1px solid rgba(184, 181, 174, 0.3);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #1A1A1A;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup textarea {
+  width: 100%;
+  padding: 0.875rem;
+  border: 1px solid rgba(184, 181, 174, 0.5);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #C2A878;
+}
+
+.photoPreview {
+  margin: 1rem 0;
+  border: 1px solid rgba(184, 181, 174, 0.2);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.photoPreview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 4px;
+}
+
+.saveBtn {
+  width: 100%;
+  padding: 1rem;
+  background: #1A1A1A;
+  color: white;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: #C2A878;
+  color: #1A1A1A;
+}
+
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .membersList {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,174 @@
+.hero {
+  min-height: 70vh;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 2rem 4rem;
+  text-align: center;
+  margin-top: 64px;
+  position: relative;
+}
+
+.foreverFormHero {
+  background: linear-gradient(135deg, var(--forest) 0%, #1a2a22 100%);
+}
+
+.foreverFormHero::before {
+  background: radial-gradient(ellipse at 80% 20%, rgba(194,168,120,0.15) 0%, transparent 60%);
+}
+
+.gamesRoomHero {
+  background: linear-gradient(135deg, var(--charcoal) 0%, #0a0a0a 100%);
+}
+
+.gamesRoomHero::before {
+  background: radial-gradient(ellipse at 20% 80%, rgba(31,58,46,0.4) 0%, transparent 60%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.heroContent h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 7vw, 3.5rem);
+  color: var(--ivory);
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--stone);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Categories Section */
+.categoriesSection {
+  background: white;
+  padding: 4rem 2rem;
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.categoryCard {
+  padding: 2rem;
+  border: 1px solid rgba(184, 181, 174, 0.3);
+}
+
+.categoryCard h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.categoryCard p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Value Section */
+.valueSection {
+  background: var(--ivory);
+  padding: 4rem 2rem;
+}
+
+.valueGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.valueCard {
+  padding: 2rem;
+}
+
+.valueCard h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.valueCard p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Gallery Preview */
+.galleryPreview {
+  padding: 4rem 2rem;
+  background: white;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.galleryPlaceholder {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(184, 181, 174, 0.2);
+  font-size: 0.875rem;
+  color: var(--stone);
+}
+
+/* CTA Section */
+.ctaSection {
+  background: var(--charcoal);
+  color: var(--ivory);
+  padding: 4rem 2rem;
+}
+
+.ctaSection h2 {
+  color: var(--ivory);
+  margin-bottom: 1rem;
+}
+
+.ctaSection p {
+  color: var(--stone);
+}
+
+@media (max-width: 768px) {
+  .categoriesGrid,
+  .valueGrid,
+  .galleryGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .galleryGrid {
+    gap: 1rem;
+  }
+}

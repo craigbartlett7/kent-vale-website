@@ -1,0 +1,256 @@
+/* app/admin/dashboard/dashboard.module.css */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #F5F2EB;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(184, 181, 174, 0.3);
+}
+
+.header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 0.5rem;
+}
+
+.header p {
+  color: #B8B5AE;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.logoutBtn {
+  padding: 0.75rem 1.5rem;
+  background: #1A1A1A;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.logoutBtn:hover {
+  background: #C2A878;
+  color: #1A1A1A;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.statCard {
+  background: white;
+  padding: 2rem;
+  border: 1px solid rgba(184, 181, 174, 0.2);
+  text-align: center;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #B8B5AE;
+  margin-bottom: 1rem;
+}
+
+.statValue {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #C2A878;
+  margin: 0;
+}
+
+/* Navigation Grid */
+.nav h2,
+.recentSection h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin-bottom: 1.5rem;
+}
+
+.navGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.navCard {
+  background: white;
+  padding: 2rem;
+  border: 1px solid rgba(184, 181, 174, 0.2);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.navCard:hover {
+  border-color: #C2A878;
+  background: rgba(194, 168, 120, 0.02);
+}
+
+.navCard h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 0.75rem;
+}
+
+.navCard p {
+  font-size: 0.95rem;
+  color: #B8B5AE;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.navCard span {
+  color: #C2A878;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Recent Enquiries */
+.recentSection {
+  background: white;
+  padding: 2rem;
+  border: 1px solid rgba(184, 181, 174, 0.2);
+  margin-bottom: 2rem;
+}
+
+.enquiriesTable {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(194, 168, 120, 0.1);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: #1A1A1A;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(184, 181, 174, 0.1);
+  text-decoration: none;
+  color: #1A1A1A;
+  transition: background 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.tableRow:hover {
+  background: rgba(194, 168, 120, 0.05);
+}
+
+.tableRow div {
+  display: flex;
+  align-items: center;
+}
+
+.statusBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.statusBadge.new {
+  background: rgba(194, 168, 120, 0.2);
+  color: #C2A878;
+}
+
+.statusBadge.contacted {
+  background: rgba(100, 150, 200, 0.2);
+  color: #4066a0;
+}
+
+.statusBadge.in-progress {
+  background: rgba(150, 120, 194, 0.2);
+  color: #8070b8;
+}
+
+.statusBadge.completed {
+  background: rgba(120, 194, 120, 0.2);
+  color: #70a870;
+}
+
+.statusBadge.archived {
+  background: rgba(184, 181, 174, 0.2);
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
