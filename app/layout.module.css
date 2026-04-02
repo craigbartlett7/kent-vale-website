@@ -8,14 +8,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4rem;
-  height: 128px;
+  padding: 0 3rem;
+  height: 92px;
   border-bottom: 1px solid rgba(194, 168, 120, 0.1);
 }
 
 .navBrand {
   font-family: var(--serif);
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   letter-spacing: 0.2em;
   color: var(--ivory);
   text-transform: uppercase;
@@ -23,13 +23,13 @@
 
 .navLinks {
   display: flex;
-  gap: 5rem;
+  gap: 3rem;
   list-style: none;
   align-items: center;
 }
 
 .navLinks a {
-  font-size: 1.25rem;
+  font-size: 0.875rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--stone);
@@ -43,8 +43,13 @@
 @media (max-width: 768px) {
   .nav {
     padding: 0 1.5rem;
+    height: 60px;
   }
-  
+
+  .navBrand {
+    font-size: 0.9rem;
+  }
+
   .navLinks {
     display: none;
   }
