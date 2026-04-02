@@ -98,7 +98,7 @@ export default function Home() {
             <div className={styles.step}>
               <p className={styles.stepNumber}>04</p>
               <h3>Creation</h3>
-              <p>80–120 hours over 8–12 weeks. The work happens. You see it taking shape.</p>
+              <p>Many hours of careful making. The work happens. You see it taking shape.</p>
             </div>
 
             <div className={styles.step}>
@@ -136,7 +136,7 @@ export default function Home() {
           </div>
 
           <div className={styles.credentials}>
-            <p>Handmade in Kent, England • 15–30 week lead times • Lifetime care guarantee</p>
+            <p>Handmade in Kent, England • Lifetime care guarantee</p>
           </div>
         </div>
       </section>

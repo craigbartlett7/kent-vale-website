@@ -78,7 +78,7 @@ export default function ForeverForm() {
 
             <div className={styles.valueCard}>
               <h3>Genuine Craftsmanship</h3>
-              <p>90–120 hours per piece. Multiple pours, multiple stages, complete attention. We take 4 commissions a month. Your piece will have our complete focus.</p>
+              <p>Many hours per piece. Multiple pours, multiple stages, complete attention. We take 4 commissions a month. Your piece will have our complete focus.</p>
             </div>
 
             <div className={styles.valueCard}>

@@ -30,7 +30,7 @@ export default function About() {
   return (
     <section className={styles.section}>
       <div className="container">
-        <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>About Kent & Vale</h1>
+        <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>About Kent <span style={{fontFamily: "'Didot', 'Georgia', serif", fontWeight: 400, color: 'var(--brass)'}}>&</span> Vale</h1>
 
         {/* Our Story */}
         <div style={{ marginBottom: '4rem', maxWidth: '800px', margin: '0 auto 4rem' }}>

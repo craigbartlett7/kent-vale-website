@@ -5,9 +5,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 120px 2rem;
+  padding: 180px 2rem 120px;
   text-align: center;
-  margin-top: 64px;
+  margin-top: 128px;
   position: relative;
   overflow: hidden;
 }
@@ -29,7 +29,7 @@
 }
 
 .heroEyebrow {
-  font-size: 0.625rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--brass);

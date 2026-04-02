@@ -5,9 +5,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 120px 2rem 4rem;
+  padding: 180px 2rem 4rem;
   text-align: center;
-  margin-top: 64px;
+  margin-top: 128px;
   position: relative;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .label {
-  font-size: 0.75rem;
+  font-size: 1.125rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--brass);
@@ -159,6 +159,17 @@
 
 .ctaSection p {
   color: var(--stone);
+}
+
+/* Fix secondary button visibility on dark CTA background */
+.ctaSection :global(.button):not(:global(.primary)) {
+  color: var(--ivory);
+  border-color: var(--ivory);
+}
+
+.ctaSection :global(.button):not(:global(.primary)):hover {
+  background: var(--ivory);
+  color: var(--charcoal);
 }
 
 @media (max-width: 768px) {

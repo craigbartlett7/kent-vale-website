@@ -81,7 +81,7 @@ export default function TheGamesRoom() {
 
             <div className={styles.valueCard}>
               <h3>Investment-Grade Craftsmanship</h3>
-              <p>90–120 hours per piece. Finish details that justify the price. We don't make decorative games. We make games that deserve to be kept forever.</p>
+              <p>Many hours per piece. Finish details that justify the price. We don't make decorative games. We make games that deserve to be kept forever.</p>
             </div>
           </div>
         </div>

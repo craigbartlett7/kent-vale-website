@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         {/* Navigation */}
         <nav className={styles.nav}>
           <Link href="/" className={styles.navBrand}>
-            KENT & VALE
+            KENT <span style={{fontFamily: "'Didot', 'Georgia', serif", fontWeight: 400, color: 'var(--brass)'}}>&</span> VALE
           </Link>
           <ul className={styles.navLinks}>
             <li><Link href="/forever-form">Forever Form</Link></li>
@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
         {/* Footer */}
         <footer className={styles.footer}>
           <div className="container">
-            <p className={styles.footerMark}>KENT & VALE</p>
+            <p className={styles.footerMark}>KENT <span style={{fontFamily: "'Didot', 'Georgia', serif", fontWeight: 400}}>& </span>VALE</p>
             <div className={styles.footerLine}></div>
             
             <div className={styles.footerGrid}>

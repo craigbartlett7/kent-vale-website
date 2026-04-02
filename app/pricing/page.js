@@ -17,7 +17,7 @@ export default function Pricing() {
           {[
             {
               name: 'Entry Bespoke',
-              range: '£350 – £2,500',
+              range: '£800–£2,500',
               desc: 'Small memory pieces, decorative objects, simpler game boards, gift-scale commissions.',
               includes: [
                 'Full consultation process',
@@ -36,7 +36,7 @@ export default function Pricing() {
                 'Extended consultation & design process',
                 'Custom design (unlimited iterations)',
                 'Premium sourced materials (named estate timber)',
-                '80–120 hours of handcraft per piece',
+                'Many hours of handcraft per piece',
                 'Bespoke finishing & detailing',
                 'Lifetime structural guarantee',
                 '1 year of free care & maintenance',
@@ -51,7 +51,7 @@ export default function Pricing() {
                 'Intensive consultation & co-creation',
                 'Unlimited iterations & revisions',
                 'Rare & heritage materials',
-                '120–200+ hours of bespoke craftwork',
+                'Many hours of bespoke craftwork',
                 'Architectural-grade finishing',
                 'On-site installation support',
                 'Lifetime guarantee + annual care visit',
@@ -77,7 +77,7 @@ export default function Pricing() {
           <h3 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>What Drives Cost</h3>
           <div className={styles.infoGrid}>
             <div>
-              <p><strong>Time:</strong> 80–120 hours of skilled handcraft per piece</p>
+              <p><strong>Time:</strong> Many hours of skilled handcraft per piece</p>
             </div>
             <div>
               <p><strong>Materials:</strong> Named-source timber, professional epoxy, bespoke finishing</p>
