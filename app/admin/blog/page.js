@@ -199,7 +199,12 @@ export default function AdminBlog() {
         {!selectedPost && !isCreating && (
           <div className={styles.postsList}>
             {posts.length === 0 ? (
-              <p className={styles.empty}>No blog posts yet. Create one to get started.</p>
+              <div className={styles.emptyState}>
+                <p>No blog posts yet.</p>
+                <button className={styles.newPostBtn} onClick={newPost}>
+                  + Create Your First Post
+                </button>
+              </div>
             ) : (
               posts.map(post => (
                 <div

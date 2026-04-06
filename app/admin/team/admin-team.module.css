@@ -30,7 +30,15 @@
   margin: 0;
 }
 
+.headerActions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.newMemberBtn,
 .backBtn,
+.cancelBtn,
 .closeBtn {
   padding: 0.75rem 1.5rem;
   background: white;
@@ -42,9 +50,23 @@
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.newMemberBtn {
+  background: #1A1A1A;
+  color: white;
+  border-color: #1A1A1A;
+}
+
+.newMemberBtn:hover {
+  background: #C2A878;
+  color: #1A1A1A;
+  border-color: #C2A878;
 }
 
 .backBtn:hover,
+.cancelBtn:hover,
 .closeBtn:hover {
   background: #1A1A1A;
   color: white;
@@ -54,6 +76,19 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border: 1px solid rgba(184, 181, 174, 0.2);
+}
+
+.emptyState p {
+  color: #B8B5AE;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
 }
 
 .memberCard {
@@ -162,19 +197,50 @@
   border-radius: 4px;
 }
 
-.saveBtn {
-  width: 100%;
+.photoPlaceholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(194, 168, 120, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.5rem;
+  color: #C2A878;
+  margin: 0 auto 1rem;
+}
+
+.editHint {
+  font-size: 0.75rem;
+  color: #B8B5AE;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.75rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.saveBtn,
+.deleteBtn {
+  flex: 1;
   padding: 1rem;
-  background: #1A1A1A;
-  color: white;
-  border: none;
   font-family: 'Inter', sans-serif;
   font-size: 0.875rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 1rem;
+  border: none;
+}
+
+.saveBtn {
+  background: #1A1A1A;
+  color: white;
 }
 
 .saveBtn:hover:not(:disabled) {
@@ -182,7 +248,19 @@
   color: #1A1A1A;
 }
 
-.saveBtn:disabled {
+.deleteBtn {
+  background: rgba(200, 50, 50, 0.1);
+  border: 1px solid #c83232;
+  color: #c83232;
+}
+
+.deleteBtn:hover:not(:disabled) {
+  background: #c83232;
+  color: white;
+}
+
+.saveBtn:disabled,
+.deleteBtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }

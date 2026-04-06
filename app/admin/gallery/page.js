@@ -172,7 +172,12 @@ export default function AdminGallery() {
         {!selectedItem && !isAdding && (
           <div className={styles.galleryGrid}>
             {items.length === 0 ? (
-              <p className={styles.empty}>No gallery items yet.</p>
+              <div className={styles.emptyState}>
+                <p>No gallery items yet.</p>
+                <button className={styles.newBtn} onClick={newItem}>
+                  + Add Your First Image
+                </button>
+              </div>
             ) : (
               items.map(item => (
                 <div

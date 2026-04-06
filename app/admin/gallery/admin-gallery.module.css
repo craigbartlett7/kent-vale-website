@@ -145,6 +145,20 @@
   padding: 2rem;
 }
 
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border: 1px solid rgba(184, 181, 174, 0.2);
+  grid-column: 1 / -1;
+}
+
+.emptyState p {
+  color: #B8B5AE;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
 /* Form */
 .form {
   background: white;
