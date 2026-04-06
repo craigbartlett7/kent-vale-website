@@ -21,6 +21,7 @@ export default function AdminBlog() {
     content: '',
     excerpt: '',
     stream: 'forever-form',
+    featured_image_url: '',
     published: false,
     meta_description: '',
   });
@@ -145,6 +146,7 @@ export default function AdminBlog() {
       content: '',
       excerpt: '',
       stream: 'forever-form',
+      featured_image_url: '',
       published: false,
       meta_description: '',
     });
@@ -243,6 +245,29 @@ export default function AdminBlog() {
                 onChange={(e) => handleTitleChange(e)}
                 placeholder="Post title"
               />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label htmlFor="featured_image_url">Featured Image URL</label>
+              <input
+                type="text"
+                id="featured_image_url"
+                value={formData.featured_image_url}
+                onChange={(e) => handleFormChange('featured_image_url', e.target.value)}
+                placeholder="https://res.cloudinary.com/your-account/image/upload/photo.jpg"
+              />
+              <p className={styles.help}>
+                Paste an image URL from Cloudinary, Imgur, or any image host. This appears as the post header image.
+              </p>
+              {formData.featured_image_url && (
+                <div className={styles.imagePreview}>
+                  <img
+                    src={formData.featured_image_url}
+                    alt="Featured image preview"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                </div>
+              )}
             </div>
 
             <div className={styles.formGroup}>

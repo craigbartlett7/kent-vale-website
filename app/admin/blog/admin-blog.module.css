@@ -238,6 +238,20 @@
   margin: 0.5rem 0 0;
 }
 
+.imagePreview {
+  margin-top: 1rem;
+  border: 1px solid rgba(184, 181, 174, 0.2);
+  overflow: hidden;
+  max-height: 220px;
+}
+
+.imagePreview img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
 .twoCol {
   display: grid;
   grid-template-columns: 1fr 1fr;
