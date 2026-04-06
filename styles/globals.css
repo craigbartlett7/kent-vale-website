@@ -1,5 +1,12 @@
 /* Kent & Vale Global Styles */
 
+/* Brand ampersand — Didot/Georgia applied to every & character site-wide */
+@font-face {
+  font-family: 'KV-Ampersand';
+  src: local('Didot'), local('Georgia');
+  unicode-range: U+0026;
+}
+
 :root {
   --charcoal: #1A1A1A;
   --ivory: #F5F2EB;
@@ -7,10 +14,10 @@
   --forest: #1F3A2E;
   --brass: #C2A878;
   --brass-light: #d4bc94;
-  
-  /* Font fallback stack for cross-device compatibility */
-  --serif: 'Playfair Display', 'Didot', 'Garamond', Georgia, serif;
-  --sans: 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* KV-Ampersand listed first so it intercepts & before any other font */
+  --serif: 'KV-Ampersand', 'Playfair Display', 'Didot', 'Garamond', Georgia, serif;
+  --sans: 'KV-Ampersand', 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * {
