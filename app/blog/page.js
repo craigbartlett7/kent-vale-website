@@ -1,49 +1,25 @@
 'use client';
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './blog.module.css';
+import { getBlogPosts } from '@/lib/supabase';
 
 export default function Blog() {
   const [activeStream, setActiveStream] = useState('all');
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const posts = [
-    {
-      id: 1,
-      title: 'How to Preserve Wedding Flowers in Resin: A Complete Guide',
-      stream: 'forever-form',
-      excerpt: 'Learn the complete process of preserving your wedding bouquet in resin.',
-      date: 'March 2025',
-      readTime: '8 min read',
-    },
-    {
-      id: 2,
-      title: 'Memorializing a Beloved Pet: Creating a Lasting Tribute in Resin',
-      stream: 'forever-form',
-      excerpt: 'How to honour your pet\'s memory with a meaningful resin commission.',
-      date: 'February 2025',
-      readTime: '6 min read',
-    },
-    {
-      id: 3,
-      title: 'Building a Collector\'s Chess Set: Why Craftsmanship Matters',
-      stream: 'games-room',
-      excerpt: 'Exploring what makes a chess set worth collecting and keeping forever.',
-      date: 'February 2025',
-      readTime: '7 min read',
-    },
-    {
-      id: 4,
-      title: 'Inside the Studio: How We Source and Finish English Walnut',
-      stream: 'studio',
-      excerpt: 'The journey from tree to table: materials, sourcing, and finishing.',
-      date: 'January 2025',
-      readTime: '9 min read',
-    },
-  ];
+  useEffect(() => {
+    async function fetchPosts() {
+      const data = await getBlogPosts();
+      setPosts(data);
+      setLoading(false);
+    }
+    fetchPosts();
+  }, []);
 
-  const filtered = activeStream === 'all' 
-    ? posts 
+  const filtered = activeStream === 'all'
+    ? posts
     : posts.filter(p => p.stream === activeStream);
 
   return (
@@ -78,26 +54,37 @@ export default function Blog() {
             className={activeStream === 'studio' ? styles.filterActive : ''}
             onClick={() => setActiveStream('studio')}
           >
-            Studio & Process
+            Studio &amp; Process
           </button>
         </div>
 
         {/* Blog posts */}
-        <div className={styles.postsList}>
-          {filtered.map(post => (
-            <Link key={post.id} href={`/blog/${post.id}`} className={styles.postCard}>
-              <div>
-                <h3 className={styles.postTitle}>{post.title}</h3>
-                <p className={styles.postExcerpt}>{post.excerpt}</p>
-                <div className={styles.postMeta}>
-                  <span>{post.date}</span>
-                  <span>•</span>
-                  <span>{post.readTime}</span>
+        {loading ? (
+          <p style={{ textAlign: 'center', color: '#666' }}>Loading posts...</p>
+        ) : filtered.length === 0 ? (
+          <p style={{ textAlign: 'center', color: '#666' }}>No posts yet — check back soon.</p>
+        ) : (
+          <div className={styles.postsList}>
+            {filtered.map(post => (
+              <Link key={post.id} href={`/blog/${post.slug}`} className={styles.postCard}>
+                <div>
+                  <h3 className={styles.postTitle}>{post.title}</h3>
+                  <p className={styles.postExcerpt}>{post.excerpt}</p>
+                  <div className={styles.postMeta}>
+                    <span>
+                      {post.published_at
+                        ? new Date(post.published_at).toLocaleDateString('en-GB', {
+                            month: 'long',
+                            year: 'numeric',
+                          })
+                        : ''}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
