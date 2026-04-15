@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { marked } from 'marked';
 import { getBlogPostBySlug } from '@/lib/supabase';
 import styles from '../blog.module.css';
 
@@ -9,6 +10,8 @@ export default async function BlogPost({ params }) {
   if (!post) {
     notFound();
   }
+
+  const htmlContent = post.content ? marked(post.content) : '';
 
   const formattedDate = post.published_at
     ? new Date(post.published_at).toLocaleDateString('en-GB', {
@@ -92,12 +95,8 @@ export default async function BlogPost({ params }) {
           </header>
 
           <div
-            style={{
-              fontSize: '1.05rem',
-              lineHeight: 1.8,
-              color: 'var(--charcoal)',
-            }}
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            className={styles.postBody}
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
         </article>
       </div>
