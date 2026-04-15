@@ -182,42 +182,40 @@ export default function AdminBlog() {
       </div>
 
       <div className={styles.layout}>
-        {/* Posts List */}
-        {!selectedPost && !isCreating && (
-          <div className={styles.postsList}>
-            {posts.length === 0 ? (
-              <div className={styles.emptyState}>
-                <p>No blog posts yet.</p>
-                <button className={styles.newPostBtn} onClick={newPost}>
-                  + Create Your First Post
-                </button>
-              </div>
-            ) : (
-              posts.map(post => (
-                <div
-                  key={post.id}
-                  className={styles.postItem}
-                  onClick={() => editPost(post)}
-                >
-                  <div className={styles.postItemHeader}>
-                    <h3>{post.title}</h3>
-                    <span className={`${styles.badge} ${post.published ? styles.published : styles.draft}`}>
-                      {post.published ? 'Published' : 'Draft'}
-                    </span>
-                  </div>
-                  <p className={styles.postMeta}>
-                    <span>{post.stream}</span>
-                    <span>{new Date(post.created_at).toLocaleDateString()}</span>
-                  </p>
-                  <p className={styles.excerpt}>{post.excerpt || 'No excerpt'}</p>
+        {/* Posts List — always visible */}
+        <div className={styles.postsList}>
+          {posts.length === 0 ? (
+            <div className={styles.emptyState}>
+              <p>No blog posts yet.</p>
+              <button className={styles.newPostBtn} onClick={newPost}>
+                + Create Your First Post
+              </button>
+            </div>
+          ) : (
+            posts.map(post => (
+              <div
+                key={post.id}
+                className={`${styles.postItem} ${selectedPost?.id === post.id ? styles.postItemActive : ''}`}
+                onClick={() => editPost(post)}
+              >
+                <div className={styles.postItemHeader}>
+                  <h3>{post.title}</h3>
+                  <span className={`${styles.badge} ${post.published ? styles.published : styles.draft}`}>
+                    {post.published ? 'Published' : 'Draft'}
+                  </span>
                 </div>
-              ))
-            )}
-          </div>
-        )}
+                <p className={styles.postMeta}>
+                  <span>{post.stream}</span>
+                  <span>{new Date(post.created_at).toLocaleDateString()}</span>
+                </p>
+                <p className={styles.excerpt}>{post.excerpt || 'No excerpt'}</p>
+              </div>
+            ))
+          )}
+        </div>
 
-        {/* Form */}
-        {(selectedPost || isCreating) && (
+        {/* Form — shows when editing or creating, otherwise shows prompt */}
+        {(selectedPost || isCreating) ? (
           <div className={styles.form}>
             <h2>{isCreating ? 'New Post' : 'Edit Post'}</h2>
 
@@ -242,7 +240,7 @@ export default function AdminBlog() {
                 placeholder="https://res.cloudinary.com/your-account/image/upload/photo.jpg"
               />
               <p className={styles.help}>
-                Paste an image URL from Cloudinary, Imgur, or any image host. This appears as the post header image.
+                Paste an image URL from Cloudinary, Imgur, or any image host.
               </p>
               {formData.featured_image_url && (
                 <div className={styles.imagePreview}>
@@ -310,8 +308,8 @@ export default function AdminBlog() {
                 id="content"
                 value={formData.content}
                 onChange={(e) => handleFormChange('content', e.target.value)}
-                placeholder="Full post content (supports markdown)"
-                rows="12"
+                placeholder="Write your post content here. Markdown is supported — use **bold**, *italic*, ## headings, etc."
+                rows="15"
               />
             </div>
 
@@ -345,6 +343,10 @@ export default function AdminBlog() {
                 </button>
               )}
             </div>
+          </div>
+        ) : (
+          <div className={styles.formPlaceholder}>
+            <p>Select a post to edit, or click <strong>+ New Post</strong> to write a new one.</p>
           </div>
         )}
       </div>
