@@ -1,8 +1,6 @@
 // app/admin/blog/page.js
 // Complete blog post management interface
-
 'use client';
-
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -42,7 +40,6 @@ export default function AdminBlog() {
         .from('blog_posts')
         .select('*')
         .order('published_at', { ascending: false, nullsFirst: false });
-
       if (error) throw error;
       setPosts(data || []);
       setLoading(false);
@@ -61,11 +58,7 @@ export default function AdminBlog() {
 
   const handleTitleChange = (e) => {
     const title = e.target.value;
-    setFormData({
-      ...formData,
-      title,
-      slug: generateSlug(title),
-    });
+    setFormData({ ...formData, title, slug: generateSlug(title) });
   };
 
   const handleFormChange = (field, value) => {
@@ -77,25 +70,22 @@ export default function AdminBlog() {
       alert('Please fill in all required fields');
       return;
     }
-
     setUpdating(true);
     try {
       if (selectedPost) {
-        // Update existing post
         const { error } = await supabase
           .from('blog_posts')
           .update({
             ...formData,
             updated_at: new Date().toISOString(),
-            published_at: formData.published ? (selectedPost.published_at || new Date().toISOString()) : null,
+            published_at: formData.published
+              ? (selectedPost.published_at || new Date().toISOString())
+              : null,
           })
           .eq('id', selectedPost.id);
-
         if (error) throw error;
-
         setPosts(posts.map(p => p.id === selectedPost.id ? { ...selectedPost, ...formData } : p));
       } else {
-        // Create new post
         const { data, error } = await supabase
           .from('blog_posts')
           .insert([{
@@ -103,12 +93,9 @@ export default function AdminBlog() {
             published_at: formData.published ? new Date().toISOString() : null,
           }])
           .select();
-
         if (error) throw error;
-
         setPosts([data[0], ...posts]);
       }
-
       setSelectedPost(null);
       setIsCreating(false);
       resetForm();
@@ -121,15 +108,12 @@ export default function AdminBlog() {
 
   const handleDelete = async () => {
     if (!confirm('Are you sure you want to delete this post?')) return;
-
     try {
       const { error } = await supabase
         .from('blog_posts')
         .delete()
         .eq('id', selectedPost.id);
-
       if (error) throw error;
-
       setPosts(posts.filter(p => p.id !== selectedPost.id));
       setSelectedPost(null);
       resetForm();
@@ -181,15 +165,16 @@ export default function AdminBlog() {
         </div>
         <div className={styles.headerActions}>
           {(selectedPost || isCreating) && (
-            <button className={styles.cancelBtn} onClick={() => { setSelectedPost(null); setIsCreating(false); resetForm(); }}>
+            <button
+              className={styles.cancelBtn}
+              onClick={() => { setSelectedPost(null); setIsCreating(false); resetForm(); }}
+            >
               Cancel
             </button>
           )}
-          {!selectedPost && !isCreating && (
-            <button className={styles.newPostBtn} onClick={newPost}>
-              + New Post
-            </button>
-          )}
+          <button className={styles.newPostBtn} onClick={newPost}>
+            + New Post
+          </button>
           <Link href="/admin/dashboard" className={styles.backBtn}>
             ← Dashboard
           </Link>
@@ -292,10 +277,9 @@ export default function AdminBlog() {
                 >
                   <option value="forever-form">Forever Form</option>
                   <option value="games-room">The Games Room</option>
-                  <option value="studio">Studio & Process</option>
+                  <option value="studio">Studio &amp; Process</option>
                 </select>
               </div>
-
               <div className={styles.formGroup}>
                 <label htmlFor="published">
                   <input
@@ -304,7 +288,7 @@ export default function AdminBlog() {
                     checked={formData.published}
                     onChange={(e) => handleFormChange('published', e.target.checked)}
                   />
-                  Published
+                  {' '}Published
                 </label>
               </div>
             </div>
