@@ -344,3 +344,29 @@
     flex-direction: column;
   }
 }
+
+
+.postItemActive {
+  border-color: #C2A878;
+  background: rgba(194, 168, 120, 0.05);
+}
+
+.postItemActive .postItemHeader h3 {
+  color: #C2A878;
+}
+
+.formPlaceholder {
+  background: white;
+  border: 1px dashed rgba(184, 181, 174, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  color: #B8B5AE;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.formPlaceholder strong {
+  color: #1A1A1A;
+}
