@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
               <div>
                 <p className={styles.footerLabel}>Navigation</p>
                 <p className={styles.footerLinks}>
-                  <Link href="/">Home</Link> • <Link href="/forever-form">Forever Form</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/process">Process</Link> • <Link href="/pricing">Pricing</Link> • <Link href="/about">About</Link> • <Link href="/blog">Blog</Link>
+                  <Link href="/">Home</Link> • <Link href="/forever-form">Forever Form</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/process">Process</Link> • <Link href="/pricing">Pricing</Link> • <Link href="/about">About</Link> • <Link href="/blog">Blog</Link> • <Link href="/contact">Contact</Link>
                 </p>
               </div>
               
