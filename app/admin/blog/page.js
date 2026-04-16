@@ -1,8 +1,6 @@
 // app/admin/blog/page.js
 // Complete blog post management interface
-
 'use client';
-
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -42,7 +40,6 @@ export default function AdminBlog() {
         .from('blog_posts')
         .select('*')
         .order('published_at', { ascending: false, nullsFirst: false });
-
       if (error) throw error;
       setPosts(data || []);
       setLoading(false);
@@ -61,11 +58,7 @@ export default function AdminBlog() {
 
   const handleTitleChange = (e) => {
     const title = e.target.value;
-    setFormData({
-      ...formData,
-      title,
-      slug: generateSlug(title),
-    });
+    setFormData({ ...formData, title, slug: generateSlug(title) });
   };
 
   const handleFormChange = (field, value) => {
@@ -77,25 +70,22 @@ export default function AdminBlog() {
       alert('Please fill in all required fields');
       return;
     }
-
     setUpdating(true);
     try {
       if (selectedPost) {
-        // Update existing post
         const { error } = await supabase
           .from('blog_posts')
           .update({
             ...formData,
             updated_at: new Date().toISOString(),
-            published_at: formData.published ? (selectedPost.published_at || new Date().toISOString()) : null,
+            published_at: formData.published
+              ? (selectedPost.published_at || new Date().toISOString())
+              : null,
           })
           .eq('id', selectedPost.id);
-
         if (error) throw error;
-
         setPosts(posts.map(p => p.id === selectedPost.id ? { ...selectedPost, ...formData } : p));
       } else {
-        // Create new post
         const { data, error } = await supabase
           .from('blog_posts')
           .insert([{
@@ -103,12 +93,9 @@ export default function AdminBlog() {
             published_at: formData.published ? new Date().toISOString() : null,
           }])
           .select();
-
         if (error) throw error;
-
         setPosts([data[0], ...posts]);
       }
-
       setSelectedPost(null);
       setIsCreating(false);
       resetForm();
@@ -121,15 +108,12 @@ export default function AdminBlog() {
 
   const handleDelete = async () => {
     if (!confirm('Are you sure you want to delete this post?')) return;
-
     try {
       const { error } = await supabase
         .from('blog_posts')
         .delete()
         .eq('id', selectedPost.id);
-
       if (error) throw error;
-
       setPosts(posts.filter(p => p.id !== selectedPost.id));
       setSelectedPost(null);
       resetForm();
@@ -181,15 +165,16 @@ export default function AdminBlog() {
         </div>
         <div className={styles.headerActions}>
           {(selectedPost || isCreating) && (
-            <button className={styles.cancelBtn} onClick={() => { setSelectedPost(null); setIsCreating(false); resetForm(); }}>
+            <button
+              className={styles.cancelBtn}
+              onClick={() => { setSelectedPost(null); setIsCreating(false); resetForm(); }}
+            >
               Cancel
             </button>
           )}
-          {!selectedPost && !isCreating && (
-            <button className={styles.newPostBtn} onClick={newPost}>
-              + New Post
-            </button>
-          )}
+          <button className={styles.newPostBtn} onClick={newPost}>
+            + New Post
+          </button>
           <Link href="/admin/dashboard" className={styles.backBtn}>
             ← Dashboard
           </Link>
@@ -197,42 +182,40 @@ export default function AdminBlog() {
       </div>
 
       <div className={styles.layout}>
-        {/* Posts List */}
-        {!selectedPost && !isCreating && (
-          <div className={styles.postsList}>
-            {posts.length === 0 ? (
-              <div className={styles.emptyState}>
-                <p>No blog posts yet.</p>
-                <button className={styles.newPostBtn} onClick={newPost}>
-                  + Create Your First Post
-                </button>
-              </div>
-            ) : (
-              posts.map(post => (
-                <div
-                  key={post.id}
-                  className={styles.postItem}
-                  onClick={() => editPost(post)}
-                >
-                  <div className={styles.postItemHeader}>
-                    <h3>{post.title}</h3>
-                    <span className={`${styles.badge} ${post.published ? styles.published : styles.draft}`}>
-                      {post.published ? 'Published' : 'Draft'}
-                    </span>
-                  </div>
-                  <p className={styles.postMeta}>
-                    <span>{post.stream}</span>
-                    <span>{new Date(post.created_at).toLocaleDateString()}</span>
-                  </p>
-                  <p className={styles.excerpt}>{post.excerpt || 'No excerpt'}</p>
+        {/* Posts List — always visible */}
+        <div className={styles.postsList}>
+          {posts.length === 0 ? (
+            <div className={styles.emptyState}>
+              <p>No blog posts yet.</p>
+              <button className={styles.newPostBtn} onClick={newPost}>
+                + Create Your First Post
+              </button>
+            </div>
+          ) : (
+            posts.map(post => (
+              <div
+                key={post.id}
+                className={`${styles.postItem} ${selectedPost?.id === post.id ? styles.postItemActive : ''}`}
+                onClick={() => editPost(post)}
+              >
+                <div className={styles.postItemHeader}>
+                  <h3>{post.title}</h3>
+                  <span className={`${styles.badge} ${post.published ? styles.published : styles.draft}`}>
+                    {post.published ? 'Published' : 'Draft'}
+                  </span>
                 </div>
-              ))
-            )}
-          </div>
-        )}
+                <p className={styles.postMeta}>
+                  <span>{post.stream}</span>
+                  <span>{new Date(post.created_at).toLocaleDateString()}</span>
+                </p>
+                <p className={styles.excerpt}>{post.excerpt || 'No excerpt'}</p>
+              </div>
+            ))
+          )}
+        </div>
 
-        {/* Form */}
-        {(selectedPost || isCreating) && (
+        {/* Form — shows when editing or creating, otherwise shows prompt */}
+        {(selectedPost || isCreating) ? (
           <div className={styles.form}>
             <h2>{isCreating ? 'New Post' : 'Edit Post'}</h2>
 
@@ -257,7 +240,7 @@ export default function AdminBlog() {
                 placeholder="https://res.cloudinary.com/your-account/image/upload/photo.jpg"
               />
               <p className={styles.help}>
-                Paste an image URL from Cloudinary, Imgur, or any image host. This appears as the post header image.
+                Paste an image URL from Cloudinary, Imgur, or any image host.
               </p>
               {formData.featured_image_url && (
                 <div className={styles.imagePreview}>
@@ -292,10 +275,9 @@ export default function AdminBlog() {
                 >
                   <option value="forever-form">Forever Form</option>
                   <option value="games-room">The Games Room</option>
-                  <option value="studio">Studio & Process</option>
+                  <option value="studio">Studio &amp; Process</option>
                 </select>
               </div>
-
               <div className={styles.formGroup}>
                 <label htmlFor="published">
                   <input
@@ -304,7 +286,7 @@ export default function AdminBlog() {
                     checked={formData.published}
                     onChange={(e) => handleFormChange('published', e.target.checked)}
                   />
-                  Published
+                  {' '}Published
                 </label>
               </div>
             </div>
@@ -326,8 +308,8 @@ export default function AdminBlog() {
                 id="content"
                 value={formData.content}
                 onChange={(e) => handleFormChange('content', e.target.value)}
-                placeholder="Full post content (supports markdown)"
-                rows="12"
+                placeholder="Write your post content here. Markdown is supported — use **bold**, *italic*, ## headings, etc."
+                rows="15"
               />
             </div>
 
@@ -361,6 +343,10 @@ export default function AdminBlog() {
                 </button>
               )}
             </div>
+          </div>
+        ) : (
+          <div className={styles.formPlaceholder}>
+            <p>Select a post to edit, or click <strong>+ New Post</strong> to write a new one.</p>
           </div>
         )}
       </div>
