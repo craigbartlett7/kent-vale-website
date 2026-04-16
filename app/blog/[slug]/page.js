@@ -128,6 +128,33 @@ export default async function BlogPost({ params }) {
             className={styles.postBody}
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
+
+          <footer style={{
+            marginTop: '4rem',
+            paddingTop: '3rem',
+            borderTop: '1px solid rgba(184, 181, 174, 0.3)',
+            textAlign: 'center',
+          }}>
+            <p style={{
+              fontFamily: 'var(--serif)',
+              fontSize: '1.3rem',
+              color: 'var(--charcoal)',
+              marginBottom: '0.75rem',
+            }}>
+              Interested in a commission?
+            </p>
+            <p style={{
+              fontSize: '1rem',
+              color: '#666',
+              marginBottom: '2rem',
+              lineHeight: 1.6,
+            }}>
+              Every piece begins with a conversation. No obligations — just a chat about what you imagine.
+            </p>
+            <Link href="/contact" className="button primary">
+              Get in Touch
+            </Link>
+          </footer>
         </article>
       </div>
     </section>

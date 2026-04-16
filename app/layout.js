@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import '../styles/globals.css';
 import styles from './layout.module.css';
+import CookieBanner from './components/CookieBanner';
 
 export default function RootLayout({ children }) {
   return (
@@ -70,11 +71,12 @@ export default function RootLayout({ children }) {
             </div>
             
             <div className={styles.footerLegal}>
-              <p>© 2026 Kent & Vale. All rights reserved. | <Link href="/privacy">Privacy Policy</Link> | <Link href="/terms">Terms of Service</Link></p>
+              <p>© 2026 Kent & Vale. All rights reserved. | <Link href="/privacy">Privacy Policy</Link> | <Link href="/terms">Terms of Service</Link> | <Link href="/cookie-policy">Cookie Policy</Link></p>
               <p>Made in Kent, England.</p>
             </div>
           </div>
         </footer>
+        <CookieBanner />
       </body>
     </html>
   );
