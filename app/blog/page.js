@@ -71,14 +71,17 @@ export default function Blog() {
                   <h3 className={styles.postTitle}>{post.title}</h3>
                   <p className={styles.postExcerpt}>{post.excerpt}</p>
                   <div className={styles.postMeta}>
-                    <span>
-                      {post.published_at
-                        ? new Date(post.published_at).toLocaleDateString('en-GB', {
-                            month: 'long',
-                            year: 'numeric',
-                          })
-                        : ''}
-                    </span>
+                    {post.stream && (
+                      <span style={{ textTransform: 'capitalize' }}>
+                        {post.stream === 'forever-form'
+                          ? 'Forever Form Stories'
+                          : post.stream === 'games-room'
+                          ? 'The Games Room Journal'
+                          : post.stream === 'studio'
+                          ? 'Studio & Process'
+                          : post.stream}
+                      </span>
+                    )}
                   </div>
                 </div>
               </Link>
