@@ -27,7 +27,7 @@
 .stepNum {
   font-family: var(--serif);
   font-size: 2rem;
-  color: rgba(194, 168, 120, 0.2);
+  color: var(--forest);
   line-height: 1;
   margin-bottom: 0.5rem;
 }
