@@ -4,6 +4,24 @@ import { marked } from 'marked';
 import { getBlogPostBySlug } from '@/lib/supabase';
 import styles from '../blog.module.css';
 
+// Generates proper <title> and <meta description> in the page <head>
+// This is the primary SEO signal for search engines — better than visible content repetition
+export async function generateMetadata({ params }) {
+  const post = await getBlogPostBySlug(params.slug);
+  if (!post) return {};
+
+  return {
+    title: `${post.title} | Kent & Vale`,
+    description: post.excerpt || post.title,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || '',
+      type: 'article',
+      publishedTime: post.published_at,
+    },
+  };
+}
+
 export default async function BlogPost({ params }) {
   const post = await getBlogPostBySlug(params.slug);
 
@@ -11,7 +29,19 @@ export default async function BlogPost({ params }) {
     notFound();
   }
 
-  const htmlContent = post.content ? marked(post.content) : '';
+  // Convert markdown to HTML
+  let htmlContent = post.content ? marked(post.content) : '';
+
+  // Strip any leading <h1> from the content body — the title is already
+  // displayed in the <header> above, and in the <title> tag for SEO
+  htmlContent = htmlContent.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
+
+  // If the first paragraph exactly matches the excerpt, strip it too —
+  // the excerpt is already shown in the header as the subtitle
+  if (post.excerpt) {
+    const escaped = post.excerpt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    htmlContent = htmlContent.replace(new RegExp(`^\\s*<p>\\s*${escaped}\\s*<\\/p>\\s*`, 'i'), '');
+  }
 
   const formattedDate = post.published_at
     ? new Date(post.published_at).toLocaleDateString('en-GB', {
