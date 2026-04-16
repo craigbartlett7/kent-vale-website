@@ -4,6 +4,9 @@ import { marked } from 'marked';
 import { getBlogPostBySlug } from '@/lib/supabase';
 import styles from '../blog.module.css';
 
+// Always fetch fresh content from Supabase — no caching
+export const dynamic = 'force-dynamic';
+
 // Generates proper <title> and <meta description> in the page <head>
 // This is the primary SEO signal for search engines — better than visible content repetition
 export async function generateMetadata({ params }) {
