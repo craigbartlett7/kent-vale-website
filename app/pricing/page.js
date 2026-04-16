@@ -24,7 +24,6 @@ export default function Pricing() {
                 'Custom design (1–2 iterations)',
                 'Professional materials',
                 'Finished to museum standards',
-                'Lifetime care guarantee',
               ],
               example: 'Wedding flower keepsake, small side table, chess set',
             },
@@ -38,8 +37,6 @@ export default function Pricing() {
                 'Premium sourced materials (named estate timber)',
                 'Many hours of handcraft per piece',
                 'Bespoke finishing & detailing',
-                'Lifetime structural guarantee',
-                '1 year of free care & maintenance',
               ],
               example: 'Bespoke dining table, legacy furniture piece, collector\'s game board',
             },
@@ -54,7 +51,6 @@ export default function Pricing() {
                 'Many hours of bespoke craftwork',
                 'Architectural-grade finishing',
                 'On-site installation support',
-                'Lifetime guarantee + annual care visit',
               ],
               example: 'Feature table for grand space, art installation, corporate showpiece',
             },
@@ -86,7 +82,7 @@ export default function Pricing() {
               <p><strong>Iteration:</strong> Custom design refined until perfect</p>
             </div>
             <div>
-              <p><strong>Guarantee:</strong> Lifetime structural guarantee (we back it forever)</p>
+              <p><strong>Permanence:</strong> Built to outlast trends and generations — made the right way, once</p>
             </div>
           </div>
         </div>
