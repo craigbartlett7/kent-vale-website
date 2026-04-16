@@ -98,20 +98,16 @@ export default async function BlogPost({ params }) {
             )}
 
             <div className={styles.postMeta}>
-              {formattedDate && <span>{formattedDate}</span>}
               {post.stream && (
-                <>
-                  {formattedDate && <span>·</span>}
-                  <span style={{ textTransform: 'capitalize' }}>
-                    {post.stream === 'forever-form'
-                      ? 'Forever Form Stories'
-                      : post.stream === 'games-room'
-                      ? 'The Games Room Journal'
-                      : post.stream === 'studio'
-                      ? 'Studio & Process'
-                      : post.stream}
-                  </span>
-                </>
+                <span style={{ textTransform: 'capitalize' }}>
+                  {post.stream === 'forever-form'
+                    ? 'Forever Form Stories'
+                    : post.stream === 'games-room'
+                    ? 'The Games Room Journal'
+                    : post.stream === 'studio'
+                    ? 'Studio & Process'
+                    : post.stream}
+                </span>
               )}
             </div>
 
