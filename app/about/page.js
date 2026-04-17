@@ -1,31 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../process/info-pages.module.css';
+import { getTeamMembers } from '@/lib/supabase';
 
 export default function About() {
-  const team = [
-    {
-      name: 'Paul',
-      role: 'Lead Craftsman',
-      bio: 'Bio coming soon.',
-    },
-    {
-      name: 'Amanda Anderson',
-      role: 'Operations',
-      bio: 'Bio coming soon.',
-    },
-    {
-      name: 'Craig Bartlett',
-      role: 'Brand Ambassador',
-      bio: 'Bio coming soon.',
-    },
-    {
-      name: 'Norman Bartlett',
-      role: 'Strategy & PR',
-      bio: 'Bio coming soon.',
-    },
-  ];
+  const [team, setTeam] = useState([]);
+
+  useEffect(() => {
+    getTeamMembers().then(data => setTeam(data));
+  }, []);
 
   return (
     <section className={styles.section}>
@@ -100,12 +84,23 @@ export default function About() {
           </p>
 
           <div className={styles.teamGrid}>
-            {team.map((member, idx) => (
-              <div key={idx} className={styles.teamCard}>
-                <div className={styles.placeholder}>Team member photo</div>
+            {team.map((member) => (
+              <div key={member.id} className={styles.teamCard}>
+                {member.photo_url ? (
+                  <img
+                    src={member.photo_url}
+                    alt={member.name}
+                    className={styles.placeholder}
+                    style={{ objectFit: 'cover', width: '100%' }}
+                  />
+                ) : (
+                  <div className={styles.placeholder} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--serif)', fontSize: '2rem', color: 'var(--stone)', background: '#f5f2eb' }}>
+                    {member.name.charAt(0)}
+                  </div>
+                )}
                 <h3>{member.name}</h3>
                 <p className={styles.role}>{member.role}</p>
-                <p className={styles.bio}>{member.bio}</p>
+                {member.bio && <p className={styles.bio}>{member.bio}</p>}
               </div>
             ))}
           </div>
