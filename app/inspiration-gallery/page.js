@@ -26,6 +26,7 @@ export default function InspirationGallery() {
   const collectionLabel = (collection) => {
     if (collection === 'forever-form') return 'Forever Form';
     if (collection === 'games-room') return 'The Games Room';
+    if (collection === 'studio') return 'Studio';
     return collection;
   };
 
@@ -89,6 +90,12 @@ export default function InspirationGallery() {
             onClick={() => setActiveFilter('games-room')}
           >
             The Games Room
+          </button>
+          <button
+            className={activeFilter === 'studio' ? styles.filterActive : ''}
+            onClick={() => setActiveFilter('studio')}
+          >
+            Studio
           </button>
         </div>
 

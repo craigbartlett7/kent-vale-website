@@ -149,6 +149,7 @@ export default function AdminGallery() {
                 <select id="collection" value={formData.collection} onChange={(e) => handleFormChange('collection', e.target.value)}>
                   <option value="forever-form">Forever Form</option>
                   <option value="games-room">The Games Room</option>
+                  <option value="studio">Studio</option>
                 </select>
               </div>
               <div className={styles.formGroup}>
