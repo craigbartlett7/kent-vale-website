@@ -1,10 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from '../forever-form/collection.module.css';
+import { getGalleryItems } from '@/lib/supabase';
 
 export default function TheGamesRoom() {
+  const [galleryItems, setGalleryItems] = useState([]);
+
+  useEffect(() => {
+    getGalleryItems('games-room').then(data => setGalleryItems(data.slice(0, 4)));
+  }, []);
+
   const categories = [
     {
       name: 'Strategy',
@@ -67,7 +74,7 @@ export default function TheGamesRoom() {
       <section className={styles.valueSection}>
         <div className="container">
           <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Why The Games Room?</h2>
-          
+
           <div className={styles.valueGrid}>
             <div className={styles.valueCard}>
               <h3>They're Actually Playable</h3>
@@ -91,24 +98,38 @@ export default function TheGamesRoom() {
       <section className={styles.galleryPreview}>
         <div className="container">
           <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>The Games Room in Play</h2>
-          
-          <div className={styles.galleryGrid}>
-            <div className={styles.galleryPlaceholder}>
-              <p>Gallery Image 1</p>
+
+          {galleryItems.length > 0 ? (
+            <div className={styles.galleryGrid}>
+              {galleryItems.map(item => (
+                <Link
+                  key={item.id}
+                  href="/inspiration-gallery"
+                  className={styles.galleryPlaceholder}
+                  style={{ textDecoration: 'none', display: 'block', overflow: 'hidden' }}
+                >
+                  <img
+                    src={item.image_url}
+                    alt={item.image_alt_text || item.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
+                    onMouseEnter={e => e.target.style.transform = 'scale(1.03)'}
+                    onMouseLeave={e => e.target.style.transform = 'scale(1)'}
+                  />
+                </Link>
+              ))}
             </div>
-            <div className={styles.galleryPlaceholder}>
-              <p>Gallery Image 2</p>
+          ) : (
+            <div className={styles.galleryGrid}>
+              {[1,2,3,4].map(n => (
+                <div key={n} className={styles.galleryPlaceholder}>
+                  <p>Coming soon</p>
+                </div>
+              ))}
             </div>
-            <div className={styles.galleryPlaceholder}>
-              <p>Gallery Image 3</p>
-            </div>
-            <div className={styles.galleryPlaceholder}>
-              <p>Gallery Image 4</p>
-            </div>
-          </div>
+          )}
 
           <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <Link href="/inspiration-gallery?filter=games-room" className="button primary">
+            <Link href="/inspiration-gallery" className="button primary">
               Browse Full Gallery
             </Link>
           </div>
@@ -126,7 +147,7 @@ export default function TheGamesRoom() {
             <Link href="/enquiry?interest=games-room" className="button primary">
               Start a Commission
             </Link>
-            <Link href="/inspiration-gallery?filter=games-room" className="button">
+            <Link href="/inspiration-gallery" className="button">
               Browse All Boards
             </Link>
           </div>
