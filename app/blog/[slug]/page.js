@@ -39,6 +39,10 @@ export default async function BlogPost({ params }) {
   // displayed in the <header> above, and in the <title> tag for SEO
   htmlContent = htmlContent.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
 
+  // Rewrite any old enquiry links to the contact page
+  htmlContent = htmlContent.replace(/href="#enquiry"/g, 'href="/contact"');
+  htmlContent = htmlContent.replace(/href="\/enquiry"/g, 'href="/contact"');
+
   // If the first paragraph exactly matches the excerpt, strip it too —
   // the excerpt is already shown in the header as the subtitle
   if (post.excerpt) {
