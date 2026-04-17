@@ -7,9 +7,57 @@ export const metadata = {
   description: 'Handmade resin and wood furniture, heirlooms, and game boards. Bespoke commissions from our Kent studio.',
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Kent & Vale',
+  description: 'Bespoke resin and wood furniture, heirloom commissions, and handmade game boards. Every piece made to order from our studio in Kent, England.',
+  url: 'https://kentandvale.com',
+  email: 'hello@kentandvale.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Sittingbourne',
+    addressRegion: 'Kent',
+    addressCountry: 'GB',
+  },
+  areaServed: 'GB',
+  priceRange: '£££',
+  image: 'https://kentandvale.com/og-image.jpg',
+  sameAs: [
+    'https://instagram.com/kentandvale',
+    'https://pinterest.com/kentandvale',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Bespoke Commission Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Forever Form — Heirloom Commissions',
+          description: 'Bespoke resin heirlooms preserving wedding flowers, pet memorials, family keepsakes, and life milestones.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'The Games Room — Bespoke Game Boards',
+          description: 'Handmade chess sets, backgammon boards, and collector game pieces in resin and wood.',
+        },
+      },
+    ],
+  },
+};
+
 export default function Home() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
