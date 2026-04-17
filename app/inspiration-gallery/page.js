@@ -1,25 +1,32 @@
 'use client';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 import styles from './gallery.module.css';
+import { getGalleryItems } from '@/lib/supabase';
 
 export default function InspirationGallery() {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Placeholder gallery items
-  const items = [
-    { id: 1, name: 'Wedding Preservation', category: 'forever-form', collection: 'Forever Form' },
-    { id: 2, name: 'Pet Memorial', category: 'forever-form', collection: 'Forever Form' },
-    { id: 3, name: 'Chess Set', category: 'games-room', collection: 'The Games Room' },
-    { id: 4, name: 'Proposal Keepsake', category: 'forever-form', collection: 'Forever Form' },
-    { id: 5, name: 'Backgammon Board', category: 'games-room', collection: 'The Games Room' },
-    { id: 6, name: 'Dining Table', category: 'forever-form', collection: 'Forever Form' },
-  ];
+  useEffect(() => {
+    async function fetchItems() {
+      const data = await getGalleryItems();
+      setItems(data);
+      setLoading(false);
+    }
+    fetchItems();
+  }, []);
 
-  const filtered = activeFilter === 'all' 
-    ? items 
-    : items.filter(item => item.category === activeFilter);
+  const filtered = activeFilter === 'all'
+    ? items
+    : items.filter(item => item.collection === activeFilter);
+
+  const collectionLabel = (collection) => {
+    if (collection === 'forever-form') return 'Forever Form';
+    if (collection === 'games-room') return 'The Games Room';
+    return collection;
+  };
 
   return (
     <section className={styles.section}>
@@ -52,19 +59,33 @@ export default function InspirationGallery() {
         </div>
 
         {/* Gallery Grid */}
-        <div className={styles.galleryGrid}>
-          {filtered.map(item => (
-            <Link key={item.id} href={`/inspiration-gallery/${item.id}`} className={styles.galleryItem}>
-              <div className={styles.galleryImage}>
-                <p>{item.name}</p>
+        {loading ? (
+          <p style={{ textAlign: 'center', color: '#888' }}>Loading gallery...</p>
+        ) : filtered.length === 0 ? (
+          <p style={{ textAlign: 'center', color: '#888' }}>No images yet.</p>
+        ) : (
+          <div className={styles.galleryGrid}>
+            {filtered.map(item => (
+              <div key={item.id} className={styles.galleryItem}>
+                <div className={styles.galleryImage}>
+                  {item.image_url ? (
+                    <img
+                      src={item.image_url}
+                      alt={item.image_alt_text || item.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  ) : (
+                    <p>{item.title}</p>
+                  )}
+                </div>
+                <div className={styles.galleryInfo}>
+                  <p className={styles.itemName}>{item.title}</p>
+                  <p className={styles.itemCollection}>{collectionLabel(item.collection)}</p>
+                </div>
               </div>
-              <div className={styles.galleryInfo}>
-                <p className={styles.itemName}>{item.name}</p>
-                <p className={styles.itemCollection}>{item.collection}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
