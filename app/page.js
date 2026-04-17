@@ -136,7 +136,7 @@ export default function Home() {
           </div>
 
           <div className={styles.credentials}>
-            <p>Handmade in Kent, England • Lifetime care guarantee</p>
+            <p>Handmade in Kent, England</p>
           </div>
         </div>
       </section>
