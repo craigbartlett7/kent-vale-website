@@ -22,6 +22,7 @@ export default function AdminBlog() {
     featured_image_url: '',
     published: false,
     meta_description: '',
+    published_at_date: '',
   });
   const [updating, setUpdating] = useState(false);
 
@@ -72,25 +73,32 @@ export default function AdminBlog() {
     }
     setUpdating(true);
     try {
+      // Resolve published_at: use custom date if set, otherwise keep existing or use now
+      const resolvePublishedAt = (existingDate) => {
+        if (!formData.published) return null;
+        if (formData.published_at_date) return new Date(formData.published_at_date).toISOString();
+        return existingDate || new Date().toISOString();
+      };
+
+      const { published_at_date, ...saveData } = formData;
+
       if (selectedPost) {
         const { error } = await supabase
           .from('blog_posts')
           .update({
-            ...formData,
+            ...saveData,
             updated_at: new Date().toISOString(),
-            published_at: formData.published
-              ? (selectedPost.published_at || new Date().toISOString())
-              : null,
+            published_at: resolvePublishedAt(selectedPost.published_at),
           })
           .eq('id', selectedPost.id);
         if (error) throw error;
-        setPosts(posts.map(p => p.id === selectedPost.id ? { ...selectedPost, ...formData } : p));
+        setPosts(posts.map(p => p.id === selectedPost.id ? { ...selectedPost, ...saveData } : p));
       } else {
         const { data, error } = await supabase
           .from('blog_posts')
           .insert([{
-            ...formData,
-            published_at: formData.published ? new Date().toISOString() : null,
+            ...saveData,
+            published_at: resolvePublishedAt(null),
           }])
           .select();
         if (error) throw error;
@@ -133,11 +141,15 @@ export default function AdminBlog() {
       featured_image_url: '',
       published: false,
       meta_description: '',
+      published_at_date: '',
     });
   };
 
   const editPost = (post) => {
-    setFormData(post);
+    setFormData({
+      ...post,
+      published_at_date: post.published_at ? post.published_at.substring(0, 10) : '',
+    });
     setSelectedPost(post);
     setIsCreating(false);
   };
@@ -288,6 +300,17 @@ export default function AdminBlog() {
                   />
                   {' '}Published
                 </label>
+                <div style={{ marginTop: '0.75rem' }}>
+                  <label htmlFor="published_at_date" style={{ display: 'block', marginBottom: '0.4rem', fontSize: '0.85rem' }}>
+                    Published date <span style={{ color: 'var(--stone)', fontWeight: 400 }}>(controls order)</span>
+                  </label>
+                  <input
+                    type="date"
+                    id="published_at_date"
+                    value={formData.published_at_date}
+                    onChange={(e) => handleFormChange('published_at_date', e.target.value)}
+                  />
+                </div>
               </div>
             </div>
 
