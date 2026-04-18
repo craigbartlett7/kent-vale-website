@@ -257,6 +257,185 @@ export default function LondonMarathon2026() {
         </div>
       </section>
 
+      {/* Product showcase */}
+      <section style={{ padding: '7rem 2rem', background: 'var(--ivory)' }}>
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+          <p style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '0.75rem',
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+            color: 'var(--brass)',
+            marginBottom: '1rem',
+            textAlign: 'center',
+          }}>
+            Ready to Order
+          </p>
+          <h2 style={{
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
+            fontWeight: 400,
+            textAlign: 'center',
+            color: 'var(--charcoal)',
+            marginBottom: '4rem',
+          }}>
+            The Marathon Keepsake
+          </h2>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '4rem',
+            alignItems: 'center',
+          }}>
+            {/* Product image */}
+            <div>
+              <img
+                src="/marathon-keepsake-product.jpg"
+                alt="Marathon medal and completion certificate set in clear resin block on a walnut base with brass nameplate"
+                style={{
+                  width: '100%',
+                  display: 'block',
+                  boxShadow: '0 8px 40px rgba(26,26,26,0.12)',
+                }}
+              />
+            </div>
+
+            {/* Product details */}
+            <div>
+              <h3 style={{
+                fontFamily: 'var(--serif)',
+                fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)',
+                fontWeight: 400,
+                color: 'var(--charcoal)',
+                marginBottom: '1rem',
+                lineHeight: 1.3,
+              }}>
+                Medal &amp; Certificate Block
+              </h3>
+              <p style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '0.85rem',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'var(--brass)',
+                marginBottom: '1.5rem',
+              }}>
+                From £500
+              </p>
+              <p style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '1rem',
+                lineHeight: 1.85,
+                color: '#444',
+                marginBottom: '1.5rem',
+              }}>
+                Your finisher's medal and completion certificate, set in hand-poured optical resin and mounted on an English walnut base. A personalised brass plate is engraved with your name, race, and finish time.
+              </p>
+              <p style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '1rem',
+                lineHeight: 1.85,
+                color: '#444',
+                marginBottom: '2rem',
+              }}>
+                Built to sit on a desk, a mantelpiece, or a shelf — for the rest of your life.
+              </p>
+
+              {/* Included list */}
+              <div style={{
+                borderTop: '1px solid rgba(184,181,174,0.4)',
+                paddingTop: '1.5rem',
+                marginBottom: '2rem',
+              }}>
+                {[
+                  'Hand-poured optical resin block',
+                  'Your finisher\'s medal &amp; completion certificate',
+                  'English walnut wooden base',
+                  'Personalised engraved brass nameplate',
+                  'Presented in a Kent &amp; Vale gift box',
+                ].map((item, i) => (
+                  <div key={i} style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '0.75rem',
+                    marginBottom: '0.6rem',
+                    fontFamily: 'var(--sans)',
+                    fontSize: '0.9rem',
+                    color: '#555',
+                    lineHeight: 1.5,
+                  }}>
+                    <span style={{ color: 'var(--brass)', flexShrink: 0, marginTop: '2px' }}>—</span>
+                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/contact"
+                style={{
+                  display: 'inline-block',
+                  padding: '1rem 2.5rem',
+                  background: 'var(--charcoal)',
+                  color: 'var(--ivory)',
+                  fontFamily: 'var(--sans)',
+                  fontSize: '0.875rem',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                  marginBottom: '1rem',
+                }}
+              >
+                Order Yours — £500
+              </Link>
+
+              {/* Bespoke note */}
+              <div style={{
+                marginTop: '2rem',
+                padding: '1.5rem',
+                background: 'white',
+                border: '1px solid rgba(184,181,174,0.35)',
+              }}>
+                <p style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '1rem',
+                  fontStyle: 'italic',
+                  color: 'var(--charcoal)',
+                  marginBottom: '0.5rem',
+                  lineHeight: 1.6,
+                }}>
+                  Want something more personal?
+                </p>
+                <p style={{
+                  fontFamily: 'var(--sans)',
+                  fontSize: '0.875rem',
+                  color: '#555',
+                  lineHeight: 1.7,
+                  marginBottom: '0.75rem',
+                }}>
+                  We can incorporate your GPS route, a race photograph, a personal message, or anything else that made your day. Every bespoke commission is designed around you — tell us what you want the piece to hold.
+                </p>
+                <Link
+                  href="/contact"
+                  style={{
+                    fontFamily: 'var(--sans)',
+                    fontSize: '0.8rem',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    color: 'var(--charcoal)',
+                    textDecoration: 'none',
+                    borderBottom: '1px solid var(--brass)',
+                    paddingBottom: '2px',
+                  }}
+                >
+                  Discuss a bespoke commission →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section style={{ padding: '7rem 2rem', background: 'var(--charcoal)' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
