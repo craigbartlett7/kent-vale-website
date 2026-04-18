@@ -67,7 +67,7 @@ export default function LondonMarathon2026() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: 'center top',
+            objectPosition: 'center 30%',
           }}
         />
         {/* Gradient overlay */}
