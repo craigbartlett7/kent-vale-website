@@ -108,7 +108,7 @@ export default function LondonMarathon2026() {
             You Did It Once.<br />Keep It Forever.
           </h1>
           <Link
-            href="/contact"
+            href="/london-marathon-2026/order"
             style={{
               display: 'inline-block',
               padding: '1rem 2.5rem',
@@ -122,7 +122,7 @@ export default function LondonMarathon2026() {
               transition: 'all 0.3s ease',
             }}
           >
-            Preserve Your Marathon
+            Order Your Keepsake — £500
           </Link>
         </div>
       </section>
@@ -372,7 +372,7 @@ export default function LondonMarathon2026() {
               </div>
 
               <Link
-                href="/contact"
+                href="/london-marathon-2026/order"
                 style={{
                   display: 'inline-block',
                   padding: '1rem 2.5rem',
@@ -537,7 +537,7 @@ export default function LondonMarathon2026() {
             Every commission begins with a conversation. Tell us what you want the piece to hold and we'll design something made to last a lifetime.
           </p>
           <Link
-            href="/contact"
+            href="/london-marathon-2026/order"
             style={{
               display: 'inline-block',
               padding: '1.1rem 3rem',
@@ -552,7 +552,7 @@ export default function LondonMarathon2026() {
               marginBottom: '1.5rem',
             }}
           >
-            Preserve Your Marathon
+            Order Your Keepsake — £500
           </Link>
           <p style={{
             fontFamily: 'var(--sans)',

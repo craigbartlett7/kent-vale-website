@@ -16,7 +16,8 @@
     "@supabase/supabase-js": "^2.38.0",
     "axios": "^1.6.0",
     "marked": "^9.1.0",
-    "zustand": "^4.4.0"
+    "zustand": "^4.4.0",
+    "stripe": "^14.0.0"
   },
   "devDependencies": {
     "eslint": "^8.50.0",

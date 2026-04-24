@@ -72,7 +72,6 @@ export default function AdminDashboard() {
         newEnquiries: newEnquiries || 0,
         totalBlogPosts: totalBlogPosts || 0,
         totalGalleryItems: totalGalleryItems || 0,
-        totalOrders: totalOrders || 0,
       });
 
       setRecentEnquiries(recent || []);
@@ -126,10 +125,6 @@ export default function AdminDashboard() {
         <div className={styles.statCard}>
           <p className={styles.statLabel}>Gallery Items</p>
           <p className={styles.statValue}>{stats.totalGalleryItems}</p>
-        </div>
-        <div className={styles.statCard}>
-          <p className={styles.statLabel}>Orders</p>
-          <p className={styles.statValue}>{stats.totalOrders}</p>
         </div>
       </div>
 
