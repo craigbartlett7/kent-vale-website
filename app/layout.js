@@ -35,6 +35,7 @@ export default function RootLayout({ children }) {
             <li><Link href="/about">About</Link></li>
             <li><Link href="/blog">Blog</Link></li>
             <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/london-marathon-2026" style={{ color: 'var(--brass)' }}>Marathon 2026</Link></li>
           </ul>
         </nav>
 
