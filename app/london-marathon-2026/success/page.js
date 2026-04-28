@@ -1,11 +1,43 @@
+'use client';
+
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
-export const metadata = {
-  title: 'Order Confirmed — Kent & Vale',
-  description: 'Your London Marathon keepsake order has been placed. We\'ll be in touch shortly with instructions for sending your medal.',
-};
+function SuccessContent() {
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get('session_id');
 
-export default function OrderSuccess() {
+  const [order, setOrder] = useState(null);
+  const [attempts, setAttempts] = useState(0);
+
+  useEffect(() => {
+    if (!sessionId) return;
+
+    // Poll for the order — webhook may take a few seconds to write it
+    const maxAttempts = 8;
+    const interval = setInterval(async () => {
+      try {
+        const res = await fetch(`/api/orders/by-session?session_id=${sessionId}`);
+        const data = await res.json();
+
+        if (data.found) {
+          setOrder(data);
+          clearInterval(interval);
+        } else {
+          setAttempts(prev => {
+            if (prev + 1 >= maxAttempts) clearInterval(interval);
+            return prev + 1;
+          });
+        }
+      } catch {
+        clearInterval(interval);
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [sessionId]);
+
   return (
     <div style={{ background: 'var(--ivory)', minHeight: '100vh' }}>
 
@@ -50,9 +82,82 @@ export default function OrderSuccess() {
         </p>
       </div>
 
-      {/* Next steps */}
       <div style={{ maxWidth: '620px', margin: '0 auto', padding: '5rem 2rem' }}>
 
+        {/* Order number */}
+        <div style={{
+          padding: '2rem',
+          background: 'white',
+          border: '1px solid rgba(184,181,174,0.35)',
+          textAlign: 'center',
+          marginBottom: '3.5rem',
+        }}>
+          {order ? (
+            <>
+              <p style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '0.7rem',
+                letterSpacing: '0.25em',
+                textTransform: 'uppercase',
+                color: '#999',
+                marginBottom: '0.75rem',
+              }}>
+                Your Order Number
+              </p>
+              <p style={{
+                fontFamily: 'var(--serif)',
+                fontSize: '2rem',
+                color: 'var(--charcoal)',
+                letterSpacing: '0.05em',
+                marginBottom: '0.5rem',
+              }}>
+                {order.orderNumber}
+              </p>
+              <p style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '0.8rem',
+                color: 'var(--stone)',
+                lineHeight: 1.6,
+              }}>
+                Please keep this safe — quote it if you need to get in touch with us about your commission.
+              </p>
+            </>
+          ) : attempts >= 8 ? (
+            <>
+              <p style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '0.875rem',
+                color: '#555',
+                lineHeight: 1.7,
+              }}>
+                Your order has been placed. You'll receive your order number by email shortly.
+              </p>
+            </>
+          ) : (
+            <>
+              <p style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '0.7rem',
+                letterSpacing: '0.25em',
+                textTransform: 'uppercase',
+                color: '#bbb',
+                marginBottom: '0.75rem',
+              }}>
+                Confirming your order…
+              </p>
+              <div style={{
+                width: '32px',
+                height: '2px',
+                background: 'var(--brass)',
+                margin: '0 auto',
+                animation: 'pulse 1.2s ease-in-out infinite',
+              }} />
+              <style>{`@keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:1} }`}</style>
+            </>
+          )}
+        </div>
+
+        {/* Next steps */}
         <p style={{
           fontFamily: 'var(--sans)',
           fontSize: '0.75rem',
@@ -69,17 +174,17 @@ export default function OrderSuccess() {
           {
             num: '01',
             title: 'Check your inbox',
-            desc: 'A payment confirmation is on its way from Stripe. We\'ll also send you a separate email within one working day with instructions for posting your medal and certificate to our studio.',
+            desc: 'A payment confirmation is on its way. We\'ll also be in touch within one working day to arrange everything for the next step.',
           },
           {
             num: '02',
-            title: 'Post your medal to us',
-            desc: 'We\'ll provide a Kent studio address and recommend a tracked service. Your medal is in safe hands — we handle every piece with the care it deserves.',
+            title: 'We send you protective packaging',
+            desc: 'We\'ll post you prepaid, self-addressed protective packaging so you can safely send your medal and certificate to our studio in Kent — no trips to the post office needed.',
           },
           {
             num: '03',
             title: 'We make your keepsake',
-            desc: 'Once we receive your medal, we\'ll begin work. We\'ll keep you updated as the piece takes shape — typically 4–6 weeks from receipt of your items.',
+            desc: 'Once we receive your items, we\'ll begin work. We\'ll keep you updated as the piece takes shape — typically 4–6 weeks from receipt.',
           },
           {
             num: '04',
@@ -139,7 +244,7 @@ export default function OrderSuccess() {
             color: '#555',
             lineHeight: 1.7,
           }}>
-            Any questions? We're always happy to hear from you at{' '}
+            Any questions? Quote your order number and reach us at{' '}
             <a href="mailto:hello@kentandvale.com" style={{ color: 'var(--charcoal)' }}>
               hello@kentandvale.com
             </a>
@@ -147,21 +252,26 @@ export default function OrderSuccess() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <Link
-            href="/"
-            style={{
-              fontFamily: 'var(--sans)',
-              fontSize: '0.8rem',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: 'var(--stone)',
-              textDecoration: 'none',
-            }}
-          >
+          <Link href="/" style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '0.8rem',
+            letterSpacing: '0.15em',
+            textTransform: 'uppercase',
+            color: 'var(--stone)',
+            textDecoration: 'none',
+          }}>
             ← Kent &amp; Vale
           </Link>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function OrderSuccess() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--ivory)' }} />}>
+      <SuccessContent />
+    </Suspense>
   );
 }

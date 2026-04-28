@@ -191,7 +191,7 @@ function OrderForm() {
             marginTop: '1rem',
             lineHeight: 1.6,
           }}>
-            After ordering, we'll email you with instructions for posting your medal and certificate to our studio in Kent. We'll keep you updated throughout the making process.
+            After ordering, we'll send you prepaid, self-addressed protective packaging so you can safely post your medal and certificate to our studio in Kent. We'll keep you updated throughout the making process.
           </p>
         </div>
 
