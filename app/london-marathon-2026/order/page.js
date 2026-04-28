@@ -167,7 +167,7 @@ function OrderForm() {
           {[
             'Hand-poured optical resin block',
             'Your finisher\'s medal & completion certificate',
-            'English walnut wooden base',
+            'English oak wooden base',
             'Personalised engraved brass nameplate',
             'Presented in a Kent & Vale gift box',
           ].map((item, i) => (

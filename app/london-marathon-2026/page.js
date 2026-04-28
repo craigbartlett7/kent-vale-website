@@ -43,6 +43,18 @@ const jsonLd = {
 export default function LondonMarathon2026() {
   return (
     <div style={{ background: 'white' }}>
+      <style>{`
+        @media (max-width: 640px) {
+          .marathon-hero-img {
+            object-position: center 18% !important;
+          }
+          .marathon-hero-content {
+            justify-content: flex-end !important;
+            padding-bottom: 3rem !important;
+            padding-top: 0 !important;
+          }
+        }
+      `}</style>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -53,6 +65,7 @@ export default function LondonMarathon2026() {
         position: 'relative',
         minHeight: '100vh',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
@@ -61,6 +74,7 @@ export default function LondonMarathon2026() {
         <img
           src="/london-marathon-2026-hero.jpg"
           alt="London Marathon 2026 finisher celebrating at the finish line wearing a Kent & Vale vest"
+          className="marathon-hero-img"
           style={{
             position: 'absolute',
             inset: 0,
@@ -78,13 +92,16 @@ export default function LondonMarathon2026() {
         }} />
 
         {/* Hero content */}
-        <div style={{
+        <div className="marathon-hero-content" style={{
           position: 'relative',
           zIndex: 1,
           textAlign: 'center',
           padding: '4rem 2rem',
           maxWidth: '780px',
           margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}>
           <p style={{
             fontFamily: 'var(--sans)',
@@ -212,7 +229,7 @@ export default function LondonMarathon2026() {
             {[
               {
                 title: 'Medal & Race Number',
-                desc: 'Your finisher\'s medal and race bib set in hand-poured resin, framed in English walnut or oak. A display piece that tells the story at a glance.',
+                desc: 'Your finisher\'s medal and race bib set in hand-poured resin, framed in English oak or oak. A display piece that tells the story at a glance.',
               },
               {
                 title: 'Finish Time Piece',
@@ -330,7 +347,7 @@ export default function LondonMarathon2026() {
                 color: '#444',
                 marginBottom: '1.5rem',
               }}>
-                Your finisher's medal and completion certificate, set in hand-poured optical resin and mounted on an English walnut base. A personalised brass plate is engraved with your name, race, and finish time.
+                Your finisher's medal and completion certificate, set in hand-poured optical resin and mounted on an English oak base. A personalised brass plate is engraved with your name, race, and finish time.
               </p>
               <p style={{
                 fontFamily: 'var(--sans)',
@@ -351,7 +368,7 @@ export default function LondonMarathon2026() {
                 {[
                   'Hand-poured optical resin block',
                   'Your finisher\'s medal &amp; completion certificate',
-                  'English walnut wooden base',
+                  'English oak wooden base',
                   'Personalised engraved brass nameplate',
                   'Presented in a Kent &amp; Vale gift box',
                 ].map((item, i) => (

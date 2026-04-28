@@ -236,7 +236,7 @@ export default function AdminOrders() {
       )}
 
       <div style={{ marginTop: '3rem', borderTop: '1px solid rgba(184,181,174,0.3)', paddingTop: '1.5rem' }}>
-        <a href="/admin" style={{ fontSize: '0.8rem', color: '#888', textDecoration: 'none', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+        <a href="/admin/dashboard" style={{ fontSize: '0.8rem', color: '#888', textDecoration: 'none', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
           ← Admin
         </a>
       </div>
