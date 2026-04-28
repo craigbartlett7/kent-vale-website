@@ -229,7 +229,7 @@ export default function LondonMarathon2026() {
             {[
               {
                 title: 'Medal & Race Number',
-                desc: 'Your finisher\'s medal and race bib set in hand-poured resin, framed in English oak or oak. A display piece that tells the story at a glance.',
+                desc: 'Your finisher\'s medal and race bib set in hand-poured resin, framed in English oak. A display piece that tells the story at a glance.',
               },
               {
                 title: 'Finish Time Piece',
@@ -347,7 +347,7 @@ export default function LondonMarathon2026() {
                 color: '#444',
                 marginBottom: '1.5rem',
               }}>
-                Your finisher's medal and completion certificate, set in hand-poured optical resin and mounted on an English oak base. A personalised brass plate is engraved with your name, race, and finish time.
+                Your finisher's medal, completion certificate, and finish line photograph — all set together in hand-poured optical resin and mounted on an English oak base. A personalised brass plate is engraved with your name, race, and finish time.
               </p>
               <p style={{
                 fontFamily: 'var(--sans)',
@@ -367,7 +367,7 @@ export default function LondonMarathon2026() {
               }}>
                 {[
                   'Hand-poured optical resin block',
-                  'Your finisher\'s medal &amp; completion certificate',
+                  'Your finisher\'s medal, completion certificate &amp; finish line photograph',
                   'English oak wooden base',
                   'Personalised engraved brass nameplate',
                   'Presented in a Kent &amp; Vale gift box',

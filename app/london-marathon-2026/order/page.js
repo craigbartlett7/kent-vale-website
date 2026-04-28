@@ -166,7 +166,7 @@ function OrderForm() {
           </p>
           {[
             'Hand-poured optical resin block',
-            'Your finisher\'s medal & completion certificate',
+            'Your finisher\'s medal, completion certificate & finish line photograph',
             'English oak wooden base',
             'Personalised engraved brass nameplate',
             'Presented in a Kent & Vale gift box',
