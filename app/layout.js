@@ -5,6 +5,7 @@ import Link from 'next/link';
 import '../styles/globals.css';
 import styles from './layout.module.css';
 import CookieBanner from './components/CookieBanner';
+import { Analytics } from '@vercel/analytics/next';
 
 export default function RootLayout({ children }) {
   return (
@@ -83,6 +84,7 @@ export default function RootLayout({ children }) {
           </div>
         </footer>
         <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );
