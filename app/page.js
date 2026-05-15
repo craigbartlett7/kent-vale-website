@@ -76,15 +76,15 @@ export default function Home() {
             </p>
             <Link href="/studio" style={brassCTA}>Enter Studio →</Link>
           </div>
-          <div style={placeholderStyle('#2a2a2a')}>
-            <p style={{ fontFamily: 'var(--serif)', fontSize: '0.85rem', color: 'rgba(255,255,255,0.15)', fontStyle: 'italic' }}>Images coming soon</p>
+          <div style={{ overflow: 'hidden', minHeight: '320px' }}>
+            <img src="https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776414064/Dining_table_in_modern_luxury_interior1_ypudod.png" alt="Kent & Vale Studio — dining table" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
 
         {/* The Games Room */}
         <div style={roomStyle('var(--forest)')}>
-          <div style={placeholderStyle('#f0ece4')}>
-            <p style={{ fontFamily: 'var(--serif)', fontSize: '0.85rem', color: 'rgba(26,26,26,0.2)', fontStyle: 'italic' }}>Images coming soon</p>
+          <div style={{ overflow: 'hidden', minHeight: '320px' }}>
+            <img src="https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776419916/Game_board_in_context_luxury_games_room1_whsndt.png" alt="Kent & Vale — The Games Room chess board" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
           <div style={panelStyle('var(--forest)')}>
             <p style={eyebrow}>II — The Games Room</p>
@@ -109,8 +109,8 @@ export default function Home() {
             </p>
             <Link href="/atelier-commissions" style={ghostCTA}>Begin a Conversation →</Link>
           </div>
-          <div style={placeholderStyle('#141412')}>
-            <p style={{ fontFamily: 'var(--serif)', fontSize: '0.85rem', color: 'rgba(255,255,255,0.12)', fontStyle: 'italic' }}>Images coming soon</p>
+          <div style={{ overflow: 'hidden', minHeight: '320px' }}>
+            <img src="https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776414281/wedding_vow_preservation_block1_ir3xtt.png" alt="Kent & Vale Atelier — wedding vow preservation" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
       </section>

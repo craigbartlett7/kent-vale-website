@@ -66,7 +66,7 @@ function ConfiguratorInner({ product }) {
     country: 'United Kingdom',
   });
 
-  const [woodInfoOpen, setWoodInfoOpen] = useState(false);
+  const [woodInfoOpen, setWoodInfoOpen] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -156,8 +156,8 @@ function ConfiguratorInner({ product }) {
           <div style={{ marginBottom: '2.5rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <label style={labelStyle}>Choose your timber *</label>
-              <button type="button" onClick={() => setWoodInfoOpen(!woodInfoOpen)} style={{ background: 'none', border: '1px solid rgba(184,181,174,0.6)', borderRadius: '50%', width: '20px', height: '20px', fontSize: '0.7rem', cursor: 'pointer', color: 'var(--charcoal)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                i
+              <button type="button" onClick={() => setWoodInfoOpen(!woodInfoOpen)} style={{ background: 'none', border: 'none', padding: 0, fontSize: '0.72rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#aaa', cursor: 'pointer', flexShrink: 0 }}>
+                {woodInfoOpen ? 'Hide' : 'About our timbers'}
               </button>
             </div>
 
@@ -171,9 +171,6 @@ function ConfiguratorInner({ product }) {
                     <p style={{ fontFamily: 'var(--sans)', fontSize: '0.83rem', color: '#555', lineHeight: 1.6 }}>{w.desc}</p>
                   </div>
                 ))}
-                <button type="button" onClick={() => setWoodInfoOpen(false)} style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#888', background: 'none', border: 'none', cursor: 'pointer', padding: 0, marginTop: '0.5rem' }}>
-                  Close
-                </button>
               </div>
             )}
 
