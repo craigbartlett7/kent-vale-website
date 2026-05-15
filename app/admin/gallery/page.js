@@ -13,7 +13,7 @@ export default function AdminGallery() {
   const [isAdding, setIsAdding] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [formData, setFormData] = useState({
-    title: '', description: '', collection: 'forever-form',
+    title: '', description: '', collection: 'atelier',
     image_url: '', image_alt_text: '', display_order: 0, featured: false,
   });
   const [updating, setUpdating] = useState(false);
@@ -66,7 +66,7 @@ export default function AdminGallery() {
     } catch (error) { console.error('Error deleting item:', error); alert('Error deleting item'); }
   };
 
-  const resetForm = () => setFormData({ title: '', description: '', collection: 'forever-form', image_url: '', image_alt_text: '', display_order: 0, featured: false });
+  const resetForm = () => setFormData({ title: '', description: '', collection: 'atelier', image_url: '', image_alt_text: '', display_order: 0, featured: false });
   const editItem = (item) => { setFormData(item); setSelectedItem(item); setIsAdding(false); };
   const newItem = () => { resetForm(); setSelectedItem(null); setIsAdding(true); };
 
@@ -147,9 +147,9 @@ export default function AdminGallery() {
               <div className={styles.formGroup}>
                 <label htmlFor="collection">Collection</label>
                 <select id="collection" value={formData.collection} onChange={(e) => handleFormChange('collection', e.target.value)}>
-                  <option value="forever-form">Forever Form</option>
-                  <option value="games-room">The Games Room</option>
                   <option value="studio">Studio</option>
+                  <option value="games-room">The Games Room</option>
+                  <option value="atelier">Atelier Commissions</option>
                 </select>
               </div>
               <div className={styles.formGroup}>
