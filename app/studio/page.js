@@ -57,13 +57,12 @@ export default async function Studio() {
             The Studio range is being updated — check back soon.
           </p>
         ) : (
+          <>
+          <style>{`.studio-card:hover { box-shadow: 0 8px 30px rgba(26,26,26,0.1); }`}</style>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
             {products.map(product => (
               <Link key={product.id} href={`/studio/${product.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{ background: 'white', border: '1px solid rgba(184,181,174,0.25)', overflow: 'hidden', transition: 'box-shadow 0.3s ease' }}
-                  onMouseEnter={e => e.currentTarget.style.boxShadow = '0 8px 30px rgba(26,26,26,0.1)'}
-                  onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
-                >
+                <div className="studio-card" style={{ background: 'white', border: '1px solid rgba(184,181,174,0.25)', overflow: 'hidden', transition: 'box-shadow 0.3s ease' }}>
                   <div style={{ height: '240px', background: '#f0ece4', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                     {product.image_url ? (
                       <img src={product.image_url} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -91,6 +90,7 @@ export default async function Studio() {
               </Link>
             ))}
           </div>
+          </>
         )}
 
         {/* Atelier upsell */}

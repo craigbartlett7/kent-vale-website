@@ -58,13 +58,14 @@ export default async function GamesRoom() {
             The Games Room range is being updated — check back soon.
           </p>
         ) : (
+          <>
+          <style>{`.gr-card:hover { box-shadow: 0 8px 30px rgba(26,26,26,0.1); }`}</style>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
             {products.map(product => (
               <Link key={product.id} href={`/the-games-room/${product.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div
+                  className="gr-card"
                   style={{ background: 'white', border: '1px solid rgba(184,181,174,0.25)', overflow: 'hidden', transition: 'box-shadow 0.3s ease' }}
-                  onMouseEnter={e => e.currentTarget.style.boxShadow = '0 8px 30px rgba(26,26,26,0.1)'}
-                  onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
                 >
                   <div style={{ height: '260px', background: '#e8f0ea', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                     {product.image_url ? (
@@ -101,6 +102,7 @@ export default async function GamesRoom() {
               </Link>
             ))}
           </div>
+          </>
         )}
 
         {/* Other games note */}
