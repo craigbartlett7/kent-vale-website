@@ -107,7 +107,7 @@ export default function Pricing() {
             </div>
             <div>
               <h4>50% Balance</h4>
-              <p>Due on delivery. We're flexible on payment timing if needed—just ask.</p>
+              <p>Due prior to delivery. We're flexible on payment timing if needed—just ask.</p>
             </div>
             <div>
               <h4>No Surprises</h4>
