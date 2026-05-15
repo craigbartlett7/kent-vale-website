@@ -18,7 +18,7 @@ export default function AdminBlog() {
     slug: '',
     content: '',
     excerpt: '',
-    stream: 'forever-form',
+    stream: 'atelier',
     featured_image_url: '',
     published: false,
     meta_description: '',
@@ -137,7 +137,7 @@ export default function AdminBlog() {
       slug: '',
       content: '',
       excerpt: '',
-      stream: 'forever-form',
+      stream: 'atelier',
       featured_image_url: '',
       published: false,
       meta_description: '',
@@ -285,9 +285,9 @@ export default function AdminBlog() {
                   value={formData.stream}
                   onChange={(e) => handleFormChange('stream', e.target.value)}
                 >
-                  <option value="forever-form">Forever Form</option>
+                  <option value="studio">Studio</option>
                   <option value="games-room">The Games Room</option>
-                  <option value="studio">Studio &amp; Process</option>
+                  <option value="atelier">Atelier Commissions</option>
                 </select>
               </div>
               <div className={styles.formGroup}>
