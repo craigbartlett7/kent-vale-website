@@ -24,7 +24,7 @@ export default function InspirationGallery() {
     : items.filter(item => item.collection === activeFilter);
 
   const collectionLabel = (collection) => {
-    if (collection === 'forever-form') return 'Forever Form';
+    if (collection === 'forever-form' || collection === 'atelier') return 'Atelier Commissions';
     if (collection === 'games-room') return 'The Games Room';
     if (collection === 'studio') return 'Studio';
     return collection;
@@ -80,10 +80,10 @@ export default function InspirationGallery() {
             All
           </button>
           <button
-            className={activeFilter === 'forever-form' ? styles.filterActive : ''}
-            onClick={() => setActiveFilter('forever-form')}
+            className={activeFilter === 'studio' ? styles.filterActive : ''}
+            onClick={() => setActiveFilter('studio')}
           >
-            Forever Form
+            Studio
           </button>
           <button
             className={activeFilter === 'games-room' ? styles.filterActive : ''}
@@ -92,10 +92,10 @@ export default function InspirationGallery() {
             The Games Room
           </button>
           <button
-            className={activeFilter === 'studio' ? styles.filterActive : ''}
-            onClick={() => setActiveFilter('studio')}
+            className={activeFilter === 'atelier' ? styles.filterActive : ''}
+            onClick={() => setActiveFilter('atelier')}
           >
-            Studio
+            Atelier Commissions
           </button>
         </div>
 
