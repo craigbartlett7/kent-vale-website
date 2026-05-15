@@ -32,13 +32,12 @@ export default function RootLayout({ children }) {
             KENT <span style={{fontFamily: "'Didot', 'Georgia', serif", fontWeight: 400, color: 'var(--brass)'}}>&</span> VALE
           </Link>
           <ul className={styles.navLinks}>
-            <li><Link href="/forever-form">Forever Form</Link></li>
+            <li><Link href="/studio">Studio</Link></li>
             <li><Link href="/the-games-room">The Games Room</Link></li>
+            <li><Link href="/atelier-commissions">Atelier</Link></li>
             <li><Link href="/inspiration-gallery">Gallery</Link></li>
-            <li><Link href="/process">Process</Link></li>
-            <li><Link href="/pricing">Pricing</Link></li>
             <li><Link href="/about">About</Link></li>
-            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/journal">Journal</Link></li>
             <li><Link href="/contact">Contact</Link></li>
             <li><Link href="/london-marathon-2026" style={{ color: 'var(--brass)' }}>Marathon 2026</Link></li>
           </ul>
@@ -59,7 +58,7 @@ export default function RootLayout({ children }) {
               <div>
                 <p className={styles.footerLabel}>Navigation</p>
                 <p className={styles.footerLinks}>
-                  <Link href="/">Home</Link> • <Link href="/forever-form">Forever Form</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/process">Process</Link> • <Link href="/pricing">Pricing</Link> • <Link href="/about">About</Link> • <Link href="/blog">Blog</Link> • <Link href="/contact">Contact</Link>
+                  <Link href="/">Home</Link> • <Link href="/studio">Studio</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/atelier-commissions">Atelier Commissions</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/about">About</Link> • <Link href="/journal">Journal</Link> • <Link href="/contact">Contact</Link>
                 </p>
               </div>
               

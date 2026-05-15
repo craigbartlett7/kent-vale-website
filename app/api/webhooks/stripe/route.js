@@ -4,7 +4,6 @@ import { supabase } from '@/lib/supabase';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Required: raw body for Stripe signature verification
 export const runtime = 'nodejs';
 
 export async function POST(request) {
@@ -31,24 +30,40 @@ export async function POST(request) {
       country: meta.country,
     };
 
-    const { error } = await supabase.from('orders').insert({
+    const isProductOrder = meta.collection && meta.collection !== 'marathon';
+
+    const orderData = {
       stripe_session_id: session.id,
       stripe_payment_intent_id: session.payment_intent,
       status: 'paid',
       customer_name: meta.customer_name,
       customer_email: meta.customer_email || session.customer_email,
-      finish_time: meta.finish_time,
-      race_year: meta.race_year,
-      product: meta.product,
-      amount_gbp: 500,
       delivery_address: deliveryAddress,
-      special_instructions: meta.special_instructions || null,
-    });
+      product: meta.product,
+    };
 
-    if (error) {
-      console.error('Supabase order insert error:', error);
-      // Return 200 so Stripe doesn't retry — log the issue separately
+    if (isProductOrder) {
+      // Studio or Games Room product order
+      orderData.collection = meta.collection;
+      orderData.product_name = meta.product_name;
+      orderData.product_slug = meta.product;
+      orderData.wood_choice = meta.wood_choice;
+      orderData.favourite_colours = meta.favourite_colours;
+      orderData.craftsmen_notes = meta.craft_note;
+      orderData.total_amount = parseInt(meta.total_amount || 0);
+      orderData.deposit_amount = parseInt(meta.deposit_amount || 0);
+      orderData.amount_gbp = Math.round(parseInt(meta.deposit_amount || 0) / 100);
+      orderData.add_ons = meta.legs_addon === 'yes' ? { legs: true } : {};
+    } else {
+      // Marathon keepsake order
+      orderData.finish_time = meta.finish_time;
+      orderData.race_year = meta.race_year;
+      orderData.amount_gbp = 500;
+      orderData.special_instructions = meta.special_instructions || null;
     }
+
+    const { error } = await supabase.from('orders').insert(orderData);
+    if (error) console.error('Supabase order insert error:', error);
   }
 
   return NextResponse.json({ received: true });

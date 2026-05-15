@@ -17,6 +17,7 @@ export default function AdminDashboard() {
     totalBlogPosts: 0,
     totalGalleryItems: 0,
     totalOrders: 0,
+    totalProducts: 0,
   });
   const [loading, setLoading] = useState(true);
   const [recentEnquiries, setRecentEnquiries] = useState([]);
@@ -60,6 +61,12 @@ export default function AdminDashboard() {
         .from('orders')
         .select('*', { count: 'exact', head: true });
 
+      // Get products count
+      const { count: totalProducts } = await supabase
+        .from('products')
+        .select('*', { count: 'exact', head: true })
+        .eq('active', true);
+
       // Get recent enquiries
       const { data: recent } = await supabase
         .from('enquiries')
@@ -73,6 +80,7 @@ export default function AdminDashboard() {
         totalBlogPosts: totalBlogPosts || 0,
         totalGalleryItems: totalGalleryItems || 0,
         totalOrders: totalOrders || 0,
+        totalProducts: totalProducts || 0,
       });
 
       setRecentEnquiries(recent || []);
@@ -131,6 +139,10 @@ export default function AdminDashboard() {
           <p className={styles.statLabel}>Orders</p>
           <p className={styles.statValue}>{stats.totalOrders}</p>
         </div>
+        <div className={styles.statCard}>
+          <p className={styles.statLabel}>Active Products</p>
+          <p className={styles.statValue}>{stats.totalProducts}</p>
+        </div>
       </div>
 
       {/* Navigation */}
@@ -159,7 +171,12 @@ export default function AdminDashboard() {
           </Link>
           <Link href="/admin/orders" className={styles.navCard}>
             <h3>Orders</h3>
-            <p>Marathon keepsake orders and fulfilment</p>
+            <p>All orders — Studio, Games Room, Marathon</p>
+            <span>→</span>
+          </Link>
+          <Link href="/admin/products" className={styles.navCard}>
+            <h3>Products</h3>
+            <p>Manage Studio and Games Room catalogue</p>
             <span>→</span>
           </Link>
           <Link href="/admin/settings" className={styles.navCard}>

@@ -123,7 +123,7 @@ export default function AdminOrders() {
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
               <thead>
                 <tr style={{ borderBottom: '2px solid rgba(184,181,174,0.4)' }}>
-                  {['Date', 'Name', 'Finish Time', 'Status', 'Email', 'Actions'].map(h => (
+                  {['Date', 'Type', 'Name', 'Detail', 'Status', 'Email', 'Actions'].map(h => (
                     <th key={h} style={{
                       padding: '0.75rem 1rem',
                       textAlign: 'left',
@@ -154,15 +154,26 @@ export default function AdminOrders() {
                         onClick={() => setExpandedId(isExpanded ? null : order.id)}
                       >
                         <td style={{ padding: '0.85rem 1rem', color: '#555', whiteSpace: 'nowrap' }}>
-                          {new Date(order.created_at).toLocaleDateString('en-GB', {
-                            day: 'numeric', month: 'short', year: 'numeric'
-                          })}
+                          {new Date(order.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                        </td>
+                        <td style={{ padding: '0.85rem 1rem' }}>
+                          <span style={{
+                            fontSize: '0.72rem',
+                            fontFamily: 'var(--sans)',
+                            letterSpacing: '0.08em',
+                            textTransform: 'uppercase',
+                            color: order.collection === 'studio' ? '#1565c0' : order.collection === 'games-room' ? '#2e7d32' : '#b45309',
+                            background: order.collection === 'studio' ? '#e3f2fd' : order.collection === 'games-room' ? '#e8f5e9' : '#fef3c7',
+                            padding: '0.2rem 0.6rem',
+                          }}>
+                            {order.collection === 'studio' ? 'Studio' : order.collection === 'games-room' ? 'Games Room' : 'Marathon'}
+                          </span>
                         </td>
                         <td style={{ padding: '0.85rem 1rem', fontWeight: 500, color: 'var(--charcoal)' }}>
                           {order.customer_name || '—'}
                         </td>
-                        <td style={{ padding: '0.85rem 1rem', color: '#555', fontFamily: 'monospace' }}>
-                          {order.finish_time || '—'}
+                        <td style={{ padding: '0.85rem 1rem', color: '#555', fontSize: '0.85rem' }}>
+                          {order.product_name || order.finish_time || '—'}
                         </td>
                         <td style={{ padding: '0.85rem 1rem' }}>
                           <span style={{
@@ -216,6 +227,30 @@ export default function AdminOrders() {
                                 <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#999', marginBottom: '0.25rem' }}>Stripe Session</p>
                                 <p style={{ fontSize: '0.75rem', color: '#888', wordBreak: 'break-all' }}>{order.stripe_session_id || '—'}</p>
                               </div>
+                              {order.wood_choice && (
+                                <div>
+                                  <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#999', marginBottom: '0.25rem' }}>Timber</p>
+                                  <p style={{ fontSize: '0.875rem', color: '#444' }}>{order.wood_choice}</p>
+                                </div>
+                              )}
+                              {order.favourite_colours && (
+                                <div>
+                                  <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#999', marginBottom: '0.25rem' }}>Favourite Colours</p>
+                                  <p style={{ fontSize: '0.875rem', color: '#444' }}>{order.favourite_colours}</p>
+                                </div>
+                              )}
+                              {order.craftsmen_notes && (
+                                <div>
+                                  <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#999', marginBottom: '0.25rem' }}>Notes for Craftsmen</p>
+                                  <p style={{ fontSize: '0.875rem', color: '#444', lineHeight: 1.6 }}>{order.craftsmen_notes}</p>
+                                </div>
+                              )}
+                              {order.deposit_amount && (
+                                <div>
+                                  <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#999', marginBottom: '0.25rem' }}>Deposit / Total</p>
+                                  <p style={{ fontSize: '0.875rem', color: '#444' }}>£{(order.deposit_amount/100).toLocaleString()} deposit · £{(order.total_amount/100).toLocaleString()} total</p>
+                                </div>
+                              )}
                               {order.special_instructions && (
                                 <div>
                                   <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#999', marginBottom: '0.25rem' }}>Special Instructions</p>

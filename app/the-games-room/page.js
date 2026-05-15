@@ -1,158 +1,142 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import styles from '../forever-form/collection.module.css';
-import { getGalleryItems } from '@/lib/supabase';
+import { getProducts } from '@/lib/supabase';
 
-export default function TheGamesRoom() {
-  const [galleryItems, setGalleryItems] = useState([]);
+export const dynamic = 'force-dynamic';
 
-  useEffect(() => {
-    getGalleryItems('games-room').then(data => setGalleryItems(data.slice(0, 4)));
-  }, []);
+export const metadata = {
+  title: 'The Games Room — Kent & Vale',
+  description: 'Hand-crafted chess boards and game boards built in English timber and resin. Made to order from our studio in Kent — each one singular, each one yours.',
+};
 
-  const categories = [
-    {
-      name: 'Strategy',
-      description: 'Chess. Backgammon. Go. Draughts. Reversi. The classics made in resin and wood to proportions that feel right.',
-    },
-    {
-      name: 'Social & Play',
-      description: 'Dominoes. Cards. Poker. Mahjong. Dice. Games for gathering, built with confidence they\'ll be played often.',
-    },
-    {
-      name: 'Collector Editions',
-      description: 'Sculptural boards. Limited editions. Artist collaborations. Made as art as much as they\'re made for play.',
-    },
-    {
-      name: 'Family Heirlooms',
-      description: 'Bespoke games designed for your family. Initials, monograms, family colours. A game board becomes a family story.',
-    },
-    {
-      name: 'Entertaining',
-      description: 'Bar games. Terrace pieces. Coffee table sets. Games for the spaces where people gather.',
-    },
-    {
-      name: 'Personalised Commissions',
-      description: 'A chess set inspired by your home. A board with colours meaningful to you. Your game, made permanent.',
-    },
-  ];
+export default async function GamesRoom() {
+  const products = await getProducts('games-room');
 
   return (
-    <div>
-      {/* Hero */}
-      <section className={styles.hero + ' ' + styles.gamesRoomHero}>
-        <div className={styles.heroContent}>
-          <p className={styles.label}>The Games Room</p>
-          <h1>Bespoke Game Boards Built to Last Lifetimes</h1>
-          <p className={styles.subtitle}>
-            Chess sets, backgammon boards, leisure pieces made for play, display, and inheritance. The finest game you'll ever own.
+    <div style={{ background: 'var(--ivory)', minHeight: '100vh' }}>
+
+      {/* Header */}
+      <div style={{ background: 'var(--forest)', paddingTop: '120px', paddingBottom: '5rem', padding: '120px 2rem 5rem' }}>
+        <div style={{ maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1.5rem' }}>
+            The Games Room
+          </p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 400, color: 'var(--ivory)', lineHeight: 1.15, marginBottom: '1.5rem' }}>
+            Playing boards built to<br />outlast the game.
+          </h1>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '1rem', color: 'rgba(244,241,234,0.75)', lineHeight: 1.9, maxWidth: '540px' }}>
+            Each board is made to order in English timber and poured resin — a playing surface that is also a piece of furniture. No two alike. Every grain, every pour, entirely your own.
           </p>
         </div>
-      </section>
+      </div>
 
-      {/* Categories */}
-      <section className={styles.categoriesSection}>
-        <div className="container">
-          <p style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '1.05rem', lineHeight: '1.8' }}>
-            Every board in The Games Room is made to be played. Some are never touched. All are worth keeping.
+      {/* How it works */}
+      <div style={{ background: 'white', padding: '4rem 2rem', borderBottom: '1px solid rgba(184,181,174,0.2)' }}>
+        <div style={{ maxWidth: '860px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+          {[
+            { n: '01', t: 'Choose your board', d: 'Home or competition squares. Optional legs to make it a freestanding side table.' },
+            { n: '02', t: 'Configure it', d: 'Choose your timber, share your colour preferences, and leave any notes for our craftsmen.' },
+            { n: '03', t: 'Place a 50% deposit', d: "Your board enters the making queue. We'll send an artist's impression within five working days." },
+            { n: '04', t: 'Delivery', d: 'Balance due by bank transfer prior to shipping. Lead time 8–12 weeks from deposit.' },
+          ].map((s, i) => (
+            <div key={i}>
+              <p style={{ fontFamily: 'var(--serif)', fontSize: '1.3rem', color: 'var(--forest)', marginBottom: '0.4rem', lineHeight: 1 }}>{s.n}</p>
+              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 500, color: 'var(--charcoal)', marginBottom: '0.3rem' }}>{s.t}</p>
+              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.82rem', color: '#666', lineHeight: 1.6 }}>{s.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Product range */}
+      <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '5rem 2rem' }}>
+        <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '3rem', textAlign: 'center' }}>
+          Chess Boards
+        </p>
+
+        {products.length === 0 ? (
+          <p style={{ textAlign: 'center', fontFamily: 'var(--sans)', color: '#888', fontSize: '0.95rem' }}>
+            The Games Room range is being updated — check back soon.
           </p>
-
-          <div className={styles.categoriesGrid}>
-            {categories.map((cat, idx) => (
-              <div key={idx} className={styles.categoryCard}>
-                <h3>{cat.name}</h3>
-                <p>{cat.description}</p>
-              </div>
+        ) : (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
+            {products.map(product => (
+              <Link key={product.id} href={`/the-games-room/${product.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div
+                  style={{ background: 'white', border: '1px solid rgba(184,181,174,0.25)', overflow: 'hidden', transition: 'box-shadow 0.3s ease' }}
+                  onMouseEnter={e => e.currentTarget.style.boxShadow = '0 8px 30px rgba(26,26,26,0.1)'}
+                  onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
+                >
+                  <div style={{ height: '260px', background: '#e8f0ea', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                    {product.image_url ? (
+                      <img src={product.image_url} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : (
+                      <p style={{ fontFamily: 'var(--serif)', fontSize: '0.8rem', color: 'rgba(42,74,60,0.3)', fontStyle: 'italic' }}>Image coming soon</p>
+                    )}
+                  </div>
+                  <div style={{ padding: '1.5rem' }}>
+                    <h2 style={{ fontFamily: 'var(--serif)', fontSize: '1.1rem', fontWeight: 400, color: 'var(--charcoal)', marginBottom: '0.25rem' }}>
+                      {product.name}
+                    </h2>
+                    {product.dimensions && (
+                      <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', color: '#888', marginBottom: '0.5rem' }}>{product.dimensions}</p>
+                    )}
+                    {product.description && (
+                      <p style={{ fontFamily: 'var(--sans)', fontSize: '0.83rem', color: '#666', lineHeight: 1.6, marginBottom: '0.75rem' }}>
+                        {product.description}
+                      </p>
+                    )}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', color: 'var(--brass)', fontWeight: 500 }}>
+                        From £{(product.base_price / 100).toLocaleString()}
+                        {product.allow_legs_addon && (
+                          <span style={{ fontSize: '0.75rem', color: '#999', fontWeight: 400 }}> · legs +£{((product.legs_addon_price || 20000) / 100).toLocaleString()}</span>
+                        )}
+                      </p>
+                      <p style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', color: '#aaa', letterSpacing: '0.1em' }}>
+                        {product.lead_time}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
-        </div>
-      </section>
+        )}
 
-      {/* Value Proposition */}
-      <section className={styles.valueSection}>
-        <div className="container">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Why The Games Room?</h2>
-
-          <div className={styles.valueGrid}>
-            <div className={styles.valueCard}>
-              <h3>They're Actually Playable</h3>
-              <p>Not wall art. Not conversation pieces that sit unwrapped. Games you'll actually use. Pieces calibrated to feel right, weigh right, move right.</p>
-            </div>
-
-            <div className={styles.valueCard}>
-              <h3>Designed for Permanence</h3>
-              <p>Materials chosen for durability and beauty. Pieces your grandchildren will argue over. Built with the assumption of decades, not seasons.</p>
-            </div>
-
-            <div className={styles.valueCard}>
-              <h3>Investment-Grade Craftsmanship</h3>
-              <p>Many hours per piece. Finish details that justify the price. We don't make decorative games. We make games that deserve to be kept forever.</p>
-            </div>
+        {/* Other games note */}
+        <div style={{ marginTop: '4rem', padding: '2.5rem', background: 'white', border: '1px solid rgba(184,181,174,0.25)', display: 'grid', gridTemplateColumns: '1fr auto', gap: '2rem', alignItems: 'center' }}>
+          <div>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--forest)', marginBottom: '0.5rem' }}>
+              Beyond Chess
+            </p>
+            <p style={{ fontFamily: 'var(--serif)', fontSize: '1.1rem', fontWeight: 400, color: 'var(--charcoal)', marginBottom: '0.5rem', lineHeight: 1.4 }}>
+              Backgammon, Go, and other games
+            </p>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.875rem', color: '#555', lineHeight: 1.7 }}>
+              We also make boards for backgammon, Go, and other games. These are available as bespoke commissions — speak to us about what you have in mind.
+            </p>
           </div>
+          <Link href="/contact" style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '0.8rem 1.6rem', background: 'var(--charcoal)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', textDecoration: 'none', flexShrink: 0 }}>
+            Get in Touch →
+          </Link>
         </div>
-      </section>
 
-      {/* Gallery Preview */}
-      <section className={styles.galleryPreview}>
-        <div className="container">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>The Games Room in Play</h2>
-
-          {galleryItems.length > 0 ? (
-            <div className={styles.galleryGrid}>
-              {galleryItems.map(item => (
-                <Link
-                  key={item.id}
-                  href="/inspiration-gallery"
-                  className={styles.galleryPlaceholder}
-                  style={{ textDecoration: 'none', display: 'block', overflow: 'hidden' }}
-                >
-                  <img
-                    src={item.image_url}
-                    alt={item.image_alt_text || item.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
-                    onMouseEnter={e => e.target.style.transform = 'scale(1.03)'}
-                    onMouseLeave={e => e.target.style.transform = 'scale(1)'}
-                  />
-                </Link>
-              ))}
-            </div>
-          ) : (
-            <div className={styles.galleryGrid}>
-              {[1,2,3,4].map(n => (
-                <div key={n} className={styles.galleryPlaceholder}>
-                  <p>Coming soon</p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <Link href="/inspiration-gallery" className="button primary">
-              Browse Full Gallery
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className={styles.ctaSection}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <h2>Commission a Board</h2>
-          <p style={{ fontSize: '1.05rem', marginBottom: '2rem' }}>
-            Whether you play seriously or you're a collector, let's talk about the board you imagine.
+        {/* Atelier upsell */}
+        <div style={{ marginTop: '2rem', padding: '3rem', background: '#1a1a18', textAlign: 'center' }}>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem' }}>
+            Want something more?
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <Link href="/enquiry?interest=games-room" className="button primary">
-              Start a Commission
-            </Link>
-            <Link href="/inspiration-gallery" className="button">
-              Browse All Boards
-            </Link>
-          </div>
+          <h3 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', fontWeight: 400, color: 'var(--ivory)', marginBottom: '1rem', lineHeight: 1.3 }}>
+            Any board can become an heirloom commission.
+          </h3>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', color: 'var(--stone)', lineHeight: 1.8, maxWidth: '480px', margin: '0 auto 2rem' }}>
+            Incorporate meaningful objects — a wedding ring, a coin, family artefacts — cast directly into the board. The game is the same. The object becomes irreplaceable.
+          </p>
+          <Link href="/atelier-commissions" style={{ display: 'inline-block', padding: '0.9rem 2rem', border: '1px solid rgba(184,181,174,0.35)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>
+            Learn About Atelier →
+          </Link>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
