@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 
 const COLLECTIONS = ['studio', 'games-room'];
@@ -47,6 +48,8 @@ function slugify(str) {
 }
 
 export default function AdminProducts() {
+  const router = useRouter();
+  const errorRef = useRef(null);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState(EMPTY_FORM);
@@ -59,18 +62,33 @@ export default function AdminProducts() {
   const [success, setSuccess] = useState('');
 
   useEffect(() => {
+    const token = localStorage.getItem('admin_token');
+    if (!token) {
+      router.push('/admin/login');
+      return;
+    }
     fetchProducts();
   }, []);
 
   const fetchProducts = async () => {
     setLoading(true);
-    const { data } = await supabase
+    const { data, error: fetchErr } = await supabase
       .from('products')
       .select('*')
       .order('collection')
       .order('display_order');
+    if (fetchErr) {
+      console.error('Error fetching products:', fetchErr);
+      setError(`Could not load products: ${fetchErr.message}. Have you run the products SQL in Supabase?`);
+    }
     if (data) setProducts(data);
     setLoading(false);
+  };
+
+  const showError = (msg) => {
+    setError(msg);
+    // Scroll to error after React has rendered it
+    setTimeout(() => errorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
   };
 
   const handleChange = (e) => {
@@ -129,7 +147,7 @@ export default function AdminProducts() {
     setSaving(true);
 
     if (!form.name || !form.slug || !form.base_price) {
-      setError('Name, slug and base price are required.');
+      showError('Name, slug and base price are required.');
       setSaving(false);
       return;
     }
@@ -158,7 +176,8 @@ export default function AdminProducts() {
     }
 
     if (result.error) {
-      setError(result.error.message);
+      console.error('Supabase insert/update error:', result.error);
+      showError(`Save failed: ${result.error.message}`);
       setSaving(false);
       return;
     }
@@ -189,7 +208,7 @@ export default function AdminProducts() {
   const fmt = (pence) => pence ? `£${(pence / 100).toLocaleString()}` : '—';
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '1100px', margin: '0 auto', fontFamily: 'var(--sans)' }}>
+    <div style={{ padding: '120px 2rem 2rem', maxWidth: '1100px', margin: '0 auto', fontFamily: 'var(--sans)' }}>
 
       {/* Page header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
@@ -212,6 +231,13 @@ export default function AdminProducts() {
       {success && (
         <div style={{ padding: '0.9rem 1.2rem', background: '#e8f5e9', border: '1px solid #a5d6a7', color: '#2e7d32', fontSize: '0.875rem', marginBottom: '1.5rem' }}>
           {success}
+        </div>
+      )}
+
+      {/* Top-level error banner (shown when form is not open, e.g. load errors) */}
+      {error && !showForm && (
+        <div style={{ padding: '1rem 1.2rem', background: '#fff0f0', border: '2px solid rgba(200,80,80,0.5)', color: '#c00', fontSize: '0.875rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+          <strong>Error:</strong> {error}
         </div>
       )}
 
@@ -305,8 +331,8 @@ export default function AdminProducts() {
             </div>
 
             {error && (
-              <div style={{ padding: '0.9rem 1.2rem', background: '#fff0f0', border: '1px solid rgba(200,80,80,0.3)', color: '#c00', fontSize: '0.875rem', marginBottom: '1.25rem' }}>
-                {error}
+              <div ref={errorRef} style={{ padding: '1rem 1.2rem', background: '#fff0f0', border: '2px solid rgba(200,80,80,0.5)', color: '#c00', fontSize: '0.875rem', marginBottom: '1.25rem', lineHeight: 1.5 }}>
+                <strong>Error:</strong> {error}
               </div>
             )}
 
