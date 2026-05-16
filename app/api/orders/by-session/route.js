@@ -11,7 +11,7 @@ export async function GET(request) {
 
   const { data, error } = await supabase
     .from('orders')
-    .select('order_number, customer_name, finish_time, race_year, status')
+    .select('order_number, customer_name, finish_time, race_year, status, payment_type')
     .eq('stripe_session_id', sessionId)
     .single();
 
@@ -26,5 +26,6 @@ export async function GET(request) {
     customerName: data.customer_name,
     finishTime: data.finish_time,
     raceYear: data.race_year,
+    paymentType: data.payment_type || 'deposit',
   });
 }

@@ -45,6 +45,7 @@ export async function POST(request) {
     if (isProductOrder) {
       // Studio or Games Room product order
       orderData.collection = meta.collection;
+      orderData.payment_type = meta.payment_type || 'deposit';
       orderData.product_name = meta.product_name;
       orderData.product_slug = meta.product;
       orderData.wood_choice = meta.wood_choice;

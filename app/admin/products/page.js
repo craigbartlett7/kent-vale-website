@@ -9,6 +9,7 @@ const EMPTY_FORM = {
   name: '',
   slug: '',
   collection: 'studio',
+  payment_type: 'deposit',
   description: '',
   dimensions: '',
   base_price: '',
@@ -98,6 +99,7 @@ export default function AdminProducts() {
       name: product.name || '',
       slug: product.slug || '',
       collection: product.collection || 'studio',
+      payment_type: product.payment_type || 'deposit',
       description: product.description || '',
       dimensions: product.dimensions || '',
       base_price: product.base_price ? String(product.base_price) : '',
@@ -136,6 +138,7 @@ export default function AdminProducts() {
       name: form.name.trim(),
       slug: form.slug.trim(),
       collection: form.collection,
+      payment_type: form.payment_type,
       description: form.description.trim() || null,
       dimensions: form.dimensions.trim() || null,
       base_price: parseInt(form.base_price),
@@ -231,7 +234,7 @@ export default function AdminProducts() {
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
               <div>
                 <label style={labelStyle}>Collection *</label>
                 <select style={inputStyle} name="collection" value={form.collection} onChange={handleChange}>
@@ -239,6 +242,16 @@ export default function AdminProducts() {
                   <option value="games-room">The Games Room</option>
                 </select>
               </div>
+              <div>
+                <label style={labelStyle}>Payment Type *</label>
+                <select style={inputStyle} name="payment_type" value={form.payment_type} onChange={handleChange}>
+                  <option value="deposit">50% Deposit — balance prior to delivery</option>
+                  <option value="full">Full Payment — pay in full at checkout</option>
+                </select>
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
               <div>
                 <label style={labelStyle}>Base Price (pence) * <span style={{ fontWeight: 300, letterSpacing: 0, textTransform: 'none', color: '#aaa' }}>e.g. 120000 = £1,200</span></label>
                 <input style={inputStyle} name="base_price" type="number" value={form.base_price} onChange={handleChange} required placeholder="120000" />
@@ -330,7 +343,7 @@ export default function AdminProducts() {
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
             <thead>
               <tr style={{ borderBottom: '2px solid rgba(184,181,174,0.4)' }}>
-                {['Order', 'Name', 'Collection', 'Price', 'Deposit', 'Lead Time', 'Status', 'Actions'].map(h => (
+                {['Order', 'Name', 'Collection', 'Price', 'Payment', 'Lead Time', 'Status', 'Actions'].map(h => (
                   <th key={h} style={{ padding: '0.75rem 1rem', textAlign: 'left', fontWeight: 500, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#888', whiteSpace: 'nowrap' }}>
                     {h}
                   </th>
@@ -368,8 +381,17 @@ export default function AdminProducts() {
                       </p>
                     )}
                   </td>
-                  <td style={{ padding: '0.85rem 1rem', color: '#555' }}>
-                    {product.base_price ? fmt(Math.round(product.base_price / 2)) : '—'}
+                  <td style={{ padding: '0.85rem 1rem' }}>
+                    <span style={{
+                      fontSize: '0.72rem',
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      padding: '0.2rem 0.6rem',
+                      background: product.payment_type === 'full' ? '#e8eaf6' : '#fff8e1',
+                      color: product.payment_type === 'full' ? '#283593' : '#e65100',
+                    }}>
+                      {product.payment_type === 'full' ? 'Full' : '50% Deposit'}
+                    </span>
                   </td>
                   <td style={{ padding: '0.85rem 1rem', color: '#555', fontSize: '0.83rem' }}>
                     {product.lead_time || '—'}

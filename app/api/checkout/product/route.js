@@ -35,23 +35,26 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
 
+    const isFullPayment = product.payment_type === 'full';
     const legsAddonAmount = legsAddon && product.allow_legs_addon ? (product.legs_addon_price || 20000) : 0;
     const totalPence = product.base_price + legsAddonAmount;
     const depositPence = Math.round(totalPence / 2);
+    const chargePence = isFullPayment ? totalPence : depositPence;
 
     const fullName = `${firstName} ${lastName}`.trim();
-    const addOns = legsAddon ? [{ name: 'Legs add-on', price: legsAddonAmount }] : [];
 
     const lineItems = [
       {
         price_data: {
           currency: 'gbp',
           product_data: {
-            name: `${product.name} — 50% Deposit`,
-            description: `${woodChoice} · Made to order · Balance due prior to delivery`,
+            name: isFullPayment ? product.name : `${product.name} — 50% Deposit`,
+            description: isFullPayment
+              ? `${woodChoice} · Made to order · Full payment`
+              : `${woodChoice} · Made to order · Balance due prior to delivery`,
             images: product.image_url ? [product.image_url] : [],
           },
-          unit_amount: depositPence,
+          unit_amount: chargePence,
         },
         quantity: 1,
       },
@@ -61,8 +64,8 @@ export async function POST(request) {
       lineItems.push({
         price_data: {
           currency: 'gbp',
-          product_data: { name: 'Legs Add-on — 50% Deposit' },
-          unit_amount: Math.round(legsAddonAmount / 2),
+          product_data: { name: isFullPayment ? 'Legs Add-on' : 'Legs Add-on — 50% Deposit' },
+          unit_amount: isFullPayment ? legsAddonAmount : Math.round(legsAddonAmount / 2),
         },
         quantity: 1,
       });
@@ -77,6 +80,7 @@ export async function POST(request) {
         product: product.slug,
         product_name: product.name,
         collection: product.collection,
+        payment_type: product.payment_type || 'deposit',
         customer_name: fullName,
         customer_email: email,
         wood_choice: woodChoice,
@@ -89,7 +93,7 @@ export async function POST(request) {
         postcode: postcode || '',
         country: country || 'GB',
         total_amount: totalPence,
-        deposit_amount: depositPence,
+        deposit_amount: isFullPayment ? totalPence : depositPence,
       },
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${product.collection === 'studio' ? 'studio' : 'the-games-room'}/order/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${product.collection === 'studio' ? 'studio' : 'the-games-room'}/${product.slug}?cancelled=1`,

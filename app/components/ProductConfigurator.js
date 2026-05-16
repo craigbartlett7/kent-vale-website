@@ -70,9 +70,11 @@ function ConfiguratorInner({ product }) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
+  const isFullPayment = product.payment_type === 'full';
   const legsPrice = product.allow_legs_addon ? (product.legs_addon_price || 20000) : 0;
   const totalPence = product.base_price + (form.legsAddon ? legsPrice : 0);
   const depositPence = Math.round(totalPence / 2);
+  const chargePence = isFullPayment ? totalPence : depositPence;
 
   const fmt = (pence) => `£${(pence / 100).toLocaleString()}`;
 
@@ -122,7 +124,8 @@ function ConfiguratorInner({ product }) {
             <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', color: 'var(--stone)', marginBottom: '0.5rem' }}>{product.dimensions}</p>
           )}
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', color: 'var(--brass)', letterSpacing: '0.1em' }}>
-            {fmt(product.base_price)}{product.allow_legs_addon && legsPrice > 0 ? ` — optional legs add-on +${fmt(legsPrice)}` : ''} · 50% deposit to order · Balance due prior to delivery
+            {fmt(product.base_price)}{product.allow_legs_addon && legsPrice > 0 ? ` — optional legs add-on +${fmt(legsPrice)}` : ''}
+            {isFullPayment ? ' · Full payment at checkout' : ' · 50% deposit to order · Balance due prior to delivery'}
           </p>
         </div>
       </div>
@@ -279,12 +282,20 @@ function ConfiguratorInner({ product }) {
             <div style={{ borderTop: '1px solid rgba(184,181,174,0.3)', paddingTop: '0.75rem', marginTop: '0.75rem', display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--sans)', fontSize: '0.9rem', fontWeight: 500, color: 'var(--charcoal)' }}>
               <span>Total</span><span>{fmt(totalPence)}</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--sans)', fontSize: '0.85rem', color: 'var(--brass)', marginTop: '0.4rem' }}>
-              <span>Deposit due today (50%)</span><span>{fmt(depositPence)}</span>
-            </div>
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.78rem', color: '#999', marginTop: '0.75rem', lineHeight: 1.5 }}>
-              The remaining balance of {fmt(depositPence)} is due by bank transfer prior to delivery. We will contact you with payment details when your piece is ready to ship.
-            </p>
+            {isFullPayment ? (
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--sans)', fontSize: '0.85rem', color: 'var(--brass)', marginTop: '0.4rem' }}>
+                <span>Due today (full payment)</span><span>{fmt(totalPence)}</span>
+              </div>
+            ) : (
+              <>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--sans)', fontSize: '0.85rem', color: 'var(--brass)', marginTop: '0.4rem' }}>
+                  <span>Deposit due today (50%)</span><span>{fmt(depositPence)}</span>
+                </div>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '0.78rem', color: '#999', marginTop: '0.75rem', lineHeight: 1.5 }}>
+                  The remaining balance of {fmt(depositPence)} is due by bank transfer prior to delivery. We will contact you with payment details when your piece is ready to ship.
+                </p>
+              </>
+            )}
           </div>
 
           {/* Legal */}
@@ -299,7 +310,7 @@ function ConfiguratorInner({ product }) {
           )}
 
           <button type="submit" disabled={submitting} style={{ width: '100%', padding: '1.1rem', background: submitting ? '#888' : 'var(--charcoal)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.875rem', letterSpacing: '0.2em', textTransform: 'uppercase', border: 'none', cursor: submitting ? 'not-allowed' : 'pointer' }}>
-            {submitting ? 'Redirecting to payment…' : `Pay Deposit — ${fmt(depositPence)}`}
+            {submitting ? 'Redirecting to payment…' : isFullPayment ? `Pay in Full — ${fmt(totalPence)}` : `Pay Deposit — ${fmt(depositPence)}`}
           </button>
         </form>
 
