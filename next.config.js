@@ -7,6 +7,13 @@ const nextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
+      // Non-www → www (fixes duplicate content / canonical issues)
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'kentandvale.com' }],
+        destination: 'https://www.kentandvale.com/:path*',
+        permanent: true,
+      },
       // Forever Form → Atelier Commissions
       {
         source: '/forever-form',

@@ -2,11 +2,14 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import '../styles/globals.css';
 import styles from './layout.module.css';
 import CookieBanner from './components/CookieBanner';
 import BackToTop from './components/BackToTop';
 import { Analytics } from '@vercel/analytics/next';
+
+const SITE_URL = 'https://www.kentandvale.com';
 
 const NAV_LINKS = [
   { href: '/studio', label: 'Studio' },
@@ -22,6 +25,8 @@ const NAV_LINKS = [
 export default function RootLayout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
+  const pathname = usePathname();
+  const canonicalUrl = `${SITE_URL}${pathname}`;
 
   return (
     <html lang="en">
@@ -30,6 +35,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Kent & Vale - Bespoke Objects of Permanence. Handmade resin and wood furniture, heirlooms, and game boards." />
         <title>Kent & Vale — Bespoke Objects of Permanence</title>
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
