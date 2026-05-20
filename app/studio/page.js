@@ -28,24 +28,6 @@ export default async function Studio() {
         </div>
       </div>
 
-      {/* How Studio works */}
-      <div style={{ background: 'white', padding: '4rem 2rem', borderBottom: '1px solid rgba(184,181,174,0.2)' }}>
-        <div style={{ maxWidth: '860px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-          {[
-            { n: '01', t: 'Choose your form', d: 'Browse the range of pieces below and select the one that fits your space.' },
-            { n: '02', t: 'Configure it', d: 'Choose your timber, share your colour palette, and leave notes for our craftsmen.' },
-            { n: '03', t: 'Place a 50% deposit', d: 'Your piece enters production. We\'ll send an artist\'s impression within five working days.' },
-            { n: '04', t: 'Delivery', d: 'Balance due by bank transfer prior to shipping. Lead time 8–12 weeks from deposit.' },
-          ].map((s, i) => (
-            <div key={i}>
-              <p style={{ fontFamily: 'var(--serif)', fontSize: '1.3rem', color: 'var(--forest)', marginBottom: '0.4rem', lineHeight: 1 }}>{s.n}</p>
-              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 500, color: 'var(--charcoal)', marginBottom: '0.3rem' }}>{s.t}</p>
-              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.82rem', color: '#666', lineHeight: 1.6 }}>{s.d}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Product range */}
       <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '5rem 2rem' }}>
         <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '3rem', textAlign: 'center' }}>
@@ -93,8 +75,26 @@ export default async function Studio() {
           </>
         )}
 
+        {/* How Studio works */}
+        <div style={{ marginTop: '5rem', background: 'white', padding: '3.5rem 2.5rem', borderTop: '1px solid rgba(184,181,174,0.2)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+            {[
+              { n: '01', t: 'Choose your form', d: 'Browse the range above and select the piece that fits your space.' },
+              { n: '02', t: 'Configure it', d: 'Choose your timber, share your colour palette, and leave notes for our craftsmen.' },
+              { n: '03', t: 'Place a 50% deposit', d: 'Your piece enters production. We\'ll send an artist\'s impression within five working days.' },
+              { n: '04', t: 'Delivery', d: 'Balance due by bank transfer prior to shipping. Lead time 8–12 weeks from deposit.' },
+            ].map((s, i) => (
+              <div key={i}>
+                <p style={{ fontFamily: 'var(--serif)', fontSize: '1.3rem', color: 'var(--forest)', marginBottom: '0.4rem', lineHeight: 1 }}>{s.n}</p>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 500, color: 'var(--charcoal)', marginBottom: '0.3rem' }}>{s.t}</p>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '0.82rem', color: '#666', lineHeight: 1.6 }}>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Atelier upsell */}
-        <div style={{ marginTop: '5rem', padding: '3rem', background: '#1a1a18', textAlign: 'center' }}>
+        <div style={{ marginTop: '2rem', padding: '3rem', background: '#1a1a18', textAlign: 'center' }}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem' }}>
             Want something more?
           </p>

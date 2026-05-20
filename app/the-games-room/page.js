@@ -29,24 +29,6 @@ export default async function GamesRoom() {
         </div>
       </div>
 
-      {/* How it works */}
-      <div style={{ background: 'white', padding: '4rem 2rem', borderBottom: '1px solid rgba(184,181,174,0.2)' }}>
-        <div style={{ maxWidth: '860px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-          {[
-            { n: '01', t: 'Choose your board', d: 'Home or competition squares. Optional legs to make it a freestanding side table.' },
-            { n: '02', t: 'Configure it', d: 'Choose your timber, share your colour preferences, and leave any notes for our craftsmen.' },
-            { n: '03', t: 'Place a 50% deposit', d: "Your board enters the making queue. We'll send an artist's impression within five working days." },
-            { n: '04', t: 'Delivery', d: 'Balance due by bank transfer prior to shipping. Lead time 8–12 weeks from deposit.' },
-          ].map((s, i) => (
-            <div key={i}>
-              <p style={{ fontFamily: 'var(--serif)', fontSize: '1.3rem', color: 'var(--forest)', marginBottom: '0.4rem', lineHeight: 1 }}>{s.n}</p>
-              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 500, color: 'var(--charcoal)', marginBottom: '0.3rem' }}>{s.t}</p>
-              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.82rem', color: '#666', lineHeight: 1.6 }}>{s.d}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Product range */}
       <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '5rem 2rem' }}>
         <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '3rem', textAlign: 'center' }}>
@@ -104,6 +86,24 @@ export default async function GamesRoom() {
           </div>
           </>
         )}
+
+        {/* How it works */}
+        <div style={{ marginTop: '5rem', background: 'white', padding: '3.5rem 2.5rem', borderTop: '1px solid rgba(184,181,174,0.2)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+            {[
+              { n: '01', t: 'Choose your board', d: 'Home or competition squares. Optional legs to make it a freestanding side table.' },
+              { n: '02', t: 'Configure it', d: 'Choose your timber, share your colour preferences, and leave any notes for our craftsmen.' },
+              { n: '03', t: 'Place a 50% deposit', d: "Your board enters the making queue. We'll send an artist's impression within five working days." },
+              { n: '04', t: 'Delivery', d: 'Balance due by bank transfer prior to shipping. Lead time 8–12 weeks from deposit.' },
+            ].map((s, i) => (
+              <div key={i}>
+                <p style={{ fontFamily: 'var(--serif)', fontSize: '1.3rem', color: 'var(--forest)', marginBottom: '0.4rem', lineHeight: 1 }}>{s.n}</p>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 500, color: 'var(--charcoal)', marginBottom: '0.3rem' }}>{s.t}</p>
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '0.82rem', color: '#666', lineHeight: 1.6 }}>{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Other games note */}
         <div style={{ marginTop: '4rem', padding: '2.5rem', background: 'white', border: '1px solid rgba(184,181,174,0.25)', display: 'grid', gridTemplateColumns: '1fr auto', gap: '2rem', alignItems: 'center' }}>
