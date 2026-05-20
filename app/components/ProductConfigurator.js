@@ -67,6 +67,7 @@ function ConfiguratorInner({ product }) {
   });
 
   const [woodInfoOpen, setWoodInfoOpen] = useState(true);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -130,12 +131,64 @@ function ConfiguratorInner({ product }) {
         </div>
       </div>
 
+      {/* Lightbox */}
+      {lightboxOpen && product.image_url && (
+        <div
+          onClick={() => setLightboxOpen(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 1000,
+            background: 'rgba(26,26,24,0.92)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: '2rem',
+            cursor: 'zoom-out',
+          }}
+        >
+          <button
+            onClick={() => setLightboxOpen(false)}
+            style={{
+              position: 'absolute', top: '1.25rem', right: '1.5rem',
+              background: 'none', border: 'none', color: 'rgba(244,241,234,0.7)',
+              fontSize: '1.75rem', lineHeight: 1, cursor: 'pointer', padding: '0.25rem 0.5rem',
+            }}
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <img
+            src={product.image_url}
+            alt={product.name}
+            onClick={e => e.stopPropagation()}
+            style={{
+              maxWidth: '100%', maxHeight: '90vh',
+              objectFit: 'contain',
+              boxShadow: '0 8px 40px rgba(0,0,0,0.5)',
+              cursor: 'default',
+            }}
+          />
+        </div>
+      )}
+
       <div style={{ maxWidth: '780px', margin: '0 auto', padding: '4rem 2rem' }}>
         {/* Product image and description */}
         {(product.image_url || product.description) && (
           <div style={{ display: 'grid', gridTemplateColumns: product.image_url ? '1fr 1fr' : '1fr', gap: '2rem', marginBottom: '3.5rem', alignItems: 'start' }}>
             {product.image_url && (
-              <img src={product.image_url} alt={product.name} style={{ width: '100%', display: 'block', boxShadow: '0 4px 20px rgba(26,26,26,0.1)' }} />
+              <div
+                onClick={() => setLightboxOpen(true)}
+                style={{ position: 'relative', cursor: 'zoom-in' }}
+                title="Click to enlarge"
+              >
+                <img src={product.image_url} alt={product.name} style={{ width: '100%', display: 'block', boxShadow: '0 4px 20px rgba(26,26,26,0.1)' }} />
+                <div style={{
+                  position: 'absolute', bottom: '0.6rem', right: '0.6rem',
+                  background: 'rgba(26,26,24,0.55)', color: 'rgba(244,241,234,0.9)',
+                  fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase',
+                  padding: '0.3rem 0.6rem', fontFamily: 'var(--sans)',
+                  pointerEvents: 'none',
+                }}>
+                  ⊕ Enlarge
+                </div>
+              </div>
             )}
             {product.description && (
               <div>
