@@ -1,6 +1,6 @@
 import { supabase } from '@/lib/supabase';
 
-const BASE_URL = 'https://kentandvale.com';
+const BASE_URL = 'https://www.kentandvale.com';
 
 export default async function sitemap() {
   const staticPages = [

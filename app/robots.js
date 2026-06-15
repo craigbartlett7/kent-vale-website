@@ -7,7 +7,7 @@ export default function robots() {
         disallow: '/admin',
       },
     ],
-    sitemap: 'https://kentandvale.com/sitemap.xml',
-    host: 'https://kentandvale.com',
+    sitemap: 'https://www.kentandvale.com/sitemap.xml',
+    host: 'https://www.kentandvale.com',
   };
 }
