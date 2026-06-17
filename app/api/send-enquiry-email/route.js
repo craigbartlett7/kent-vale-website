@@ -2,6 +2,7 @@
 // Email notification handler for new enquiries
 
 import { NextResponse } from 'next/server';
+import { sendAlertEmail } from '@/lib/email';
 
 export async function POST(req) {
   try {
@@ -34,7 +35,20 @@ This enquiry was submitted via the Kent & Vale website.
 Reply directly to ${email} to respond.
     `.trim();
 
-    // Option 1: Using SendGrid (recommended)
+    // Option 1: SiteGround SMTP via Nodemailer (primary — uses hello@kentandvale.com)
+    const smtpResult = await sendAlertEmail({
+      subject: `New Commission Enquiry from ${name}`,
+      text: emailContent,
+    });
+
+    if (smtpResult.success) {
+      return NextResponse.json(
+        { success: true, message: 'Email sent successfully' },
+        { status: 200 }
+      );
+    }
+
+    // Option 2: Using SendGrid (fallback, only runs if SMTP isn't configured/working)
     const sendGridApiKey = process.env.SENDGRID_API_KEY;
     const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 
@@ -80,7 +94,7 @@ Reply directly to ${email} to respond.
       }
     }
 
-    // Option 2: Using Resend (alternative)
+    // Option 3: Using Resend (alternative fallback)
     const resendApiKey = process.env.RESEND_API_KEY;
     if (resendApiKey && contactEmail) {
       try {
@@ -111,14 +125,14 @@ Reply directly to ${email} to respond.
       }
     }
 
-    // Option 3: Fallback - log to console (for development)
+    // Option 4: Fallback - log to console (for development)
     console.log('Email notification:', emailContent);
 
     return NextResponse.json(
-      { 
-        success: true, 
+      {
+        success: true,
         message: 'Enquiry received. Email notification queued.',
-        warning: 'Email service not configured. Please add SENDGRID_API_KEY or RESEND_API_KEY to environment variables.'
+        warning: 'Email service not configured. Please add SMTP_HOST/SMTP_PORT/SMTP_USER/SMTP_PASS (or SENDGRID_API_KEY/RESEND_API_KEY) to environment variables.'
       },
       { status: 200 }
     );
