@@ -78,6 +78,18 @@ const SHOWCASE_ITEMS = [
     label: 'The Games Room',
     name: 'Competition Chess Board',
   },
+  {
+    src: 'https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1778839102/60_x_40_side_table_hfdov7.png',
+    alt: '60cm x 40cm Side Table from the Kent & Vale Studio collection',
+    label: 'Studio',
+    name: '60cm x 40cm Side Table',
+  },
+  {
+    src: 'https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776413583/Dining_table_in_modern_luxury_interior2_lt4aum.png',
+    alt: 'Large Dining Table from the Kent & Vale Studio collection, shown in a modern luxury interior',
+    label: 'Studio',
+    name: 'Large Dining Table',
+  },
 ];
 
 export default function KentCountyShow2026() {
