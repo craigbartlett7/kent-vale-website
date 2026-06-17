@@ -19,7 +19,7 @@ const NAV_LINKS = [
   { href: '/about', label: 'About' },
   { href: '/journal', label: 'Journal' },
   { href: '/contact', label: 'Contact' },
-  { href: '/london-marathon-2026', label: 'Marathon 2026', brass: true },
+  { href: '/kent-county-show-2026', label: 'Kent County Show', brass: true },
 ];
 
 export default function RootLayout({ children }) {

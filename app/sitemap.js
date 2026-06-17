@@ -18,6 +18,7 @@ export default async function sitemap() {
     { url: `${BASE_URL}/terms`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/cookie-policy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/london-marathon-2026`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE_URL}/kent-county-show-2026`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   ];
 
   // Dynamic journal post pages
