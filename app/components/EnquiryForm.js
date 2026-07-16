@@ -142,7 +142,7 @@ export default function EnquiryForm({ title, subtitle }) {
               onChange={handleChange}
             >
               <option value="not-sure">Not sure yet</option>
-              <option value="forever-form">Forever Form (Heirloom Commissions)</option>
+              <option value="forever-form">Atelier (Heirloom Commissions)</option>
               <option value="games-room">The Games Room (Game Boards)</option>
               <option value="other">Other / General Enquiry</option>
             </select>
