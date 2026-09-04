@@ -56,7 +56,7 @@
   position: absolute;
   top: calc(100% + 12px);
   left: 50%;
-  transform: translateX(-50%) translateY(-6px);
+  transform: translateX(-50%) translateY(-4px);
   background: var(--charcoal);
   border: 1px solid rgba(194, 168, 120, 0.18);
   min-width: 220px;
@@ -67,7 +67,18 @@
   white-space: nowrap;
 }
 
+/* Transparent bridge over the gap so hover isn't lost between link and menu */
 .dropdownMenu::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background: transparent;
+}
+
+.dropdownMenu::after {
   content: '';
   position: absolute;
   top: -6px;
