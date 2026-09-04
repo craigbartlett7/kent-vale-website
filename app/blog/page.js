@@ -73,7 +73,7 @@ export default function Blog() {
                   <div className={styles.postMeta}>
                     {post.stream && (
                       <span style={{ textTransform: 'capitalize' }}>
-                        {post.stream === 'forever-form'
+                        {post.stream === 'forever-form' || post.stream === 'memories' ? 'Memories' : post.stream === 'forever-form'
                           ? 'Forever Form Stories'
                           : post.stream === 'games-room'
                           ? 'The Games Room Journal'

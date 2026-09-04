@@ -300,7 +300,7 @@ export default function KentCountyShow2026() {
                 desc: 'Handcrafted chess boards and game pieces, built as both objects of play and objects of display.',
               },
               {
-                title: 'Atelier Commissions',
+                title: 'Memories',
                 desc: 'Our fully bespoke heirloom pieces. Bring a photo or simply an idea — this is where we talk through what’s possible.',
               },
             ].map((item, idx) => (
@@ -508,7 +508,7 @@ export default function KentCountyShow2026() {
                 color: '#444',
                 marginBottom: '1.5rem',
               }}>
-                Bring your space, your ideas, or just a question, and spend ten minutes with us talking through what's possible — timber choices, sizing, lead times, or a fully bespoke Atelier commission.
+                Bring your space, your ideas, or just a question, and spend ten minutes with us talking through what's possible — timber choices, sizing, lead times, or a fully bespoke Memories commission.
               </p>
               <p style={{
                 fontFamily: 'var(--sans)',

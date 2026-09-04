@@ -99,13 +99,13 @@ export default async function Studio() {
             Want something more?
           </p>
           <h3 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)', fontWeight: 400, color: 'var(--ivory)', marginBottom: '1rem', lineHeight: 1.3 }}>
-            Any Studio piece can become an Atelier commission.
+            Any Studio piece can become a Memories commission.
           </h3>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', color: 'var(--stone)', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '480px', margin: '0 auto 2rem' }}>
             Incorporate wedding flowers, family heirlooms, a personal inscription, or any artefact that matters to you. The form is Studio — the soul is entirely yours.
           </p>
-          <Link href="/atelier-commissions" style={{ display: 'inline-block', padding: '0.9rem 2rem', border: '1px solid rgba(184,181,174,0.35)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>
-            Learn About Atelier →
+          <Link href="/memories" style={{ display: 'inline-block', padding: '0.9rem 2rem', border: '1px solid rgba(184,181,174,0.35)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>
+            Learn About Memories →
           </Link>
         </div>
       </div>

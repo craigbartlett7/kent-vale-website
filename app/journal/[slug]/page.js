@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
 }
 
 const streamLabel = (stream) => {
-  if (stream === 'forever-form' || stream === 'atelier') return 'Atelier Commissions';
+  if (stream === 'forever-form' || stream === 'atelier' || stream === 'memories') return 'Memories';
   if (stream === 'games-room') return 'The Games Room';
   if (stream === 'studio') return 'Studio';
   return stream;

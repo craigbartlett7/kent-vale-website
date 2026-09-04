@@ -16,7 +16,7 @@ export default function Journal() {
   const filtered = activeStream === 'all' ? posts : posts.filter(p => p.stream === activeStream);
 
   const streamLabel = (stream) => {
-    if (stream === 'forever-form' || stream === 'atelier') return 'Atelier Commissions';
+    if (stream === 'forever-form' || stream === 'atelier' || stream === 'memories') return 'Memories';
     if (stream === 'games-room') return 'The Games Room';
     if (stream === 'studio') return 'Studio';
     return stream;
@@ -35,7 +35,7 @@ export default function Journal() {
             { key: 'all', label: 'All' },
             { key: 'studio', label: 'Studio' },
             { key: 'games-room', label: 'The Games Room' },
-            { key: 'forever-form', label: 'Atelier Commissions' },
+            { key: 'forever-form', label: 'Memories' },
           ].map(({ key, label }) => (
             <button
               key={key}

@@ -14,7 +14,7 @@ const SITE_URL = 'https://www.kentandvale.com';
 const NAV_LINKS = [
   { href: '/studio', label: 'Studio' },
   { href: '/the-games-room', label: 'The Games Room' },
-  { href: '/atelier-commissions', label: 'Atelier' },
+  { href: '/memories', label: 'Memories' },
   { href: '/inspiration-gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
   { href: '/journal', label: 'Journal' },
@@ -109,7 +109,7 @@ export default function RootLayout({ children }) {
               <div>
                 <p className={styles.footerLabel}>Navigation</p>
                 <p className={styles.footerLinks}>
-                  <Link href="/">Home</Link> • <Link href="/studio">Studio</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/atelier-commissions">Atelier Commissions</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/about">About</Link> • <Link href="/journal">Journal</Link> • <Link href="/contact">Contact</Link>
+                  <Link href="/">Home</Link> • <Link href="/studio">Studio</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/memories">Memories</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/about">About</Link> • <Link href="/journal">Journal</Link> • <Link href="/contact">Contact</Link>
                 </p>
               </div>
 

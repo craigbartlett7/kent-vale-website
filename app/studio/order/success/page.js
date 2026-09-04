@@ -148,8 +148,8 @@ function SuccessContent() {
           <Link href="/studio" style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--stone)', textDecoration: 'none' }}>
             ← Back to Studio
           </Link>
-          <Link href="/atelier-commissions" style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--stone)', textDecoration: 'none' }}>
-            Explore Atelier Commissions →
+          <Link href="/memories" style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--stone)', textDecoration: 'none' }}>
+            Explore Memories →
           </Link>
         </div>
       </div>

@@ -4,14 +4,14 @@ import styles from './page.module.css';
 
 export const metadata = {
   title: 'Kent & Vale — Handmade in Kent, England',
-  description: 'Three collections. One studio. Kent & Vale makes design-led furniture, collector game boards, and ultra-bespoke Atelier commissions by hand in Kent, England.',
+  description: 'Three collections. One studio. Kent & Vale makes design-led furniture, collector game boards, and bespoke Memories commissions — including wedding flower preservation — by hand in Kent, England.',
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Kent & Vale',
-  description: 'Handmade furniture, collector game boards, and bespoke Atelier commissions from our studio in Kent, England.',
+  description: 'Handmade furniture, collector game boards, and bespoke Memories commissions from our studio in Kent, England.',
   url: 'https://kentandvale.com',
   email: 'hello@kentandvale.com',
   address: { '@type': 'PostalAddress', addressLocality: 'Sittingbourne', addressRegion: 'Kent', addressCountry: 'GB' },
@@ -96,21 +96,21 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Atelier Commissions */}
+        {/* Memories */}
         <div style={roomStyle('#1a1a18')}>
           <div style={panelStyle('#1a1a18')}>
-            <p style={eyebrow}>III — Atelier Commissions</p>
+            <p style={eyebrow}>III — Memories</p>
             <h2 style={roomHeading}>When a piece needs to carry<br />something irreplaceable inside it.</h2>
             <p style={{ ...roomBody(false), marginBottom: '1rem' }}>
               Wedding flowers set in resin. A grandfather's cufflinks embedded in a chess board. A dining table built around timber salvaged from a childhood home.
             </p>
             <p style={roomBody(false)}>
-              Atelier commissions are entirely bespoke and always begin with a conversation. There is no catalogue — only possibility.
+              Memories commissions are entirely bespoke and always begin with a conversation. There is no catalogue — only possibility.
             </p>
-            <Link href="/atelier-commissions" style={ghostCTA}>Begin a Conversation →</Link>
+            <Link href="/memories" style={ghostCTA}>Begin a Conversation →</Link>
           </div>
           <div style={{ overflow: 'hidden', minHeight: '320px' }}>
-            <img src="https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776414281/wedding_vow_preservation_block1_ir3xtt.png" alt="Kent & Vale Atelier — wedding vow preservation" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <img src="https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776414281/wedding_vow_preservation_block1_ir3xtt.png" alt="Kent & Vale Memories — wedding flower preservation" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
       </section>
@@ -119,7 +119,7 @@ export default function Home() {
         <div className="container">
           <h2 style={{ textAlign: 'center', marginBottom: '0.75rem' }}>How every piece begins</h2>
           <p style={{ textAlign: 'center', fontFamily: 'var(--sans)', fontSize: '0.95rem', color: 'var(--stone)', marginBottom: '3rem', lineHeight: 1.7 }}>
-            Whether you configure a Studio piece or begin an Atelier commission, the heart of the process is the same.
+            Whether you configure a Studio piece or begin a Memories commission, the heart of the process is the same.
           </p>
           <div className={styles.processSteps}>
             {[
@@ -145,7 +145,7 @@ export default function Home() {
           <div className={styles.testimonials}>
             <div className={styles.testimonial}>
               <p className={styles.testimonialQuote}>"She returned the wedding flowers in resin and we both cried. They're on our dining table. Every guest asks about them. This is the most meaningful gift we've ever received."</p>
-              <p className={styles.testimonialAttribution}>Emma & Jonathan — Atelier Commission, 2025</p>
+              <p className={styles.testimonialAttribution}>Emma & Jonathan — Memories Commission, 2025</p>
             </div>
             <div className={styles.testimonial}>
               <p className={styles.testimonialQuote}>"I bought a chess set from Craig and didn't expect to become a collector. Three boards later, I understand why people commission heirlooms."</p>

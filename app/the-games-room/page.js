@@ -134,8 +134,8 @@ export default async function GamesRoom() {
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', color: 'var(--stone)', lineHeight: 1.8, maxWidth: '480px', margin: '0 auto 2rem' }}>
             Incorporate meaningful objects — a wedding ring, a coin, family artefacts — cast directly into the board. The game is the same. The object becomes irreplaceable.
           </p>
-          <Link href="/atelier-commissions" style={{ display: 'inline-block', padding: '0.9rem 2rem', border: '1px solid rgba(184,181,174,0.35)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>
-            Learn About Atelier →
+          <Link href="/memories" style={{ display: 'inline-block', padding: '0.9rem 2rem', border: '1px solid rgba(184,181,174,0.35)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>
+            Learn About Memories →
           </Link>
         </div>
       </div>

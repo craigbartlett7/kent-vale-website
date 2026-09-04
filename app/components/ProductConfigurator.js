@@ -373,10 +373,10 @@ function ConfiguratorInner({ product }) {
             Want to add something personal to this piece?
           </p>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.875rem', color: '#555', lineHeight: 1.7, marginBottom: '0.75rem' }}>
-            Any Studio piece can become an Atelier commission — incorporating flowers, family artefacts, meaningful objects or a personal inscription.
+            Any Studio piece can become a Memories commission — incorporating flowers, family artefacts, meaningful objects or a personal inscription.
           </p>
-          <Link href="/atelier-commissions" style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--charcoal)', textDecoration: 'none', borderBottom: '1px solid var(--brass)', paddingBottom: '2px' }}>
-            Learn about Atelier Commissions →
+          <Link href="/memories" style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--charcoal)', textDecoration: 'none', borderBottom: '1px solid var(--brass)', paddingBottom: '2px' }}>
+            Learn about Memories →
           </Link>
         </div>
       </div>

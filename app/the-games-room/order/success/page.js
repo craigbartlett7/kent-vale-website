@@ -147,8 +147,8 @@ function SuccessContent() {
           <Link href="/the-games-room" style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--stone)', textDecoration: 'none' }}>
             ← Back to The Games Room
           </Link>
-          <Link href="/atelier-commissions" style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--stone)', textDecoration: 'none' }}>
-            Explore Atelier Commissions →
+          <Link href="/memories" style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--stone)', textDecoration: 'none' }}>
+            Explore Memories →
           </Link>
         </div>
       </div>
