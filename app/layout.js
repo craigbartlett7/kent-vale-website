@@ -14,7 +14,13 @@ const SITE_URL = 'https://www.kentandvale.com';
 const NAV_LINKS = [
   { href: '/studio', label: 'Studio' },
   { href: '/the-games-room', label: 'The Games Room' },
-  { href: '/memories', label: 'Memories' },
+  {
+    href: '/memories',
+    label: 'Memories',
+    children: [
+      { href: '/memories/wedding-flowers', label: 'Wedding Flower Preservation' },
+    ],
+  },
   { href: '/inspiration-gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
   { href: '/journal', label: 'Journal' },
@@ -55,9 +61,16 @@ export default function RootLayout({ children }) {
 
           {/* Desktop links */}
           <ul className={styles.navLinks}>
-            {NAV_LINKS.map(({ href, label, brass }) => (
-              <li key={href}>
+            {NAV_LINKS.map(({ href, label, brass, children }) => (
+              <li key={href} className={children ? styles.navItem : undefined}>
                 <Link href={href} style={brass ? { color: 'var(--brass)' } : undefined}>{label}</Link>
+                {children && (
+                  <div className={styles.dropdownMenu}>
+                    {children.map(child => (
+                      <Link key={child.href} href={child.href}>{child.label}</Link>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -79,16 +92,22 @@ export default function RootLayout({ children }) {
         {menuOpen && (
           <div className={styles.mobileMenu} onClick={close}>
             <div onClick={e => e.stopPropagation()}>
-              {NAV_LINKS.map(({ href, label, brass }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className={styles.mobileLink}
-                  style={brass ? { color: 'var(--brass)' } : undefined}
-                  onClick={close}
-                >
-                  {label}
-                </Link>
+              {NAV_LINKS.map(({ href, label, brass, children }) => (
+                <React.Fragment key={href}>
+                  <Link
+                    href={href}
+                    className={styles.mobileLink}
+                    style={brass ? { color: 'var(--brass)' } : undefined}
+                    onClick={close}
+                  >
+                    {label}
+                  </Link>
+                  {children && children.map(child => (
+                    <Link key={child.href} href={child.href} className={styles.mobileSubLink} onClick={close}>
+                      {child.label}
+                    </Link>
+                  ))}
+                </React.Fragment>
               ))}
             </div>
           </div>
