@@ -20,6 +20,10 @@ const NAV_LINKS = [
     children: [
       { href: '/memories/wedding-flowers', label: 'Wedding Flower Preservation' },
       { href: '/memories/funeral-flowers', label: 'Funeral Flower Preservation' },
+      { href: '/memories/baby', label: 'Baby Memories' },
+      { href: '/memories/sporting-achievements', label: 'Sporting Achievements' },
+      { href: '/memories/favourite-places', label: 'Favourite Places' },
+      { href: '/memories/pets', label: 'Pet Memorials' },
     ],
   },
   { href: '/inspiration-gallery', label: 'Gallery' },
@@ -31,8 +35,15 @@ const NAV_LINKS = [
 
 export default function RootLayout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const close = () => setMenuOpen(false);
   const pathname = usePathname();
+
+  // Close dropdown whenever navigation happens
+  React.useEffect(() => {
+    setOpenDropdown(null);
+    setMenuOpen(false);
+  }, [pathname]);
   const canonicalUrl = `${SITE_URL}${pathname}`;
 
   return (
@@ -63,12 +74,26 @@ export default function RootLayout({ children }) {
           {/* Desktop links */}
           <ul className={styles.navLinks}>
             {NAV_LINKS.map(({ href, label, brass, children }) => (
-              <li key={href} className={children ? styles.navItem : undefined}>
+              <li
+                key={href}
+                className={[
+                  children ? styles.navItem : '',
+                  children && openDropdown === href ? styles.navItemOpen : '',
+                ].filter(Boolean).join(' ') || undefined}
+                onMouseEnter={() => children && setOpenDropdown(href)}
+                onMouseLeave={() => children && setOpenDropdown(null)}
+              >
                 <Link href={href} style={brass ? { color: 'var(--brass)' } : undefined}>{label}</Link>
                 {children && (
                   <div className={styles.dropdownMenu}>
                     {children.map(child => (
-                      <Link key={child.href} href={child.href}>{child.label}</Link>
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        {child.label}
+                      </Link>
                     ))}
                   </div>
                 )}

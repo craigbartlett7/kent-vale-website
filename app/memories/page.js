@@ -167,39 +167,37 @@ export default function Memories() {
                 link: '/memories/funeral-flowers',
               },
               {
-                label: 'Memorial',
-                title: 'A life, held gently',
-                desc: 'Ashes, pressed flowers, a handwritten note, a lock of hair — set within resin in a piece that sits on a mantlepiece and tells a story to everyone who sees it.',
-                link: null,
+                label: 'Baby Memories',
+                title: 'The first moments',
+                desc: 'A hospital tag, a lock of hair, a first pair of shoes — small things with enormous weight, turned into something permanent and beautiful.',
+                link: '/memories/baby',
               },
               {
-                label: 'Pet',
+                label: 'Sporting Achievements',
+                title: 'You earned it. Now keep it.',
+                desc: 'Medals, rosettes, race numbers and completion certificates — set in resin alongside the story of what it took to get there.',
+                link: '/memories/sporting-achievements',
+              },
+              {
+                label: 'Favourite Places',
+                title: 'The places that shaped you',
+                desc: 'Shells from a beach, wood from a first home\'s garden, soil from a meaningful walk — the geography of a life, preserved in resin.',
+                link: '/memories/favourite-places',
+              },
+              {
+                label: 'Pet Memorials',
                 title: 'The one who filled the whole house',
-                desc: 'A collar, a lead, a paw print, a lock of fur — held in resin and solid wood as a tribute worthy of a life that mattered.',
-                link: null,
-              },
-              {
-                label: 'Inheritance',
-                title: 'A game board with a lineage',
-                desc: "Military insignia, family silver, a grandfather's watch face — embedded in a chess board or backgammon set that becomes an heirloom itself.",
-                link: null,
-              },
-              {
-                label: 'Baby',
-                title: 'The first years',
-                desc: 'A lock of hair, a first shoe, a hospital tag — small things with enormous weight, turned into something permanent and beautiful.',
-                link: null,
+                desc: 'A collar, a paw print, a lock of fur — held in resin and solid wood as a tribute worthy of a life that mattered.',
+                link: '/memories/pets',
               },
             ].map((ex, i) => (
               <div key={i} style={{ padding: '2rem', border: '1px solid rgba(184,181,174,0.25)', background: '#faf9f7', position: 'relative' }}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem' }}>{ex.label}</p>
                 <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.1rem', fontWeight: 400, color: 'var(--charcoal)', marginBottom: '0.75rem' }}>{ex.title}</h3>
-                <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', lineHeight: 1.7, color: '#555', marginBottom: ex.link ? '1.5rem' : '0' }}>{ex.desc}</p>
-                {ex.link && (
-                  <Link href={ex.link} style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--brass)', textDecoration: 'none' }}>
-                    Learn more →
-                  </Link>
-                )}
+                <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', lineHeight: 1.7, color: '#555', marginBottom: '1.5rem' }}>{ex.desc}</p>
+                <Link href={ex.link} style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--brass)', textDecoration: 'none' }}>
+                  Learn more →
+                </Link>
               </div>
             ))}
           </div>
