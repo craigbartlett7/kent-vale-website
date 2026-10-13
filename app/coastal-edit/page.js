@@ -31,11 +31,12 @@ const PRODUCTS = [
     title: 'Ocean Wave Glasses',
     img: '/images/coastal-glasses-pair-1.jpg',
     imgAlt: 'Pair of teal ocean wave resin wine glasses with a Cloudy Bay bottle — Kent & Vale Coastal Edit',
-    desc: 'Stemless wine glasses and stemmed wine glasses with a hand-poured ocean wave in the base — teal, turquoise, and deep navy. Each wave is unique. Sold individually or as a pair. A gift that reads as luxury and lives as an everyday object.',
-    note: null,
+    desc: 'Stemless wine glasses and stemmed wine glasses with a hand-poured ocean wave in the base — teal, turquoise, and deep navy. Each wave is unique. Sold individually or as a pair — or order any 6 for £100. A gift that reads as luxury and lives as an everyday object.',
+    note: 'Prefer a different colour? We can make any piece to order in a shade of your choosing — burgundy, coral, forest green, soft blush, or anything else. Just get in touch.',
     links: [
       { href: '/coastal-edit/stemless-wine-glass', label: 'Stemless — £20', primary: true },
       { href: '/coastal-edit/ocean-wine-glass', label: 'Stemmed — £22', primary: false },
+      { href: '/contact', label: 'Order 6 for £100', primary: false },
     ],
   },
   {
@@ -44,7 +45,7 @@ const PRODUCTS = [
     img: '/images/coastal-tumbler-1.jpg',
     imgAlt: 'Tall coastal ocean wave resin tumbler on a beach — Kent & Vale Coastal Edit',
     desc: 'Slim, insulated stainless tumblers with a full-coverage ocean wave resin pour — the sea wrapping the entire surface. Beach holiday memories in your hand every morning.',
-    note: null,
+    note: 'Prefer a different colour? We can make any piece to order in a shade of your choosing — burgundy, coral, forest green, soft blush, or anything else. Just get in touch.',
     links: [
       { href: '/coastal-edit/coastal-tumbler', label: 'Buy Now — £20', primary: true },
     ],
@@ -55,7 +56,7 @@ const PRODUCTS = [
     img: '/images/coastal-board-1.jpg',
     imgAlt: 'Personalised walnut charcuterie board with ocean wave resin and engraved names — Kent & Vale Coastal Edit',
     desc: 'Solid acacia serving boards with an ocean wave resin section and bespoke laser engraving — names, a date, a short message. A personalised wedding gift, anniversary gift, or housewarming piece that will be used and seen every week.',
-    note: 'Food-safe resin, fully cured. Hand washing advised.',
+    note: 'Food-safe resin, fully cured. Hand washing advised. The resin wave can be made in any colour — ocean teal is our signature, but burgundy, coral, terracotta, sage and more are all possible.',
     links: [
       { href: '/coastal-edit/personalised-wave-board', label: 'Order — £49.99', primary: true },
     ],
@@ -66,7 +67,7 @@ const PRODUCTS = [
     img: '/images/coastal-side-table-2.jpg',
     imgAlt: 'Deep blue ocean wave resin round side table in a coastal living room — Kent & Vale Coastal Edit',
     desc: 'A round metal drinks table with a real ocean scene cast in the resin top — real sand, shells and sea glass. Three frame colours: black, sage green or white. At home indoors or on a covered terrace.',
-    note: null,
+    note: 'The resin top can be made in any colour to order — deep ocean blue is our signature, but we work equally in burgundy, terracotta, sage, blush and custom blends. Just let us know.',
     links: [
       { href: '/coastal-edit/ocean-tray-table', label: 'Order — £70', primary: true },
     ],
@@ -77,7 +78,7 @@ const PRODUCTS = [
     img: '/images/coastal-tray-1.jpg',
     imgAlt: 'Bamboo lap tray with ocean resin inlay — Kent & Vale Coastal Edit',
     desc: 'A bamboo lap tray with a real ocean scene inlaid in resin — real sand, shells and sea glass, captured and sealed. Lightweight, with fold-down legs. The kind of thing you buy for the bedroom and never want to put away.',
-    note: null,
+    note: 'Prefer a different colour? We can make any piece to order in a shade of your choosing — burgundy, coral, forest green, soft blush, or anything else. Just get in touch.',
     links: [
       { href: '/coastal-edit/ocean-lap-tray', label: 'Order — £55', primary: true },
     ],
@@ -88,7 +89,7 @@ const PRODUCTS = [
     img: '/images/coastal-coffee-table-1.jpg',
     imgAlt: 'Live-edge olive wood and deep blue epoxy resin coffee table with real shells, starfish and sea glass — Kent & Vale Coastal Edit',
     desc: 'A bespoke commission: live-edge olive wood set within a rectangle of deep blue epoxy resin, embedded with real shells, starfish and sea glass, on a powder-coated steel base. Every table is unique to its commission — the wood slab, the depth of blue, the arrangement of shells. For a living room that deserves something it cannot find anywhere else.',
-    note: 'Bespoke commission — lead time approximately 10–14 weeks.',
+    note: 'Bespoke commission — lead time approximately 10–14 weeks. Available in any resin colour: deep ocean blue is our signature but we work equally in forest green, amber, burgundy, terracotta and entirely custom blends.',
     links: [
       { href: '/contact', label: 'Begin a conversation', primary: false },
     ],
@@ -177,9 +178,12 @@ export default function CoastalEdit() {
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem', textAlign: 'center' }}>
             What we make
           </p>
-          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontWeight: 400, textAlign: 'center', color: 'var(--charcoal)', marginBottom: '4rem' }}>
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontWeight: 400, textAlign: 'center', color: 'var(--charcoal)', marginBottom: '2.5rem' }}>
             From glassware to statement furniture.
           </h2>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.82rem', lineHeight: 1.7, color: '#777', textAlign: 'center', maxWidth: '640px', margin: '0 auto 3.5rem', fontStyle: 'italic' }}>
+            Images are for illustration purposes. Every piece is hand-poured individually and made to order — each one carries its own unique pattern, movement and signature that cannot be exactly replicated.
+          </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             {PRODUCTS.map((p, i) => (
               <div key={i} style={{ border: '1px solid rgba(184,181,174,0.25)', background: '#faf9f7', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
@@ -195,7 +199,7 @@ export default function CoastalEdit() {
                   <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.2rem', fontWeight: 400, color: 'var(--charcoal)', marginBottom: '0.75rem' }}>{p.title}</h3>
                   <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', lineHeight: 1.75, color: '#555', marginBottom: p.note ? '1rem' : '1.5rem', flex: 1 }}>{p.desc}</p>
                   {p.note && (
-                    <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', lineHeight: 1.6, color: 'var(--brass)', fontStyle: 'italic', marginBottom: '1.5rem' }}>{p.note}</p>
+                    <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', lineHeight: 1.65, color: '#666', background: '#f5f3ef', padding: '0.75rem 1rem', marginBottom: '1.5rem' }}>{p.note}</p>
                   )}
                   {p.links && (
                     <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>

@@ -148,9 +148,9 @@ export default function CareerMemoriesPage() {
         </div>
         <div style={{ overflow: 'hidden', minHeight: '420px' }}>
           <img
-            src="/images/career-memories-1.jpg"
-            alt="Round resin side table in forest green with olive wood, containing embedded career mementoes — ID badges, business cards, a pen and golf ball — a retirement keepsake made by Kent & Vale"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+            src="/images/career-memories-police-table-1.jpg"
+            alt="Round forest-green resin table with olive wood centre, containing embedded career mementoes — ID badges, handcuffs, a pen and service chain — a retirement keepsake made by Kent & Vale"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 55%', display: 'block' }}
           />
         </div>
       </section>
@@ -260,6 +260,15 @@ export default function CareerMemoriesPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Second image — full-width */}
+      <section style={{ overflow: 'hidden', maxHeight: '560px' }}>
+        <img
+          src="/images/career-memories-police-table-2.jpg"
+          alt="Full view of the career memories resin table with Z-leg base — forest green resin with olive wood, showing embedded career items from a life in public service, handmade by Kent & Vale"
+          style={{ width: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }}
+        />
       </section>
 
       {/* Final CTA */}

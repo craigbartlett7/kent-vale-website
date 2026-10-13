@@ -143,8 +143,11 @@ export default function CoastalConfigurator({ product }) {
             {product.shippingDisplay.uk} · {product.shippingDisplay.international}
           </p>
 
-          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', color: '#444', lineHeight: 1.8, marginBottom: '2rem' }}>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', color: '#444', lineHeight: 1.8, marginBottom: '1rem' }}>
             {product.description}
+          </p>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', lineHeight: 1.65, color: '#888', fontStyle: 'italic', marginBottom: '2rem' }}>
+            Images are for illustration. Every piece is hand-poured individually and made to order — each one will have its own unique pattern, movement and signature.
           </p>
 
           <div style={{ borderTop: '1px solid rgba(184,181,174,0.3)', paddingTop: '1.5rem' }}>
@@ -163,6 +166,31 @@ export default function CoastalConfigurator({ product }) {
               </p>
             )}
           </div>
+
+          {(product.colourNote || product.bundleNote) && (
+            <div style={{ borderTop: '1px solid rgba(184,181,174,0.3)', paddingTop: '1.5rem', marginTop: '1.5rem' }}>
+              {product.bundleNote && (
+                <div style={{ background: 'rgba(184,160,110,0.08)', border: '1px solid rgba(184,160,110,0.3)', padding: '1rem 1.2rem', marginBottom: '1rem' }}>
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '0.4rem' }}>
+                    Set Offer
+                  </p>
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', color: '#444', lineHeight: 1.7, margin: 0 }}>
+                    {product.bundleNote}
+                  </p>
+                </div>
+              )}
+              {product.colourNote && (
+                <div style={{ background: '#f8f7f5', padding: '1rem 1.2rem' }}>
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--stone)', marginBottom: '0.4rem' }}>
+                    Any Colour
+                  </p>
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', color: '#444', lineHeight: 1.7, margin: 0 }}>
+                    {product.colourNote}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Right: order form */}
