@@ -71,6 +71,28 @@ export default async function Studio() {
                 </div>
               </Link>
             ))}
+
+            {/* Bespoke commission placeholder */}
+            <Link href="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div className="studio-card" style={{ background: 'var(--charcoal)', border: '1px solid rgba(184,181,174,0.15)', overflow: 'hidden', transition: 'box-shadow 0.3s ease', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ height: '240px', background: '#2a2a27', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <p style={{ fontFamily: 'var(--serif)', fontSize: '2rem', color: 'rgba(184,181,174,0.2)', fontWeight: 400, letterSpacing: '0.05em' }}>✦</p>
+                </div>
+                <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <h2 style={{ fontFamily: 'var(--serif)', fontSize: '1.1rem', fontWeight: 400, color: 'var(--ivory)', marginBottom: '0.5rem' }}>
+                      Bespoke Commission
+                    </h2>
+                    <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', color: 'var(--stone)', lineHeight: 1.6, marginBottom: '1rem' }}>
+                      Any shape. Any size. If you have something in mind that isn't in the range, we want to hear about it.
+                    </p>
+                  </div>
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', color: 'var(--brass)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+                    Contact us to discuss →
+                  </p>
+                </div>
+              </div>
+            </Link>
           </div>
           </>
         )}
