@@ -39,7 +39,7 @@ function SuccessContent() {
   const steps = [
     {
       num: '01',
-      title: 'We'll send you a confirmation email',
+      title: "We'll send you a confirmation email",
       desc: 'Your order confirmation will arrive within a few minutes at the email address you provided. It will include your order reference and a summary of your order.',
     },
     {

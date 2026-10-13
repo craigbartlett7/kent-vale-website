@@ -46,7 +46,7 @@ const PRODUCTS = [
     desc: 'Slim, insulated stainless tumblers with a full-coverage ocean wave resin pour — the sea wrapping the entire surface. Beach holiday memories in your hand every morning.',
     note: null,
     links: [
-      { href: '/contact', label: 'Enquire', primary: false },
+      { href: '/coastal-edit/coastal-tumbler', label: 'Buy Now — £20', primary: true },
     ],
   },
   {
@@ -139,6 +139,44 @@ export default function CoastalEdit() {
         </div>
       </section>
 
+      {/* Quick Shop — immediately below hero */}
+      <section id="products" style={{ background: 'var(--ivory)', padding: '4rem 2rem' }}>
+        <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '2.5rem', textAlign: 'center' }}>
+            Shop the Collection
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1.5rem' }}>
+            {[
+              { href: '/coastal-edit/stemless-wine-glass', img: '/images/coastal-glass-stemless-1.jpg', name: 'Stemless Wine Glass', price: '£20' },
+              { href: '/coastal-edit/ocean-wine-glass', img: '/images/coastal-wine-glass-1.jpg', name: 'Ocean Wine Glass', price: '£22' },
+              { href: '/coastal-edit/coastal-tumbler', img: '/images/coastal-tumbler-1.jpg', name: 'Coastal Tumbler', price: '£20' },
+              { href: '/coastal-edit/personalised-wave-board', img: '/images/coastal-board-1.jpg', name: 'Personalised Wave Board', price: '£49.99' },
+              { href: '/coastal-edit/ocean-tray-table', img: '/images/coastal-side-table-1.jpg', name: 'Ocean Tray Table', price: '£70' },
+              { href: '/coastal-edit/ocean-lap-tray', img: '/images/coastal-tray-1.jpg', name: 'Ocean Lap Tray', price: '£55' },
+            ].map((item, i) => (
+              <Link key={i} href={item.href} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                <div style={{ background: 'white', border: '1px solid rgba(184,181,174,0.2)', overflow: 'hidden', transition: 'box-shadow 0.2s ease' }}
+                     onMouseEnter={e => e.currentTarget.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'}
+                     onMouseLeave={e => e.currentTarget.style.boxShadow='none'}>
+                  <div style={{ height: '180px', overflow: 'hidden' }}>
+                    <img src={item.img} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  </div>
+                  <div style={{ padding: '1rem' }}>
+                    <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', color: 'var(--charcoal)', marginBottom: '0.5rem', lineHeight: 1.3 }}>{item.name}</p>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', fontWeight: 500, color: 'var(--brass)' }}>{item.price}</p>
+                      <span style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--charcoal)', borderBottom: '1px solid currentColor', paddingBottom: '1px' }}>
+                        {item.price === 'Enquire' ? 'Enquire' : 'Buy Now'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Lifestyle image — woman with tumbler */}
       <div style={{ height: 'clamp(420px, 60vh, 700px)', overflow: 'hidden' }}>
         <img
@@ -171,8 +209,8 @@ export default function CoastalEdit() {
         </div>
       </section>
 
-      {/* Products grid */}
-      <section id="products" style={{ padding: '7rem 2rem', background: 'white' }}>
+      {/* Products grid — detailed */}
+      <section style={{ padding: '7rem 2rem', background: 'white' }}>
         <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem', textAlign: 'center' }}>
             What we make
