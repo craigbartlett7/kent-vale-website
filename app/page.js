@@ -4,7 +4,7 @@ import styles from './page.module.css';
 
 export const metadata = {
   title: 'Kent & Vale — Resin Keepsakes & Bespoke Furniture, Handmade in Kent',
-  description: 'Kent & Vale preserves memories in resin — wedding flowers, funeral flowers, and irreplaceable keepsakes — and makes design-led furniture and collector game boards by hand in Kent, England.',
+  description: 'We make the pieces people keep forever — memory keepsakes in resin, ocean resin homeware, collector game boards and bespoke furniture. All handmade in our studio in Sittingbourne, Kent.',
 };
 
 const SITE = 'https://www.kentandvale.com';
@@ -119,9 +119,9 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <p className={styles.heroEyebrow}>Handmade in Kent, England</p>
-          <h1 className={styles.heroHeadline}>Three rooms.<br />One studio.</h1>
+          <h1 className={styles.heroHeadline}>We make the pieces<br />people keep forever.</h1>
           <p className={styles.heroSubheadline}>
-            Design-led furniture. Collector game boards.<br />And commissions that carry a life inside them.
+            Memory keepsakes in resin. Ocean resin homeware.<br />Collector game boards. Bespoke furniture.<br />All made by hand in our studio in Kent — one piece at a time.
           </p>
         </div>
       </section>
