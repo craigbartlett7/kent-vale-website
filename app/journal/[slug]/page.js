@@ -98,11 +98,6 @@ export default async function JournalPost({ params }) {
             )}
             <div className={styles.postMeta}>
               {post.stream && <span>{streamLabel(post.stream)}</span>}
-              {post.published_at && (
-                <span style={{ color: 'var(--stone)', fontSize: '0.85rem' }}>
-                  {new Date(post.published_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
-                </span>
-              )}
               <span style={{ color: 'var(--stone)', fontSize: '0.85rem' }}>By Kent &amp; Vale</span>
             </div>
             <hr style={{ border: 'none', borderTop: '1px solid rgba(184,181,174,0.3)', marginTop: '2rem' }} />
