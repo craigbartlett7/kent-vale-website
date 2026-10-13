@@ -102,7 +102,18 @@ export default function RootLayout({ children }) {
                 onMouseEnter={() => children && setOpenDropdown(href)}
                 onMouseLeave={() => children && setOpenDropdown(null)}
               >
-                <Link href={href} style={brass ? { color: 'var(--brass)' } : undefined}>{label}</Link>
+                <Link
+                  href={href}
+                  style={brass ? { color: 'var(--brass)' } : undefined}
+                  onClick={(e) => {
+                    // On touch devices hover doesn't fire, so first tap opens
+                    // the dropdown rather than navigating. Second tap navigates.
+                    if (children && openDropdown !== href) {
+                      e.preventDefault();
+                      setOpenDropdown(href);
+                    }
+                  }}
+                >{label}</Link>
                 {children && (
                   <div className={styles.dropdownMenu}>
                     {children.map(child => (

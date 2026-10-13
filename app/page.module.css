@@ -262,6 +262,13 @@
     height: 54vw;
     min-height: 200px;
     order: -1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .heroContent {
+    position: relative;
+    z-index: 2;
   }
 
   .heroSubheadline {
