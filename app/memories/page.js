@@ -43,8 +43,11 @@ export default function Memories() {
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', fontWeight: 400, color: 'var(--ivory)', lineHeight: 1.1, marginBottom: '2.5rem', letterSpacing: '-0.02em' }}>
             We don't just make<br />furniture. We preserve<br />what matters most.
           </h1>
-          <p style={{ fontFamily: 'var(--sans)', fontSize: '1.05rem', color: 'var(--stone)', lineHeight: 1.9, maxWidth: '520px', marginBottom: '3rem' }}>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '1.05rem', color: 'var(--stone)', lineHeight: 1.9, maxWidth: '520px', marginBottom: '1.5rem' }}>
             Wedding flowers. Funeral flowers. A loved one's belongings. Anything irreplaceable — set in hand-poured resin and built into a piece that lives in your home for the rest of your life.
+          </p>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', color: 'rgba(184,181,174,0.7)', lineHeight: 1.8, maxWidth: '520px', marginBottom: '3rem' }}>
+            Also: baby keepsakes, botanical preservation, career memories, sporting achievements, memories of a place, pet memorials, and more. If it matters, we can preserve it.
           </p>
           <Link href="/contact" style={{ display: 'inline-block', padding: '1rem 2.5rem', border: '1px solid rgba(184,181,174,0.4)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>
             Begin a Conversation
