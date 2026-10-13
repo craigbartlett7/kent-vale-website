@@ -33,6 +33,10 @@ const PRODUCTS = [
     imgAlt: 'Pair of teal ocean wave resin wine glasses with a Cloudy Bay bottle — Kent & Vale Coastal Edit',
     desc: 'Stemless wine glasses and stemmed wine glasses with a hand-poured ocean wave in the base — teal, turquoise, and deep navy. Each wave is unique. Sold individually or as a pair. A gift that reads as luxury and lives as an everyday object.',
     note: null,
+    links: [
+      { href: '/coastal-edit/stemless-wine-glass', label: 'Stemless — £20', primary: true },
+      { href: '/coastal-edit/ocean-wine-glass', label: 'Stemmed — £22', primary: false },
+    ],
   },
   {
     label: 'Drinkware',
@@ -41,22 +45,42 @@ const PRODUCTS = [
     imgAlt: 'Tall coastal ocean wave resin tumbler on a beach — Kent & Vale Coastal Edit',
     desc: 'Slim, insulated stainless tumblers with a full-coverage ocean wave resin pour — the sea wrapping the entire surface. Beach holiday memories in your hand every morning.',
     note: null,
+    links: [
+      { href: '/contact', label: 'Enquire', primary: false },
+    ],
   },
   {
     label: 'Kitchen',
     title: 'Personalised Serving Boards',
     img: '/images/coastal-board-1.jpg',
     imgAlt: 'Personalised walnut charcuterie board with ocean wave resin and engraved names — Kent & Vale Coastal Edit',
-    desc: 'Solid walnut serving and charcuterie boards with an ocean wave resin section and bespoke laser engraving — names, a date, a short message. A personalised wedding gift, anniversary gift, or housewarming piece that will be used and seen every week.',
-    note: 'All resins used on food-contact surfaces are fully cured food-safe grade. We always advise hand washing.',
+    desc: 'Solid acacia serving boards with an ocean wave resin section and bespoke laser engraving — names, a date, a short message. A personalised wedding gift, anniversary gift, or housewarming piece that will be used and seen every week.',
+    note: 'Food-safe resin, fully cured. Hand washing advised.',
+    links: [
+      { href: '/coastal-edit/personalised-wave-board', label: 'Order — £49.99', primary: true },
+    ],
   },
   {
     label: 'Occasional Furniture',
-    title: 'Ocean Resin Side Tables',
+    title: 'Ocean Metal Tray Table',
     img: '/images/coastal-side-table-2.jpg',
     imgAlt: 'Deep blue ocean wave resin round side table in a coastal living room — Kent & Vale Coastal Edit',
-    desc: 'Round side tables with a deep ocean wave resin top — mounted on a powder-coated steel frame. Deep navy with embedded shells and starfish, or translucent teal. At home indoors or on a covered terrace. A piece that stops people mid-conversation.',
+    desc: 'A round metal drinks table with a real ocean scene cast in the resin top — real sand, shells and sea glass. Three frame colours: black, sage green or white. At home indoors or on a covered terrace.',
     note: null,
+    links: [
+      { href: '/coastal-edit/ocean-tray-table', label: 'Order — £70', primary: true },
+    ],
+  },
+  {
+    label: 'Homeware',
+    title: 'Ocean Lap Tray',
+    img: '/images/coastal-tray-1.jpg',
+    imgAlt: 'Bamboo lap tray with ocean resin inlay — Kent & Vale Coastal Edit',
+    desc: 'A bamboo lap tray with a real ocean scene inlaid in resin — real sand, shells and sea glass, captured and sealed. Lightweight, with fold-down legs. The kind of thing you buy for the bedroom and never want to put away.',
+    note: null,
+    links: [
+      { href: '/coastal-edit/ocean-lap-tray', label: 'Order — £55', primary: true },
+    ],
   },
   {
     label: 'Statement Furniture',
@@ -64,15 +88,10 @@ const PRODUCTS = [
     img: '/images/coastal-coffee-table-1.jpg',
     imgAlt: 'Live-edge olive wood and deep blue epoxy resin coffee table with real shells, starfish and sea glass — Kent & Vale Coastal Edit',
     desc: 'A bespoke commission: live-edge olive wood set within a rectangle of deep blue epoxy resin, embedded with real shells, starfish and sea glass, on a powder-coated steel base. Every table is unique to its commission — the wood slab, the depth of blue, the arrangement of shells. For a living room that deserves something it cannot find anywhere else.',
-    note: 'This is a bespoke commission — lead time is approximately 10–14 weeks. Begin with a conversation.',
-  },
-  {
-    label: 'Statement Furniture',
-    title: 'Ocean Scene Floating Chess Table',
-    img: '/images/coastal-chess-table-1.jpg',
-    imgAlt: 'Ocean scene floating chessboard — dark walnut squares surrounded by deep ocean resin waves on a tripod base — Kent & Vale Coastal Edit',
-    desc: 'A round chess table in which the playing surface — dark walnut squares, hand-finished — appears to float inside a coastal scene poured entirely in deep ocean resin. Waves, depth and movement surround the board on all sides. Every game is played at the edge of the sea.',
-    note: 'This is a bespoke commission — the colourway, chess square finish and tripod base can all be specified. Lead time 10–14 weeks.',
+    note: 'Bespoke commission — lead time approximately 10–14 weeks.',
+    links: [
+      { href: '/contact', label: 'Begin a conversation', primary: false },
+    ],
   },
 ];
 
@@ -109,9 +128,14 @@ export default function CoastalEdit() {
           <p style={{ fontFamily: 'var(--sans)', fontSize: '1.05rem', color: 'var(--stone)', lineHeight: 1.9, maxWidth: '520px', marginBottom: '3rem' }}>
             A collection of ocean resin pieces — glassware, drinkware, personalised serving boards and handcrafted furniture — each one carrying the movement of the sea inside it. Ready-made gifts and bespoke commissions, made by hand in Kent.
           </p>
-          <Link href="/contact" style={{ display: 'inline-block', padding: '1rem 2.5rem', border: '1px solid rgba(184,181,174,0.4)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>
-            Enquire or Order
-          </Link>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <a href="#products" style={{ display: 'inline-block', padding: '1rem 2.5rem', background: 'var(--brass)', color: '#1a1a18', fontFamily: 'var(--sans)', fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none', fontWeight: 500 }}>
+              Shop the Collection
+            </a>
+            <Link href="/contact" style={{ display: 'inline-block', padding: '1rem 2.5rem', border: '1px solid rgba(184,181,174,0.4)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>
+              Bespoke Enquiry
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -148,7 +172,7 @@ export default function CoastalEdit() {
       </section>
 
       {/* Products grid */}
-      <section style={{ padding: '7rem 2rem', background: 'white' }}>
+      <section id="products" style={{ padding: '7rem 2rem', background: 'white' }}>
         <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem', textAlign: 'center' }}>
             What we make
@@ -158,7 +182,7 @@ export default function CoastalEdit() {
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             {PRODUCTS.map((p, i) => (
-              <div key={i} style={{ border: '1px solid rgba(184,181,174,0.25)', background: '#faf9f7', overflow: 'hidden' }}>
+              <div key={i} style={{ border: '1px solid rgba(184,181,174,0.25)', background: '#faf9f7', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ height: '260px', overflow: 'hidden' }}>
                   <img
                     src={p.img}
@@ -166,12 +190,36 @@ export default function CoastalEdit() {
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
                 </div>
-                <div style={{ padding: '2.5rem' }}>
+                <div style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                   <p style={{ fontFamily: 'var(--sans)', fontSize: '0.65rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem' }}>{p.label}</p>
                   <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.2rem', fontWeight: 400, color: 'var(--charcoal)', marginBottom: '0.75rem' }}>{p.title}</h3>
-                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', lineHeight: 1.75, color: '#555', marginBottom: p.note ? '1rem' : 0 }}>{p.desc}</p>
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', lineHeight: 1.75, color: '#555', marginBottom: p.note ? '1rem' : '1.5rem', flex: 1 }}>{p.desc}</p>
                   {p.note && (
-                    <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', lineHeight: 1.6, color: 'var(--brass)', fontStyle: 'italic' }}>{p.note}</p>
+                    <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', lineHeight: 1.6, color: 'var(--brass)', fontStyle: 'italic', marginBottom: '1.5rem' }}>{p.note}</p>
+                  )}
+                  {p.links && (
+                    <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                      {p.links.map((link, j) => (
+                        <Link
+                          key={j}
+                          href={link.href}
+                          style={{
+                            display: 'inline-block',
+                            padding: '0.7rem 1.4rem',
+                            background: link.primary ? 'var(--charcoal)' : 'transparent',
+                            border: link.primary ? 'none' : '1px solid rgba(26,26,24,0.25)',
+                            color: link.primary ? 'var(--ivory)' : 'var(--charcoal)',
+                            fontFamily: 'var(--sans)',
+                            fontSize: '0.75rem',
+                            letterSpacing: '0.15em',
+                            textTransform: 'uppercase',
+                            textDecoration: 'none',
+                          }}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
                   )}
                 </div>
               </div>
