@@ -4,7 +4,7 @@ import { getProducts } from '@/lib/supabase';
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
-  title: 'The Games Room — Kent & Vale',
+  title: 'Collector Chess Boards & Handmade Game Sets | Kent & Vale',
   description: 'Hand-crafted chess boards and game boards built in English timber and resin. Made to order from our studio in Kent — each one singular, each one yours.',
 };
 

@@ -3,22 +3,82 @@ import Link from 'next/link';
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'Kent & Vale — Handmade in Kent, England',
+  title: 'Kent & Vale — Resin Keepsakes & Bespoke Furniture, Handmade in Kent',
   description: 'Kent & Vale preserves memories in resin — wedding flowers, funeral flowers, and irreplaceable keepsakes — and makes design-led furniture and collector game boards by hand in Kent, England.',
 };
+
+const SITE = 'https://www.kentandvale.com';
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Kent & Vale',
   description: 'We preserve memories in resin — wedding flowers, funeral flowers, and irreplaceable keepsakes — alongside handmade furniture and collector game boards. Studio in Sittingbourne, Kent.',
-  url: 'https://kentandvale.com',
+  url: SITE,
   email: 'hello@kentandvale.com',
   address: { '@type': 'PostalAddress', addressLocality: 'Sittingbourne', addressRegion: 'Kent', addressCountry: 'GB' },
-  areaServed: 'GB',
-  priceRange: '£££',
-  image: 'https://kentandvale.com/og-image.jpg',
-  sameAs: ['https://instagram.com/kentandvale', 'https://pinterest.com/kentandvale'],
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  priceRange: '££–££££',
+  image: `${SITE}/og-image.jpg`,
+  logo: { '@type': 'ImageObject', url: `${SITE}/images/pbb-logo-transparent.png` },
+  sameAs: ['https://www.instagram.com/kentandvale', 'https://www.pinterest.com/kentandvale'],
+  knowsAbout: [
+    'resin preservation', 'wedding flower preservation', 'funeral flower preservation',
+    'memory keepsakes', 'bespoke furniture', 'handmade chess boards', 'collector game boards',
+    'retirement gifts', 'pet memorials', 'baby memory keepsakes',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Kent & Vale Commissions',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Wedding Flower Preservation in Resin', url: `${SITE}/memories/wedding-flowers` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Funeral Flower Preservation in Resin', url: `${SITE}/memories/funeral-flowers` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Baby Memory Keepsakes in Resin', url: `${SITE}/memories/baby` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Pet Memorial Keepsakes in Resin', url: `${SITE}/memories/pets` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Career Memory Keepsakes in Resin', url: `${SITE}/memories/career` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sporting Achievement Keepsakes in Resin', url: `${SITE}/memories/sporting-achievements` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Favourite Places Preserved in Resin', url: `${SITE}/memories/favourite-places` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Bespoke Handmade Furniture', url: `${SITE}/studio` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Collector Game Boards and Chess Sets', url: `${SITE}/the-games-room` } },
+    ],
+  },
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What can Kent & Vale preserve in resin?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Kent & Vale preserves wedding flowers, funeral flowers, baby mementoes (hospital tags, locks of hair, first shoes), pet items (collars, fur, ashes), career memorabilia (ID badges, business cards, pens), sporting achievements (medals, rosettes, race numbers), and items from favourite places (shells, soil, wood). Almost any object can be set in hand-poured resin.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does a resin commission take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Typical lead time for a Memories commission is four to six weeks from the initial conversation to delivery. Bespoke furniture from the Studio takes eight to twelve weeks. Each piece is made to order.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does a resin memory keepsake cost?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Kent & Vale commissions start from around £350 for a smaller keepsake block and range to £20,000 or more for large furniture pieces. Every commission is bespoke and priced after an initial conversation about size, materials, and what is being preserved.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where is Kent & Vale based?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Kent & Vale is based in Sittingbourne, Kent, England. We ship across the United Kingdom and can arrange delivery for larger furniture commissions.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is a resin memory keepsake a good retirement gift?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Career memory keepsakes — ID badges, business cards, a favourite pen, a golf ball set in resin as a side table or display piece — are one of our most popular commission types and are frequently bought as retirement gifts.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you preserve wedding flowers that are already dried?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. We work with dried and freeze-dried wedding flowers. For best results, flowers should be sent within two weeks of the wedding, but we have worked successfully with flowers dried months or even years earlier.' },
+    },
+  ],
 };
 
 const roomStyle = (bg) => ({
@@ -54,6 +114,7 @@ export default function Home() {
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <section className={styles.hero}>
         <div className={styles.heroContent}>

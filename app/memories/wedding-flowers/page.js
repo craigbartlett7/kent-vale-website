@@ -1,23 +1,37 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Wedding Flower Preservation — Memories — Kent & Vale',
+  title: 'Wedding Flower Preservation in Resin Kent | Kent & Vale',
   description: 'Your wedding flowers preserved forever in hand-poured resin. Coffee tables, side tables, wall pieces and display blocks — bespoke pieces handmade in Kent. Each one unique.',
 };
 
-const jsonLd = {
+const SITE = 'https://www.kentandvale.com';
+
+const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Wedding Flower Preservation — Kent & Vale',
-  description: 'Bespoke wedding flower preservation in hand-poured resin. Coffee tables, display blocks, wall sculptures and more — handmade in Sittingbourne, Kent.',
-  provider: { '@type': 'LocalBusiness', name: 'Kent & Vale', url: 'https://kentandvale.com', address: { '@type': 'PostalAddress', addressLocality: 'Sittingbourne', addressRegion: 'Kent', postalCode: 'ME10', addressCountry: 'GB' } },
-  url: 'https://kentandvale.com/memories/wedding-flowers',
+  name: 'Wedding Flower Preservation in Resin — Kent & Vale',
+  description: 'Bespoke wedding flower preservation in hand-poured resin. Coffee tables, display blocks, wall sculptures and more — handmade in Sittingbourne, Kent. Flowers preserved for a lifetime.',
+  provider: { '@type': 'LocalBusiness', name: 'Kent & Vale', url: SITE, address: { '@type': 'PostalAddress', addressLocality: 'Sittingbourne', addressRegion: 'Kent', postalCode: 'ME10', addressCountry: 'GB' } },
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  url: `${SITE}/memories/wedding-flowers`,
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Memories', item: `${SITE}/memories` },
+    { '@type': 'ListItem', position: 3, name: 'Wedding Flower Preservation', item: `${SITE}/memories/wedding-flowers` },
+  ],
 };
 
 export default function WeddingFlowerPreservation() {
   return (
     <div style={{ background: 'white' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Hero — full-bleed with overlay */}
       <section style={{

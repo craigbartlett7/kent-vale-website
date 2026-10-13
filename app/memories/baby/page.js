@@ -2,8 +2,30 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Baby Memories in Resin | Kent & Vale',
+  title: 'Baby Memory Keepsakes in Resin | Kent & Vale',
   description: 'Preserve the first moments of a new life — hospital tags, locks of hair, first shoes and scan photos — set in hand-poured resin by Kent & Vale. A keepsake that lasts forever.',
+};
+
+const SITE = 'https://www.kentandvale.com';
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Baby Memory Keepsakes in Resin — Kent & Vale',
+  description: 'Preserve hospital tags, locks of hair, first shoes and scan photos in hand-poured resin. Bespoke baby memory keepsakes handmade in Kent, England.',
+  provider: { '@type': 'LocalBusiness', name: 'Kent & Vale', url: SITE },
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  url: `${SITE}/memories/baby`,
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Memories', item: `${SITE}/memories` },
+    { '@type': 'ListItem', position: 3, name: 'Baby Memories', item: `${SITE}/memories/baby` },
+  ],
 };
 
 const brass = 'var(--brass)';
@@ -90,6 +112,8 @@ const keepsakes = [
 export default function BabyMemoriesPage() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Hero */}
       <section style={{ background: charcoal, minHeight: '70vh', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
         <div style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>

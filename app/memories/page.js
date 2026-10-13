@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Memories — Kent & Vale',
+  title: 'Memory Keepsakes in Resin — Wedding, Funeral, Baby & More | Kent & Vale',
   description: 'We preserve what matters most — wedding flowers, funeral flowers, and irreplaceable keepsakes — in hand-poured resin. Permanent pieces, handmade in Kent. Bespoke commissions.',
 };
 
@@ -189,6 +189,12 @@ export default function Memories() {
                 title: 'The one who filled the whole house',
                 desc: 'A collar, a paw print, a lock of fur — held in resin and solid wood as a tribute worthy of a life that mattered.',
                 link: '/memories/pets',
+              },
+              {
+                label: 'Career Memories',
+                title: 'A working life deserves a monument',
+                desc: 'ID badges, business cards, a favourite pen, a golf ball — a career\'s worth of mementoes set in resin as a side table or display piece. The perfect retirement gift.',
+                link: '/memories/career',
               },
             ].map((ex, i) => (
               <div key={i} style={{ padding: '2rem', border: '1px solid rgba(184,181,174,0.25)', background: '#faf9f7', position: 'relative' }}>

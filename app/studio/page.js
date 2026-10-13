@@ -4,7 +4,7 @@ import { getProducts } from '@/lib/supabase';
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
-  title: 'Studio — Kent & Vale',
+  title: 'Bespoke Handmade Furniture Kent | Kent & Vale Studio',
   description: 'Design-led made-to-order furniture and objects. Dining tables, side tables, consoles and boards — each built in your chosen timber, made only when you order it.',
 };
 

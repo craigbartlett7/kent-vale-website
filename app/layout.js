@@ -24,6 +24,7 @@ const NAV_LINKS = [
       { href: '/memories/sporting-achievements', label: 'Sporting Achievements' },
       { href: '/memories/favourite-places', label: 'Favourite Places' },
       { href: '/memories/pets', label: 'Pet Memorials' },
+      { href: '/memories/career', label: 'Career Memories' },
     ],
   },
   { href: '/inspiration-gallery', label: 'Gallery' },

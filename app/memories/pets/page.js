@@ -1,6 +1,28 @@
 import React from 'react';
 import Link from 'next/link';
 
+const SITE = 'https://www.kentandvale.com';
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Pet Memorial Keepsakes in Resin — Kent & Vale',
+  description: 'Preserve a collar, paw print, lock of fur or ashes in hand-poured resin. Bespoke pet memorial pieces handmade in Kent, England. A permanent tribute to a beloved companion.',
+  provider: { '@type': 'LocalBusiness', name: 'Kent & Vale', url: SITE },
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  url: `${SITE}/memories/pets`,
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Memories', item: `${SITE}/memories` },
+    { '@type': 'ListItem', position: 3, name: 'Pet Memorials', item: `${SITE}/memories/pets` },
+  ],
+};
+
 export const metadata = {
   title: 'Pet Memorial Keepsakes in Resin | Kent & Vale',
   description: 'Preserve a collar, a paw print, a lock of fur — or ashes — in hand-poured resin. A permanent tribute to the companion you lost. Made to order by Kent & Vale in Sittingbourne, Kent.',
@@ -90,6 +112,8 @@ const keepsakes = [
 export default function PetsPage() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Hero */}
       <section style={{ background: charcoal, minHeight: '70vh', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
         <div style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>

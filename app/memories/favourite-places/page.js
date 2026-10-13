@@ -1,6 +1,28 @@
 import React from 'react';
 import Link from 'next/link';
 
+const SITE = 'https://www.kentandvale.com';
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Favourite Places Preserved in Resin — Kent & Vale',
+  description: 'Preserve shells from a beach, wood from a first home, soil from a meaningful place — set in hand-poured resin. Bespoke place memory keepsakes handmade in Kent, England.',
+  provider: { '@type': 'LocalBusiness', name: 'Kent & Vale', url: SITE },
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  url: `${SITE}/memories/favourite-places`,
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Memories', item: `${SITE}/memories` },
+    { '@type': 'ListItem', position: 3, name: 'Favourite Places', item: `${SITE}/memories/favourite-places` },
+  ],
+};
+
 export const metadata = {
   title: 'Favourite Places Preserved in Resin | Kent & Vale',
   description: "Shells from a beach, wood from your first home's garden, sand from a honeymoon — we preserve the places that shaped you in hand-poured resin. Made to order in Kent.",
@@ -90,6 +112,8 @@ const places = [
 export default function FavouritePlacesPage() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Hero */}
       <section style={{ background: charcoal, minHeight: '70vh', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
         <div style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>

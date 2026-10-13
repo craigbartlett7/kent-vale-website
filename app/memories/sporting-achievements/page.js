@@ -1,6 +1,28 @@
 import React from 'react';
 import Link from 'next/link';
 
+const SITE = 'https://www.kentandvale.com';
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Sporting Achievement Keepsakes in Resin — Kent & Vale',
+  description: 'Preserve medals, rosettes, race numbers and sporting trophies in hand-poured resin. Bespoke sporting memory keepsakes handmade in Kent, England.',
+  provider: { '@type': 'LocalBusiness', name: 'Kent & Vale', url: SITE },
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  url: `${SITE}/memories/sporting-achievements`,
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Memories', item: `${SITE}/memories` },
+    { '@type': 'ListItem', position: 3, name: 'Sporting Achievements', item: `${SITE}/memories/sporting-achievements` },
+  ],
+};
+
 export const metadata = {
   title: 'Sporting Achievement Keepsakes in Resin | Kent & Vale',
   description: 'Preserve medals, rosettes, race numbers and sporting memories in hand-poured resin. A permanent heirloom that honours what you earned — made to order by Kent & Vale in Sittingbourne, Kent.',
@@ -90,6 +112,8 @@ const achievements = [
 export default function SportingAchievementsPage() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Hero */}
       <section style={{ background: charcoal, minHeight: '70vh', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
         <div style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>

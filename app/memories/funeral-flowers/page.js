@@ -1,34 +1,42 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Funeral Flower Preservation — Memories — Kent & Vale',
+  title: 'Funeral Flower Preservation in Resin | Kent & Vale',
   description: 'Preserve funeral flowers forever in hand-poured resin. A permanent tribute to someone irreplaceable — coffee tables, display blocks, wall pieces and more. Handmade in Kent.',
 };
 
-const jsonLd = {
+const SITE = 'https://www.kentandvale.com';
+
+const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Funeral Flower Preservation — Kent & Vale',
-  description: 'Bespoke funeral and memorial flower preservation in hand-poured resin. Coffee tables, display blocks, wall sculptures and more — a permanent tribute handmade in Sittingbourne, Kent.',
+  name: 'Funeral Flower Preservation in Resin — Kent & Vale',
+  description: 'Bespoke funeral and memorial flower preservation in hand-poured resin. Coffee tables, display blocks, wall sculptures — a permanent tribute handmade in Sittingbourne, Kent.',
   provider: {
     '@type': 'LocalBusiness',
     name: 'Kent & Vale',
-    url: 'https://kentandvale.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Sittingbourne',
-      addressRegion: 'Kent',
-      postalCode: 'ME10',
-      addressCountry: 'GB',
-    },
+    url: SITE,
+    address: { '@type': 'PostalAddress', addressLocality: 'Sittingbourne', addressRegion: 'Kent', postalCode: 'ME10', addressCountry: 'GB' },
   },
-  url: 'https://kentandvale.com/memories/funeral-flowers',
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  url: `${SITE}/memories/funeral-flowers`,
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Memories', item: `${SITE}/memories` },
+    { '@type': 'ListItem', position: 3, name: 'Funeral Flower Preservation', item: `${SITE}/memories/funeral-flowers` },
+  ],
 };
 
 export default function FuneralFlowerPreservation() {
   return (
     <div style={{ background: 'white' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Hero */}
       <section style={{
