@@ -196,6 +196,12 @@ export default function Memories() {
                 desc: 'ID badges, business cards, a favourite pen, a golf ball — a career\'s worth of mementoes set in resin as a side table or display piece. The perfect retirement gift.',
                 link: '/memories/career',
               },
+              {
+                label: 'Botanical Keepsakes',
+                title: 'Flowers held in clarity',
+                desc: 'Heart-shaped keepsakes, display blocks, personalised engraved pieces and botanical side tables — for garden flowers, anniversary roses, or any blooms you couldn\'t let go of.',
+                link: '/memories/botanical-keepsakes',
+              },
             ].map((ex, i) => (
               <div key={i} style={{ padding: '2rem', border: '1px solid rgba(184,181,174,0.25)', background: '#faf9f7', position: 'relative' }}>
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem' }}>{ex.label}</p>

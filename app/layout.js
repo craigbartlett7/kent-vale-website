@@ -20,6 +20,7 @@ const NAV_LINKS = [
     children: [
       { href: '/memories/wedding-flowers', label: 'Wedding Flower Preservation' },
       { href: '/memories/funeral-flowers', label: 'Funeral Flower Preservation' },
+      { href: '/memories/botanical-keepsakes', label: 'Botanical Keepsakes' },
       { href: '/memories/baby', label: 'Baby Memories' },
       { href: '/memories/sporting-achievements', label: 'Sporting Achievements' },
       { href: '/memories/favourite-places', label: 'Favourite Places' },
@@ -27,6 +28,7 @@ const NAV_LINKS = [
       { href: '/memories/career', label: 'Career Memories' },
     ],
   },
+  { href: '/coastal-edit', label: 'Coastal Edit' },
   { href: '/inspiration-gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
   { href: '/journal', label: 'Journal' },
@@ -155,7 +157,7 @@ export default function RootLayout({ children }) {
               <div>
                 <p className={styles.footerLabel}>Navigation</p>
                 <p className={styles.footerLinks}>
-                  <Link href="/">Home</Link> • <Link href="/studio">Studio</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/memories">Memories</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/about">About</Link> • <Link href="/journal">Journal</Link> • <Link href="/contact">Contact</Link>
+                  <Link href="/">Home</Link> • <Link href="/studio">Studio</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/memories">Memories</Link> • <Link href="/coastal-edit">Coastal Edit</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/about">About</Link> • <Link href="/journal">Journal</Link> • <Link href="/contact">Contact</Link>
                 </p>
               </div>
 
