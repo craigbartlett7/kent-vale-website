@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Favourite Places Preserved in Resin | Kent & Vale',
-  description: 'Shells from a beach, wood from your first home's garden, sand from a honeymoon — we preserve the places that shaped you in hand-poured resin. Made to order in Kent.',
+  description: "Shells from a beach, wood from your first home's garden, sand from a honeymoon — we preserve the places that shaped you in hand-poured resin. Made to order in Kent.",
 };
 
 const brass = 'var(--brass)';
