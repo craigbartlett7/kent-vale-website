@@ -131,9 +131,9 @@ export default function PetsPage() {
         </div>
         <div style={{ overflow: 'hidden', minHeight: '400px' }}>
           <img
-            src="/images/heart-ornament-1.jpg"
-            alt="Heart-shaped resin keepsake with flowers — a pet memorial piece"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            src="/images/pet-memorial-1.jpg"
+            alt="Resin display block pet memorial — wood-burned dog portrait, name plaque and flowers set in clear resin on a mantelpiece with candles"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%', display: 'block' }}
           />
         </div>
       </section>

@@ -29,30 +29,40 @@ const PRODUCTS = [
   {
     label: 'Glassware',
     title: 'Ocean Wave Glasses',
+    img: '/images/coastal-glasses-pair-1.jpg',
+    imgAlt: 'Pair of teal ocean wave resin wine glasses with a Cloudy Bay bottle — Kent & Vale Coastal Edit',
     desc: 'Stemless wine glasses and stemmed wine glasses with a hand-poured ocean wave in the base — teal, turquoise, and deep navy. Each wave is unique. Sold individually or as a pair. A gift that reads as luxury and lives as an everyday object.',
     note: null,
   },
   {
     label: 'Drinkware',
     title: 'Coastal Tumblers',
+    img: '/images/coastal-tumbler-1.jpg',
+    imgAlt: 'Tall coastal ocean wave resin tumbler on a beach — Kent & Vale Coastal Edit',
     desc: 'Slim, insulated stainless tumblers with a full-coverage ocean wave resin pour — the sea wrapping the entire surface. Beach holiday memories in your hand every morning.',
     note: null,
   },
   {
     label: 'Kitchen',
     title: 'Personalised Serving Boards',
+    img: '/images/coastal-board-1.jpg',
+    imgAlt: 'Personalised walnut charcuterie board with ocean wave resin and engraved names — Kent & Vale Coastal Edit',
     desc: 'Solid walnut serving and charcuterie boards with an ocean wave resin section and bespoke laser engraving — names, a date, a short message. A personalised wedding gift, anniversary gift, or housewarming piece that will be used and seen every week.',
     note: 'All resins used on food-contact surfaces are fully cured food-safe grade. We always advise hand washing.',
   },
   {
     label: 'Occasional Furniture',
     title: 'Ocean Resin Side Tables',
+    img: '/images/coastal-side-table-2.jpg',
+    imgAlt: 'Deep blue ocean wave resin round side table in a coastal living room — Kent & Vale Coastal Edit',
     desc: 'Round side tables with a deep ocean wave resin top — mounted on a powder-coated steel frame. Deep navy with embedded shells and starfish, or translucent teal. At home indoors or on a covered terrace. A piece that stops people mid-conversation.',
     note: null,
   },
   {
     label: 'Statement Furniture',
     title: 'Live-Edge Ocean Coffee Table',
+    img: '/images/coastal-coffee-table-1.jpg',
+    imgAlt: 'Live-edge olive wood and deep blue epoxy resin coffee table with real shells, starfish and sea glass — Kent & Vale Coastal Edit',
     desc: 'A bespoke commission: live-edge olive wood set within a rectangle of deep blue epoxy resin, embedded with real shells, starfish and sea glass, on a powder-coated steel base. Every table is unique to its commission — the wood slab, the depth of blue, the arrangement of shells. For a living room that deserves something it cannot find anywhere else.',
     note: 'This is a bespoke commission — lead time is approximately 10–14 weeks. Begin with a conversation.',
   },
@@ -98,6 +108,15 @@ export default function CoastalEdit() {
         </div>
       </section>
 
+      {/* Lifestyle image — woman with tumbler */}
+      <div style={{ height: 'clamp(420px, 60vh, 700px)', overflow: 'hidden' }}>
+        <img
+          src="/images/coastal-tumbler-lifestyle-1.jpg"
+          alt="Woman sipping from a coastal ocean wave resin tumbler on a beach — Kent &amp; Vale Coastal Edit"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
+        />
+      </div>
+
       {/* The idea */}
       <section style={{ padding: '8rem 2rem', background: 'var(--ivory)' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
@@ -130,15 +149,24 @@ export default function CoastalEdit() {
           <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontWeight: 400, textAlign: 'center', color: 'var(--charcoal)', marginBottom: '4rem' }}>
             From glassware to statement furniture.
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             {PRODUCTS.map((p, i) => (
-              <div key={i} style={{ padding: '2.5rem', border: '1px solid rgba(184,181,174,0.25)', background: '#faf9f7' }}>
-                <p style={{ fontFamily: 'var(--sans)', fontSize: '0.65rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem' }}>{p.label}</p>
-                <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.2rem', fontWeight: 400, color: 'var(--charcoal)', marginBottom: '0.75rem' }}>{p.title}</h3>
-                <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', lineHeight: 1.75, color: '#555', marginBottom: p.note ? '1rem' : 0 }}>{p.desc}</p>
-                {p.note && (
-                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', lineHeight: 1.6, color: 'var(--brass)', fontStyle: 'italic' }}>{p.note}</p>
-                )}
+              <div key={i} style={{ border: '1px solid rgba(184,181,174,0.25)', background: '#faf9f7', overflow: 'hidden' }}>
+                <div style={{ height: '260px', overflow: 'hidden' }}>
+                  <img
+                    src={p.img}
+                    alt={p.imgAlt}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                </div>
+                <div style={{ padding: '2.5rem' }}>
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.65rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem' }}>{p.label}</p>
+                  <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.2rem', fontWeight: 400, color: 'var(--charcoal)', marginBottom: '0.75rem' }}>{p.title}</h3>
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', lineHeight: 1.75, color: '#555', marginBottom: p.note ? '1rem' : 0 }}>{p.desc}</p>
+                  {p.note && (
+                    <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', lineHeight: 1.6, color: 'var(--brass)', fontStyle: 'italic' }}>{p.note}</p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -146,8 +174,15 @@ export default function CoastalEdit() {
       </section>
 
       {/* Gift section */}
-      <section style={{ padding: '7rem 2rem', background: 'var(--charcoal)' }}>
-        <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
+      <section style={{ padding: '0', background: 'var(--charcoal)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', minHeight: '480px' }}>
+        <div style={{ overflow: 'hidden', minHeight: '360px' }}>
+          <img
+            src="/images/coastal-board-gift-1.jpg"
+            alt="Personalised ocean wave resin serving board in a kraft gift box with crinkle paper — Kent &amp; Vale Coastal Edit"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        </div>
+        <div style={{ padding: 'clamp(3rem, 5vw, 5rem) clamp(2rem, 4vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1.5rem' }}>
             Gifts
           </p>
@@ -157,10 +192,10 @@ export default function CoastalEdit() {
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.95rem', color: 'var(--stone)', lineHeight: 1.9, marginBottom: '1.5rem' }}>
             Each piece is gift-ready — packed in a kraft box with crinkle paper. For personalised boards, we include the engraving in the order. A pair of glasses with an engraved board is the most popular combination we make for wedding gifts, anniversaries, and housewarmings.
           </p>
-          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.95rem', color: 'var(--stone)', lineHeight: 1.9, marginBottom: '3rem' }}>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '0.95rem', color: 'var(--stone)', lineHeight: 1.9, marginBottom: '2.5rem' }}>
             Custom colourways — different blues, greens, or a colour to match a recipient's home — are available on request.
           </p>
-          <Link href="/contact" style={{ display: 'inline-block', padding: '1rem 2.5rem', border: '1px solid rgba(184,181,174,0.4)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>
+          <Link href="/contact" style={{ display: 'inline-block', padding: '1rem 2.5rem', border: '1px solid rgba(184,181,174,0.4)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none', alignSelf: 'flex-start' }}>
             Enquire About a Gift
           </Link>
         </div>

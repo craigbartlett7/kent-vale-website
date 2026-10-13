@@ -131,8 +131,8 @@ export default function FavouritePlacesPage() {
         </div>
         <div style={{ overflow: 'hidden', minHeight: '400px' }}>
           <img
-            src="/images/resin-flowers-3.jpg"
-            alt="Round resin table with pressed wildflowers, lavender and botanicals — capturing a garden or landscape in permanent form"
+            src="/images/coastal-coffee-table-1.jpg"
+            alt="Live-edge ocean coffee table with real shells, starfish and sea glass set in deep blue resin — a favourite beach, preserved forever"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
         </div>
