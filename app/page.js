@@ -127,18 +127,24 @@ export default function Home() {
       </section>
 
       <section style={{ background: 'var(--ivory)' }}>
-        {/* Studio */}
-        <div style={roomStyle('var(--charcoal)')}>
-          <div style={panelStyle('var(--charcoal)')}>
-            <p style={eyebrow}>I — Studio</p>
-            <h2 style={roomHeading}>Design-led furniture,<br />made to your order.</h2>
-            <p style={roomBody(false)}>
-              Dining tables, side tables, consoles and objects — each one chosen from our curated range of forms, built in your chosen timber, and made only when you order it. No two alike.
+        {/* Memories */}
+        <div style={roomStyle('#1a1a18')}>
+          <div style={panelStyle('#1a1a18')}>
+            <p style={eyebrow}>I — Memories</p>
+            <h2 style={roomHeading}>We preserve memories<br />in resin. Permanently.</h2>
+            <p style={{ ...roomBody(false), marginBottom: '1rem' }}>
+              Wedding flowers. Funeral flowers. Ashes, locks of hair, a loved one's belongings. We set what matters most in hand-poured resin and build it into a piece that lives in your home for the rest of your life.
             </p>
-            <Link href="/studio" style={brassCTA}>Enter Studio →</Link>
+            <p style={roomBody(false)}>
+              No catalogue. No fixed forms. Every Memories commission begins with a conversation.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <Link href="/memories/wedding-flowers" style={brassCTA}>Wedding Flowers →</Link>
+              <Link href="/memories/funeral-flowers" style={ghostCTA}>Funeral Flowers →</Link>
+            </div>
           </div>
           <div style={{ overflow: 'hidden', minHeight: '320px' }}>
-            <img src="https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776414064/Dining_table_in_modern_luxury_interior1_ypudod.png" alt="Kent & Vale Studio — dining table" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <img src="/images/resin-flowers-5.jpg" alt="Kent & Vale Memories — flowers preserved in resin" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
 
@@ -157,24 +163,18 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Memories */}
-        <div style={roomStyle('#1a1a18')}>
-          <div style={panelStyle('#1a1a18')}>
-            <p style={eyebrow}>III — Memories</p>
-            <h2 style={roomHeading}>We preserve memories<br />in resin. Permanently.</h2>
-            <p style={{ ...roomBody(false), marginBottom: '1rem' }}>
-              Wedding flowers. Funeral flowers. Ashes, locks of hair, a loved one's belongings. We set what matters most in hand-poured resin and build it into a piece that lives in your home for the rest of your life.
-            </p>
+        {/* Studio */}
+        <div style={roomStyle('var(--charcoal)')}>
+          <div style={panelStyle('var(--charcoal)')}>
+            <p style={eyebrow}>III — Studio</p>
+            <h2 style={roomHeading}>Design-led furniture,<br />made to your order.</h2>
             <p style={roomBody(false)}>
-              No catalogue. No fixed forms. Every Memories commission begins with a conversation.
+              Dining tables, side tables, consoles and objects — each one chosen from our curated range of forms, built in your chosen timber, and made only when you order it. No two alike.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link href="/memories/wedding-flowers" style={brassCTA}>Wedding Flowers →</Link>
-              <Link href="/memories/funeral-flowers" style={ghostCTA}>Funeral Flowers →</Link>
-            </div>
+            <Link href="/studio" style={brassCTA}>Enter Studio →</Link>
           </div>
           <div style={{ overflow: 'hidden', minHeight: '320px' }}>
-            <img src="/images/resin-flowers-5.jpg" alt="Kent & Vale Memories — flowers preserved in resin" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <img src="https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776414064/Dining_table_in_modern_luxury_interior1_ypudod.png" alt="Kent & Vale Studio — dining table" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
       </section>
