@@ -4,14 +4,14 @@ import styles from './page.module.css';
 
 export const metadata = {
   title: 'Kent & Vale — Handmade in Kent, England',
-  description: 'Three collections. One studio. Kent & Vale makes design-led furniture, collector game boards, and bespoke Memories commissions — including wedding flower preservation — by hand in Kent, England.',
+  description: 'Kent & Vale preserves memories in resin — wedding flowers, funeral flowers, and irreplaceable keepsakes — and makes design-led furniture and collector game boards by hand in Kent, England.',
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Kent & Vale',
-  description: 'Handmade furniture, collector game boards, and bespoke Memories commissions from our studio in Kent, England.',
+  description: 'We preserve memories in resin — wedding flowers, funeral flowers, and irreplaceable keepsakes — alongside handmade furniture and collector game boards. Studio in Sittingbourne, Kent.',
   url: 'https://kentandvale.com',
   email: 'hello@kentandvale.com',
   address: { '@type': 'PostalAddress', addressLocality: 'Sittingbourne', addressRegion: 'Kent', addressCountry: 'GB' },
@@ -100,17 +100,20 @@ export default function Home() {
         <div style={roomStyle('#1a1a18')}>
           <div style={panelStyle('#1a1a18')}>
             <p style={eyebrow}>III — Memories</p>
-            <h2 style={roomHeading}>When a piece needs to carry<br />something irreplaceable inside it.</h2>
+            <h2 style={roomHeading}>We preserve memories<br />in resin. Permanently.</h2>
             <p style={{ ...roomBody(false), marginBottom: '1rem' }}>
-              Wedding flowers set in resin. A grandfather's cufflinks embedded in a chess board. A dining table built around timber salvaged from a childhood home.
+              Wedding flowers. Funeral flowers. Ashes, locks of hair, a loved one's belongings. We set what matters most in hand-poured resin and build it into a piece that lives in your home for the rest of your life.
             </p>
             <p style={roomBody(false)}>
-              Memories commissions are entirely bespoke and always begin with a conversation. There is no catalogue — only possibility.
+              No catalogue. No fixed forms. Every Memories commission begins with a conversation.
             </p>
-            <Link href="/memories" style={ghostCTA}>Begin a Conversation →</Link>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <Link href="/memories/wedding-flowers" style={brassCTA}>Wedding Flowers →</Link>
+              <Link href="/memories/funeral-flowers" style={ghostCTA}>Funeral Flowers →</Link>
+            </div>
           </div>
           <div style={{ overflow: 'hidden', minHeight: '320px' }}>
-            <img src="https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776414281/wedding_vow_preservation_block1_ir3xtt.png" alt="Kent & Vale Memories — wedding flower preservation" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <img src="/images/resin-flowers-5.jpg" alt="Kent & Vale Memories — flowers preserved in resin" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
       </section>

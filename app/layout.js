@@ -19,6 +19,7 @@ const NAV_LINKS = [
     label: 'Memories',
     children: [
       { href: '/memories/wedding-flowers', label: 'Wedding Flower Preservation' },
+      { href: '/memories/funeral-flowers', label: 'Funeral Flower Preservation' },
     ],
   },
   { href: '/inspiration-gallery', label: 'Gallery' },
