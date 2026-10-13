@@ -81,10 +81,10 @@ export default function InspirationGallery() {
             All
           </button>
           <button
-            className={activeFilter === 'studio' ? styles.filterActive : ''}
-            onClick={() => setActiveFilter('studio')}
+            className={activeFilter === 'memories' ? styles.filterActive : ''}
+            onClick={() => setActiveFilter('memories')}
           >
-            Studio
+            Memories
           </button>
           <button
             className={activeFilter === 'games-room' ? styles.filterActive : ''}
@@ -93,16 +93,16 @@ export default function InspirationGallery() {
             The Games Room
           </button>
           <button
-            className={activeFilter === 'memories' ? styles.filterActive : ''}
-            onClick={() => setActiveFilter('memories')}
-          >
-            Memories
-          </button>
-          <button
             className={activeFilter === 'coastal-edit' ? styles.filterActive : ''}
             onClick={() => setActiveFilter('coastal-edit')}
           >
             Coastal Edit
+          </button>
+          <button
+            className={activeFilter === 'studio' ? styles.filterActive : ''}
+            onClick={() => setActiveFilter('studio')}
+          >
+            Studio
           </button>
         </div>
 

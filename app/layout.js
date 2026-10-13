@@ -33,7 +33,6 @@ const NAV_LINKS = [
   { href: '/about', label: 'About' },
   { href: '/journal', label: 'Journal' },
   { href: '/contact', label: 'Contact' },
-  { href: '/kent-county-show-2026', label: 'Kent County Show', brass: true },
 ];
 
 export default function RootLayout({ children }) {

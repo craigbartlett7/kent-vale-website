@@ -45,8 +45,7 @@
   position: relative;
 }
 
-.navItemOpen .dropdownMenu,
-.navItem:focus-within .dropdownMenu {
+.navItemOpen .dropdownMenu {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
