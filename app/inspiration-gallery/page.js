@@ -27,6 +27,7 @@ export default function InspirationGallery() {
     if (collection === 'forever-form' || collection === 'atelier' || collection === 'memories' || collection === 'wedding-flowers') return 'Memories';
     if (collection === 'games-room') return 'The Games Room';
     if (collection === 'studio') return 'Studio';
+    if (collection === 'coastal-edit') return 'Coastal Edit';
     return collection;
   };
 
@@ -96,6 +97,12 @@ export default function InspirationGallery() {
             onClick={() => setActiveFilter('memories')}
           >
             Memories
+          </button>
+          <button
+            className={activeFilter === 'coastal-edit' ? styles.filterActive : ''}
+            onClick={() => setActiveFilter('coastal-edit')}
+          >
+            Coastal Edit
           </button>
         </div>
 

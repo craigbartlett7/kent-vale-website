@@ -87,6 +87,36 @@ export default async function GamesRoom() {
           </>
         )}
 
+        {/* Featured Bespoke — Coastal Chess Table */}
+        <div style={{ marginTop: '4rem', background: '#0d1f2d', overflow: 'hidden' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', minHeight: '520px' }}>
+            <div style={{ overflow: 'hidden', minHeight: '360px' }}>
+              <img
+                src="/images/coastal-chess-table-1.jpg"
+                alt="Coastal scene chess table — ocean resin waves and walnut chess board, bespoke commission by Kent & Vale"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+            <div style={{ padding: 'clamp(3rem, 5vw, 5rem) clamp(2rem, 4vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1.5rem' }}>
+                Bespoke Commission · The Coastal Chess Table
+              </p>
+              <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 400, color: 'var(--ivory)', lineHeight: 1.2, marginBottom: '1.5rem' }}>
+                Where the game<br />meets the sea.
+              </h2>
+              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.95rem', color: 'var(--stone)', lineHeight: 1.9, marginBottom: '1.25rem' }}>
+                A round chess table in which the playing surface — dark walnut squares, hand-finished — appears to emerge from a coastal scene poured entirely in deep ocean resin. Waves, depth, and movement surround the board on all sides, so every game is played at the edge of the sea.
+              </p>
+              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.95rem', color: 'var(--stone)', lineHeight: 1.9, marginBottom: '2.5rem' }}>
+                The table top sits on a powder-coated steel tripod base. The resin is UV-resistant and poured in controlled layers to build depth and translucency. A fully bespoke commission — the colourway, the chess square finish, and the base can all be specified.
+              </p>
+              <Link href="/contact" style={{ display: 'inline-block', padding: '1rem 2.5rem', border: '1px solid rgba(184,181,174,0.4)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none', alignSelf: 'flex-start' }}>
+                Commission This Piece →
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* How it works */}
         <div style={{ marginTop: '5rem', background: 'white', padding: '3.5rem 2.5rem', borderTop: '1px solid rgba(184,181,174,0.2)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
