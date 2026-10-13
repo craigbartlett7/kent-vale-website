@@ -137,8 +137,8 @@ export default function Home() {
           <div className={styles.heroImages}>
             <img src="/images/botanical-coffee-table-1.jpg" alt="Botanical coffee table — flowers preserved in clear resin by Kent & Vale" />
             <img src="/images/botanical-table-roses-1.jpg" alt="Roses preserved in resin — a handmade side table by Kent & Vale" />
-            <img src="/images/wedding-flowers-resin-1.jpg" alt="Wedding flower preservation in resin — Kent & Vale" />
-            <img src="/images/botanical-heart-1.jpg" alt="Heart-shaped botanical keepsake in resin by Kent & Vale" />
+            <img src="/images/coastal-chess-table-1.jpg" alt="Ocean resin chess table — handmade collector game board by Kent & Vale" />
+            <img src="/images/coastal-coffee-table-1.jpg" alt="Live-edge olive wood coffee table with ocean resin — handmade by Kent & Vale" />
           </div>
         </div>
       </section>
