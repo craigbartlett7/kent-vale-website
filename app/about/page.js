@@ -4,6 +4,28 @@ import React, { useState, useEffect } from 'react';
 import styles from '../process/info-pages.module.css';
 import { getTeamMembers } from '@/lib/supabase';
 
+const SITE = 'https://www.kentandvale.com';
+
+const aboutJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Kent & Vale',
+  description: 'A bespoke British studio based in Sittingbourne, Kent, making handcrafted resin and wood furniture, memory keepsakes, ocean resin homeware, and collector game boards — entirely to commission.',
+  url: SITE,
+  address: { '@type': 'PostalAddress', addressLocality: 'Sittingbourne', addressRegion: 'Kent', addressCountry: 'GB' },
+  email: 'hello@kentandvale.com',
+  sameAs: ['https://instagram.com/kentandvale', 'https://pinterest.com/kentandvale'],
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'About', item: `${SITE}/about` },
+  ],
+};
+
 export default function About() {
   const [team, setTeam] = useState([]);
 
@@ -13,6 +35,8 @@ export default function About() {
 
   return (
     <section className={styles.section}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <div className="container">
         <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>About KENT <span style={{fontFamily: "'Didot', 'Georgia', serif", fontWeight: 400, color: 'var(--brass)'}}>&</span> VALE</h1>
 

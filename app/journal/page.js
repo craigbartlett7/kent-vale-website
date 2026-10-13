@@ -4,6 +4,16 @@ import Link from 'next/link';
 import styles from './journal.module.css';
 import { getBlogPosts } from '@/lib/supabase';
 
+const SITE = 'https://www.kentandvale.com';
+const journalJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'The Journal — Kent & Vale',
+  description: 'Stories about craft, memory, permanence and the making of bespoke resin and wood pieces. Written from the studio in Sittingbourne, Kent.',
+  url: `${SITE}/journal`,
+  publisher: { '@type': 'Organization', name: 'Kent & Vale', url: SITE },
+};
+
 export default function Journal() {
   const [activeStream, setActiveStream] = useState('all');
   const [posts, setPosts] = useState([]);
@@ -24,6 +34,7 @@ export default function Journal() {
 
   return (
     <section className={styles.section}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(journalJsonLd) }} />
       <div className="container">
         <h1 style={{ textAlign: 'center', marginBottom: '1rem' }}>The Journal</h1>
         <p style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '1.05rem', color: '#666' }}>

@@ -56,6 +56,23 @@ export default function RootLayout({ children }) {
         <meta name="description" content="Kent & Vale - Bespoke Objects of Permanence. Handmade resin and wood furniture, heirlooms, and game boards." />
         <title>Kent & Vale — Bespoke Objects of Permanence</title>
         <link rel="canonical" href={canonicalUrl} />
+
+        {/* Open Graph / social sharing */}
+        <meta property="og:site_name" content="Kent & Vale" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content="Kent & Vale — Bespoke Objects of Permanence" />
+        <meta property="og:description" content="We make the pieces people keep forever — memory keepsakes in resin, ocean resin homeware, collector game boards and bespoke furniture. Handmade in Sittingbourne, Kent." />
+        <meta property="og:image" content="https://www.kentandvale.com/images/og-default.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_GB" />
+
+        {/* Twitter / X card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@kentandvale" />
+        <meta name="twitter:image" content="https://www.kentandvale.com/images/og-default.jpg" />
+
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

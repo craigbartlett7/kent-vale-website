@@ -3,9 +3,30 @@ import { getProducts } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 
+const SITE = 'https://www.kentandvale.com';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Bespoke Handmade Furniture — Kent & Vale Studio',
+  description: 'Design-led made-to-order resin and wood furniture: dining tables, coffee tables, side tables, consoles and shelving. Each piece built in your chosen timber from our studio in Sittingbourne, Kent.',
+  provider: { '@type': 'LocalBusiness', name: 'Kent & Vale', url: SITE },
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  url: `${SITE}/studio`,
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Studio', item: `${SITE}/studio` },
+  ],
+};
+
 export const metadata = {
-  title: 'Bespoke Handmade Furniture Kent | Kent & Vale Studio',
-  description: 'Design-led made-to-order furniture and objects. Dining tables, side tables, consoles and boards — each built in your chosen timber, made only when you order it.',
+  title: 'Bespoke Resin & Wood Furniture, Made to Order | Kent & Vale Studio',
+  description: 'Design-led made-to-order furniture in English timber and hand-poured resin. Dining tables, coffee tables, side tables and consoles — each built from scratch in our Kent studio.',
 };
 
 export default async function Studio() {
@@ -13,6 +34,8 @@ export default async function Studio() {
 
   return (
     <div style={{ background: 'var(--ivory)', minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Header */}
       <div style={{ background: 'var(--charcoal)', paddingTop: '120px', paddingBottom: '5rem', padding: '120px 2rem 5rem' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>

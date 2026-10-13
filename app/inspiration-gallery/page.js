@@ -4,6 +4,16 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styles from './gallery.module.css';
 import { getGalleryItems } from '@/lib/supabase';
 
+const SITE = 'https://www.kentandvale.com';
+const galleryJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageGallery',
+  name: 'Inspiration Gallery — Kent & Vale',
+  description: 'A gallery of handmade resin and wood pieces by Kent & Vale — memory keepsakes, ocean resin homeware, chess boards and bespoke furniture. Made in Sittingbourne, Kent.',
+  url: `${SITE}/inspiration-gallery`,
+  author: { '@type': 'Organization', name: 'Kent & Vale', url: SITE },
+};
+
 export default function InspirationGallery() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [items, setItems] = useState([]);
@@ -66,6 +76,7 @@ export default function InspirationGallery() {
 
   return (
     <section className={styles.section}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(galleryJsonLd) }} />
       <div className="container">
         <h1 style={{ textAlign: 'center', marginBottom: '1rem' }}>Inspiration Gallery</h1>
         <p style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '1.05rem', color: '#666' }}>

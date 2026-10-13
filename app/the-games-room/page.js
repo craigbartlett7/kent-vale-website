@@ -3,9 +3,30 @@ import { getProducts } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 
+const SITE = 'https://www.kentandvale.com';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Handmade Chess Boards & Game Sets — Kent & Vale',
+  description: 'Collector-grade handmade chess boards and game sets built in English timber and hand-poured resin. Made to order in Sittingbourne, Kent.',
+  provider: { '@type': 'LocalBusiness', name: 'Kent & Vale', url: SITE },
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  url: `${SITE}/the-games-room`,
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'The Games Room', item: `${SITE}/the-games-room` },
+  ],
+};
+
 export const metadata = {
-  title: 'Collector Chess Boards & Handmade Game Sets | Kent & Vale',
-  description: 'Hand-crafted chess boards and game boards built in English timber and resin. Made to order from our studio in Kent — each one singular, each one yours.',
+  title: 'Handmade Chess Boards & Collector Game Sets in Resin | Kent & Vale',
+  description: 'Collector-grade chess boards, backgammon boards and game sets handmade in English timber and poured resin. Made to order in Kent — each one unique, each one yours.',
 };
 
 export default async function GamesRoom() {
@@ -13,6 +34,8 @@ export default async function GamesRoom() {
 
   return (
     <div style={{ background: 'var(--ivory)', minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Header */}
       <div style={{ background: 'var(--forest)', paddingTop: '120px', paddingBottom: '5rem', padding: '120px 2rem 5rem' }}>
