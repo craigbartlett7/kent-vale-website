@@ -26,8 +26,8 @@ const NAV_LINKS = [
       { href: '/memories/career', label: 'Career Memories' },
     ],
   },
-  { href: '/coastal-edit', label: 'The Coastal Collection' },
   { href: '/the-games-room', label: 'The Games Room' },
+  { href: '/coastal-edit', label: 'The Coastal Collection' },
   { href: '/studio', label: 'Studio' },
   { href: '/inspiration-gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
@@ -156,7 +156,7 @@ export default function RootLayout({ children }) {
               <div>
                 <p className={styles.footerLabel}>Navigation</p>
                 <p className={styles.footerLinks}>
-                  <Link href="/">Home</Link> • <Link href="/memories">Memories</Link> • <Link href="/coastal-edit">The Coastal Collection</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/studio">Studio</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/about">About</Link> • <Link href="/journal">Journal</Link> • <Link href="/contact">Contact</Link>
+                  <Link href="/">Home</Link> • <Link href="/memories">Memories</Link> • <Link href="/the-games-room">The Games Room</Link> • <Link href="/coastal-edit">The Coastal Collection</Link> • <Link href="/studio">Studio</Link> • <Link href="/inspiration-gallery">Gallery</Link> • <Link href="/about">About</Link> • <Link href="/journal">Journal</Link> • <Link href="/contact">Contact</Link>
                 </p>
               </div>
 
