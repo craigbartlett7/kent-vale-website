@@ -117,12 +117,29 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <p className={styles.heroEyebrow}>Handmade in Kent, England</p>
-          <h1 className={styles.heroHeadline}>We make the pieces<br />people keep forever.</h1>
-          <p className={styles.heroSubheadline}>
-            Memory keepsakes in resin. Ocean resin homeware.<br />Collector game boards. Bespoke furniture.<br />All made by hand in our studio in Kent — one piece at a time.
-          </p>
+        {/* Centred eyebrow — spans full width */}
+        <p className={styles.heroEyebrow}>Handmade in Kent, England</p>
+
+        {/* Split: text left, photo grid right */}
+        <div className={styles.heroBody}>
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroHeadline}>We make the pieces<br />people keep forever.</h1>
+            <p className={styles.heroSubheadline}>
+              Memory keepsakes in resin. Ocean resin homeware. Collector game boards. Bespoke furniture. All made by hand in our studio in Kent — one piece at a time.
+            </p>
+            <div className={styles.heroCTA}>
+              <Link href="/memories" style={{ display: 'inline-block', padding: '0.9rem 2rem', background: 'var(--brass)', color: 'var(--charcoal)', fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none', fontWeight: 500 }}>Explore Memories →</Link>
+              <Link href="/contact" style={{ display: 'inline-block', padding: '0.9rem 2rem', border: '1px solid rgba(184,181,174,0.35)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}>Begin a Conversation →</Link>
+            </div>
+          </div>
+
+          {/* 2×2 photo grid */}
+          <div className={styles.heroImages}>
+            <img src="/images/botanical-coffee-table-1.jpg" alt="Botanical coffee table — flowers preserved in clear resin by Kent & Vale" />
+            <img src="/images/botanical-table-roses-1.jpg" alt="Roses preserved in resin — a handmade side table by Kent & Vale" />
+            <img src="/images/wedding-flowers-resin-1.jpg" alt="Wedding flower preservation in resin — Kent & Vale" />
+            <img src="/images/botanical-heart-1.jpg" alt="Heart-shaped botanical keepsake in resin by Kent & Vale" />
+          </div>
         </div>
       </section>
 
