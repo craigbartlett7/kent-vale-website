@@ -66,6 +66,14 @@ const PRODUCTS = [
     desc: 'A bespoke commission: live-edge olive wood set within a rectangle of deep blue epoxy resin, embedded with real shells, starfish and sea glass, on a powder-coated steel base. Every table is unique to its commission — the wood slab, the depth of blue, the arrangement of shells. For a living room that deserves something it cannot find anywhere else.',
     note: 'This is a bespoke commission — lead time is approximately 10–14 weeks. Begin with a conversation.',
   },
+  {
+    label: 'Statement Furniture',
+    title: 'Ocean Scene Floating Chess Table',
+    img: '/images/coastal-chess-table-1.jpg',
+    imgAlt: 'Ocean scene floating chessboard — dark walnut squares surrounded by deep ocean resin waves on a tripod base — Kent & Vale Coastal Edit',
+    desc: 'A round chess table in which the playing surface — dark walnut squares, hand-finished — appears to float inside a coastal scene poured entirely in deep ocean resin. Waves, depth and movement surround the board on all sides. Every game is played at the edge of the sea.',
+    note: 'This is a bespoke commission — the colourway, chess square finish and tripod base can all be specified. Lead time 10–14 weeks.',
+  },
 ];
 
 export default function CoastalEdit() {
