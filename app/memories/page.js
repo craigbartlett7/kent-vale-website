@@ -117,7 +117,7 @@ export default function Memories() {
               Funeral Flower Preservation
             </p>
             <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 400, color: 'var(--ivory)', lineHeight: 1.15, marginBottom: '2rem' }}>
-              The flowers chosen to<br />say goodbye. Kept.
+              The flowers chosen to say goodbye.<br />Kept.
             </h2>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '1rem', color: 'var(--stone)', lineHeight: 1.9, marginBottom: '1.5rem' }}>
               Funeral flowers are chosen with extraordinary care. They deserve to last longer than the service. We set them in hand-poured resin — as a display block, a coffee table, or a wall piece — so that the person they honoured remains present in your home.
