@@ -67,11 +67,19 @@ export default function BotanicalKeepsakes() {
         position: 'relative',
         overflow: 'hidden',
       }}>
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'radial-gradient(ellipse at 70% 30%, rgba(160,120,80,0.12) 0%, transparent 60%)',
-        }} />
+        {/* Hero image */}
+        <img
+          src="/images/botanical-table-roses-1.jpg"
+          alt="Roses and botanicals preserved in crystal-clear resin — a botanical keepsake by Kent & Vale"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: 0.42,
+          }}
+        />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #1e1a16 40%, transparent 100%)' }} />
 
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '680px' }}>
