@@ -145,6 +145,7 @@ export default function CoastalEdit() {
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '2.5rem', textAlign: 'center' }}>
             Shop the Collection
           </p>
+          <style>{`.coastal-shop-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }`}</style>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1.5rem' }}>
             {[
               { href: '/coastal-edit/stemless-wine-glass', img: '/images/coastal-glass-stemless-1.jpg', name: 'Stemless Wine Glass', price: '£20' },
@@ -155,9 +156,7 @@ export default function CoastalEdit() {
               { href: '/coastal-edit/ocean-lap-tray', img: '/images/coastal-tray-1.jpg', name: 'Ocean Lap Tray', price: '£55' },
             ].map((item, i) => (
               <Link key={i} href={item.href} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-                <div style={{ background: 'white', border: '1px solid rgba(184,181,174,0.2)', overflow: 'hidden', transition: 'box-shadow 0.2s ease' }}
-                     onMouseEnter={e => e.currentTarget.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'}
-                     onMouseLeave={e => e.currentTarget.style.boxShadow='none'}>
+                <div className="coastal-shop-card" style={{ background: 'white', border: '1px solid rgba(184,181,174,0.2)', overflow: 'hidden', transition: 'box-shadow 0.2s ease' }}>
                   <div style={{ height: '180px', overflow: 'hidden' }}>
                     <img src={item.img} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                   </div>
@@ -166,7 +165,7 @@ export default function CoastalEdit() {
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                       <p style={{ fontFamily: 'var(--sans)', fontSize: '0.9rem', fontWeight: 500, color: 'var(--brass)' }}>{item.price}</p>
                       <span style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--charcoal)', borderBottom: '1px solid currentColor', paddingBottom: '1px' }}>
-                        {item.price === 'Enquire' ? 'Enquire' : 'Buy Now'}
+                        Buy Now
                       </span>
                     </div>
                   </div>
