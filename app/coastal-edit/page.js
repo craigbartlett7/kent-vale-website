@@ -77,7 +77,6 @@ export default function CoastalEdit() {
       {/* Hero */}
       <section style={{
         minHeight: '95vh',
-        background: '#0d1f2d',
         display: 'flex',
         alignItems: 'flex-end',
         padding: 'clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem)',
@@ -85,12 +84,12 @@ export default function CoastalEdit() {
         position: 'relative',
         overflow: 'hidden',
       }}>
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'radial-gradient(ellipse at 60% 40%, rgba(0,150,180,0.18) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(0,80,120,0.22) 0%, transparent 60%)',
-        }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0d1f2d 35%, transparent 100%)' }} />
+        <img
+          src="/images/coastal-chess-table-1.jpg"
+          alt="Coastal scene ocean resin chess table — The Coastal Edit by Kent &amp; Vale"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,31,45,0.96) 40%, rgba(13,31,45,0.35) 100%)' }} />
 
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '680px' }}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '2rem' }}>
@@ -169,6 +168,36 @@ export default function CoastalEdit() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured piece — Coastal Chess Table */}
+      <section style={{ background: '#0d1f2d' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', minHeight: '560px' }}>
+          <div style={{ overflow: 'hidden', minHeight: '400px' }}>
+            <img
+              src="/images/coastal-chess-table-1.jpg"
+              alt="Ocean scene floating chessboard — ocean resin waves surrounding walnut squares, bespoke commission by Kent &amp; Vale"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+          </div>
+          <div style={{ padding: 'clamp(3rem, 5vw, 5rem) clamp(2rem, 4vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.65rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1.5rem' }}>
+              Bespoke Commission · The Coastal Chess Table
+            </p>
+            <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 400, color: 'var(--ivory)', lineHeight: 1.2, marginBottom: '1.5rem' }}>
+              The ocean scene<br />floating chessboard.
+            </h2>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.95rem', color: 'var(--stone)', lineHeight: 1.9, marginBottom: '1.25rem' }}>
+              The playing surface — dark walnut squares, hand-finished — appears to float inside a coastal scene poured entirely in deep ocean resin. Waves, depth and movement surround the board on all sides. Every game is played at the edge of the sea.
+            </p>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.95rem', color: 'var(--stone)', lineHeight: 1.9, marginBottom: '2.5rem' }}>
+              A fully bespoke commission — the colourway, the chess square finish, and the powder-coated steel tripod base can all be specified to order.
+            </p>
+            <Link href="/the-games-room" style={{ display: 'inline-block', padding: '1rem 2.5rem', border: '1px solid rgba(184,181,174,0.4)', color: 'var(--ivory)', fontFamily: 'var(--sans)', fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none', alignSelf: 'flex-start' }}>
+              See The Games Room →
+            </Link>
           </div>
         </div>
       </section>
