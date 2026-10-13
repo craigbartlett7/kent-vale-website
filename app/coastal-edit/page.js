@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'The Coastal Edit — Ocean Resin Homeware | Kent & Vale',
+  title: 'The Coastal Collection — Ocean Resin Homeware | Kent & Vale',
   description: 'Ocean wave resin on wine glasses, tumblers, personalised serving boards and handcrafted furniture. Ready-to-ship gifts and bespoke commissions, made in Kent.',
 };
 
@@ -10,7 +10,7 @@ const SITE = 'https://www.kentandvale.com';
 const collectionJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'The Coastal Edit — Kent & Vale',
+  name: 'The Coastal Collection — Kent & Vale',
   description: 'Ocean wave resin homeware: wine glasses, tumblers, personalised serving boards, side tables and statement furniture. Handmade in Sittingbourne, Kent.',
   url: `${SITE}/coastal-edit`,
   provider: { '@type': 'LocalBusiness', name: 'Kent & Vale', url: SITE },
@@ -21,7 +21,7 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
-    { '@type': 'ListItem', position: 2, name: 'The Coastal Edit', item: `${SITE}/coastal-edit` },
+    { '@type': 'ListItem', position: 2, name: 'The Coastal Collection', item: `${SITE}/coastal-edit` },
   ],
 };
 
@@ -94,14 +94,14 @@ export default function CoastalEdit() {
       }}>
         <img
           src="/images/coastal-chess-table-1.jpg"
-          alt="Coastal scene ocean resin chess table — The Coastal Edit by Kent &amp; Vale"
+          alt="Coastal scene ocean resin chess table — The Coastal Collection by Kent &amp; Vale"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,31,45,0.96) 40%, rgba(13,31,45,0.35) 100%)' }} />
 
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '680px' }}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '2rem' }}>
-            The Coastal Edit
+            The Coastal Collection
           </p>
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', fontWeight: 400, color: 'var(--ivory)', lineHeight: 1.1, marginBottom: '2.5rem', letterSpacing: '-0.02em' }}>
             The ocean,<br />fixed in resin.
@@ -138,7 +138,7 @@ export default function CoastalEdit() {
               The ocean resin technique creates something genuinely difficult to explain until you see it: waves and foam and depth, suspended in perfect clarity, visible from every angle, never moving and yet somehow still alive. The result sits somewhere between art and object — a glass you use every day, a board you bring out when people come for dinner, a table that stops conversations.
             </p>
             <p style={{ marginBottom: '1.5rem' }}>
-              Every piece in The Coastal Edit is hand-poured in our studio in Sittingbourne, Kent. The smaller pieces — glassware, tumblers, serving boards — are available to order directly. Furniture commissions begin with a conversation.
+              Every piece in The Coastal Collection is hand-poured in our studio in Sittingbourne, Kent. The smaller pieces — glassware, tumblers, serving boards — are available to order directly. Furniture commissions begin with a conversation.
             </p>
             <p>
               We also take personalised commissions across all formats: a board engraved with a couple's names and date, a glass in a specific colourway, a side table in a size or tone to fit a particular room.
@@ -268,7 +268,7 @@ export default function CoastalEdit() {
             Find your piece,<br />or tell us what you need.
           </h2>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '1rem', color: 'var(--stone)', lineHeight: 1.9, marginBottom: '3rem' }}>
-            For ready-made pieces, current availability, or a bespoke commission — get in touch and we'll take it from there. All Coastal Edit orders begin with a short conversation.
+            For ready-made pieces, current availability, or a bespoke commission — get in touch and we'll take it from there. All Coastal Collection orders begin with a short conversation.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contact" style={{ display: 'inline-block', padding: '1rem 2.5rem', background: 'var(--brass)', color: '#1a1a18', fontFamily: 'var(--sans)', fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none', fontWeight: 500 }}>
