@@ -194,6 +194,21 @@ export default function Home() {
             <img src="https://res.cloudinary.com/deavpxz5u/image/upload/q_auto/f_auto/v1776414064/Dining_table_in_modern_luxury_interior1_ypudod.png" alt="Kent & Vale Studio — dining table" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
         </div>
+
+        {/* Christmas Collection */}
+        <div style={roomStyle('#1a0a0a')}>
+          <div style={{ overflow: 'hidden', minHeight: '320px' }}>
+            <img src="/images/IMG_0323.png" alt="Handmade resin Christmas piece — Kent & Vale Christmas Collection" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </div>
+          <div style={panelStyle('#1a0a0a')}>
+            <p style={eyebrow}>IV — Christmas Collection</p>
+            <h2 style={roomHeading}>Christmas, made<br />to last forever.</h2>
+            <p style={roomBody(true)}>
+              Handmade resin Christmas pieces — decorations, keepsakes and gifts — each one poured by hand in our studio in Kent. The kind of pieces you bring out every year and never want to put away.
+            </p>
+            <Link href="/christmas-collection" style={brassCTA}>See the Collection →</Link>
+          </div>
+        </div>
       </section>
 
       <section className={styles.processSection}>

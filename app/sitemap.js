@@ -23,6 +23,7 @@ export default async function sitemap() {
     { url: `${BASE_URL}/coastal-edit/personalised-wave-board`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/coastal-edit/ocean-tray-table`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/coastal-edit/ocean-lap-tray`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/christmas-collection`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${BASE_URL}/inspiration-gallery`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/process`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/pricing`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },

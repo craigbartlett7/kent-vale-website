@@ -28,6 +28,7 @@ const NAV_LINKS = [
   },
   { href: '/the-games-room', label: 'The Games Room' },
   { href: '/coastal-edit', label: 'The Coastal Collection' },
+  { href: '/christmas-collection', label: 'Christmas Collection' },
   { href: '/studio', label: 'Studio' },
   { href: '/inspiration-gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
