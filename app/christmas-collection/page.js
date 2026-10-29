@@ -105,6 +105,7 @@ export default function ChristmasCollection() {
       </section>
 
       {/* Gallery grid */}
+      <style>{`.xmas-img:hover { transform: scale(1.03); }`}</style>
       <section id="gallery" style={{ padding: '4rem 2rem 8rem', background: 'white' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'var(--sans)', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'var(--brass)', marginBottom: '1rem', textAlign: 'center' }}>
@@ -119,9 +120,8 @@ export default function ChristmasCollection() {
                 <img
                   src={item.img}
                   alt={item.alt}
+                  className="xmas-img"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
-                  onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
-                  onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
                 />
               </div>
             ))}
