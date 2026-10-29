@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'The Christmas Collection — Resin Christmas Gifts & Decorations | Kent & Vale',
-  description: 'Handmade resin Christmas pieces — festive decorations, keepsake baubles, and bespoke gifts made in our studio in Kent. Beautiful, permanent, and unlike anything you'll find anywhere else.',
+  description: "Handmade resin Christmas pieces — festive decorations, keepsake baubles, and bespoke gifts made in our studio in Kent. Beautiful, permanent, and unlike anything you'll find anywhere else.",
 };
 
 const SITE = 'https://www.kentandvale.com';
