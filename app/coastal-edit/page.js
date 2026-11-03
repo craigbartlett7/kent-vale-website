@@ -36,7 +36,7 @@ const PRODUCTS = [
     links: [
       { href: '/coastal-edit/stemless-wine-glass', label: 'Stemless — £20', primary: true },
       { href: '/coastal-edit/ocean-wine-glass', label: 'Stemmed — £22', primary: false },
-      { href: '/contact', label: 'Order 6 for £100', primary: false },
+      { href: '/coastal-edit/glass-bundle-6', label: 'Order 6 for £100', primary: false },
     ],
   },
   {

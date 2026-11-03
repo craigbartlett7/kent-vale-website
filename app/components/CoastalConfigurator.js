@@ -232,7 +232,7 @@ export default function CoastalConfigurator({ product }) {
             {/* Personalisation */}
             {product.hasPersonalisation && (
               <div style={fieldWrap}>
-                <label style={label}>Personalisation</label>
+                <label style={label}>{product.personalisationLabel || 'Personalisation'}</label>
                 <textarea
                   value={form.personalisation}
                   onChange={e => set('personalisation', e.target.value)}
@@ -244,6 +244,11 @@ export default function CoastalConfigurator({ product }) {
                 <p style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', color: '#999', marginTop: '0.4rem' }}>
                   {form.personalisation.length}/{product.personalisationMaxLength || 80} characters
                 </p>
+                {product.personalisationHelp && (
+                  <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', color: '#777', marginTop: '0.4rem', lineHeight: 1.6 }}>
+                    {product.personalisationHelp}
+                  </p>
+                )}
               </div>
             )}
 
